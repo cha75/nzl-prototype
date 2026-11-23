@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe: How to invest</title>
+<style>
+  /* Wireframe only: grey boxes, real copy, real spacing scale (40/80/120), 90px copy edge */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Proxima Nova", "Helvetica Neue", Arial, sans-serif; color: #222; background: #fff; }
+  .note { font: 600 11px/1.4 Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #8a5a00; background: #fff4d6; border: 1px dashed #d9a400; padding: 6px 10px; display: inline-block; }
+  .wf-top { background: #1b1b1b; color: #fff; padding: 12px 40px; font: 13px Arial, sans-serif; }
+  .wf-top b { font-size: 15px; }
+  header { height: 80px; border-bottom: 1px solid #bbb; display: flex; align-items: center; gap: 24px; padding: 0 40px; }
+  header .logo { width: 47px; height: 32px; background: #ccc; }
+  header nav { margin-left: auto; display: flex; gap: 28px; font: 700 14px Arial; color: #555; }
+  header .cta { background: #555; color: #fff; padding: 14px 22px; font: 700 14px Arial; }
+  .block { margin: 40px 40px 0; }
+  .hero { background: #d0d0d0; padding: 80px 50px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
+  .hero h1 { margin: 0; font-weight: 300; font-size: 80px; line-height: 96px; max-width: 900px; }
+  .hero p { margin: 30px 0 0; font-size: 22px; line-height: 32px; max-width: 640px; }
+  .ticker { background: #fff; border: 2px solid #888; padding: 20px 30px; text-align: center; }
+  .ticker .lbl { font: 600 12px Arial; letter-spacing: .08em; color: #666; text-transform: uppercase; }
+  .ticker .code { font-size: 48px; line-height: 56px; font-weight: 700; }
+  .routes { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 80px 90px 40px; }
+  .route { border: 2px solid #999; padding: 40px; display: flex; flex-direction: column; }
+  .route .tag { font: 600 12px Arial; letter-spacing: .08em; text-transform: uppercase; color: #666; }
+  .route h2 { margin: 10px 0 0; font-size: 40px; line-height: 48px; }
+  .route .intro { margin: 20px 0 0; font-size: 16px; line-height: 24px; }
+  .route ol { list-style: none; margin: 30px 0 0; padding: 0; }
+  .route li { display: grid; grid-template-columns: 60px 1fr; gap: 20px; align-items: center; padding: 20px 0; border-top: 1px solid #ccc; font-size: 16px; line-height: 24px; }
+  .route li span { width: 60px; height: 60px; border-radius: 50%; background: #e2e2e2; display: grid; place-items: center; font-size: 24px; font-weight: 700; }
+  .route .btns { margin-top: auto; padding-top: 30px; display: flex; gap: 20px; flex-wrap: wrap; }
+  .btn { display: inline-block; font: 700 14px Arial; height: 50px; line-height: 50px; padding: 0 30px; }
+  .btn.primary { background: #555; color: #fff; }
+  .btn.secondary { border: 2px solid #555; color: #333; line-height: 46px; }
+  .any { padding: 0 90px 80px; font-size: 14px; line-height: 20px; color: #444; }
+  .signup { background: #e6e6e6; margin: 0 40px; padding: 40px 50px; display: grid; grid-template-columns: 1fr 420px; gap: 40px; align-items: center; }
+  .signup h3 { margin: 0; font-size: 32px; line-height: 40px; }
+  .signup .form { height: 50px; background: #fff; border: 1px solid #999; display: flex; justify-content: flex-end; }
+  .signup .form span { background: #555; color: #fff; font: 700 14px Arial; padding: 0 30px; line-height: 50px; }
+  footer { margin-top: 40px; background: #cfcfcf; height: 220px; display: grid; place-items: center; font: 600 13px Arial; color: #555; }
+  .annot { position: relative; }
+  .annot > .note { position: absolute; top: -14px; right: 20px; }
+  @media (max-width: 767px) {
+    .wf-top { padding: 10px 16px; }
+    header { padding: 0 16px; } header nav { display: none; } header .cta { margin-left: auto; padding: 12px 14px; }
+    .block, .signup { margin-left: 0; margin-right: 0; }
+    .hero { padding: 40px 20px; grid-template-columns: 1fr; }
+    .hero h1 { font-size: 48px; line-height: 56px; }
+    .hero p { font-size: 20px; line-height: 28px; margin-top: 20px; }
+    .ticker { justify-self: start; }
+    .routes { grid-template-columns: 1fr; padding: 40px 20px 20px; gap: 20px; }
+    .route { padding: 20px; }
+    .route h2 { font-size: 32px; line-height: 40px; }
+    .btn { width: 100%; text-align: center; }
+    .any { padding: 0 20px 40px; }
+    .signup { grid-template-columns: 1fr; padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wf-top"><b>WIREFRAME · How to invest</b> &nbsp;·&nbsp; Layout only: grey boxes, approved copy. Colours, images and styling come from the design system at build.</div>
+
+<header><div class="logo"></div><nav><span>The Opportunity</span><span>Portfolio</span><span>Sustainability</span><span>Investors</span><span>News</span><span>About NZL</span><span>Contact</span></nav><span class="cta">Invest Now</span></header>
+
+<!-- 1. Hero: Grass block. H1 Light. Ticker panel on the right so the code is the first thing people can copy. -->
+<section class="block hero annot">
+  <span class="note">1 · Hero · Grass block · medium spacing</span>
+  <div>
+    <h1>How to invest in New Zealand Rural Land Company</h1>
+    <p>New Zealand Rural Land Company is listed on the NZX, New Zealand's stock exchange, under the code NZL. You can own shares in two ways.</p>
+  </div>
+  <div class="ticker"><div class="lbl">NZX code</div><div class="code">NZL</div></div>
+</section>
+
+<!-- 2. Two routes side by side. One primary button per route. Online first (left, and first on mobile). -->
+<section class="routes annot">
+  <span class="note">2 · Two routes · equal cards · white with 20px+ padding</span>
+  <article class="route">
+    <div class="tag">Route 1</div>
+    <h2>Invest online yourself</h2>
+    <p class="intro">Use an investing app such as Sharesies.</p>
+    <ol>
+      <li><span>1</span>Open an account.</li>
+      <li><span>2</span>Search for NZL.</li>
+      <li><span>3</span>Choose how much to invest and buy.</li>
+    </ol>
+    <div class="btns"><span class="btn primary">Go to Sharesies</span></div>
+  </article>
+  <article class="route">
+    <div class="tag">Route 2</div>
+    <h2>Invest through a broker</h2>
+    <p class="intro">A broker can advise you and place the order for you.</p>
+    <ol>
+      <li><span>1</span>Contact Craigs Investment Partners or Jarden.</li>
+      <li><span>2</span>Ask to buy New Zealand Rural Land Company shares (NZX: NZL).</li>
+      <li><span>3</span>Your broker buys them on your behalf.</li>
+    </ol>
+    <div class="btns"><span class="btn primary">Craigs</span><span class="btn primary">Jarden</span></div>
+  </article>
+</section>
+
+<p class="any">NZL shares can be bought through any NZX broker or investing platform.</p>
+
+<!-- 3. Secondary action: newsletter banner -->
+<section class="signup annot">
+  <span class="note">3 · Newsletter banner · secondary action</span>
+  <h3>[Signup headline: wording pending]</h3>
+  <div class="form"><span>Sign up</span></div>
+</section>
+
+<footer>Shared footer (as built)</footer>
+
+</body>
+</html>

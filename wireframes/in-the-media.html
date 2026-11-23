@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe: In the media</title>
+<style>
+  /* Wireframe only: grey boxes, approved copy, real spacing scale (40/80/120), 90px copy edge. */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Proxima Nova", "Helvetica Neue", Arial, sans-serif; color: #222; background: #fff; }
+  .note { font: 600 11px/1.4 Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #8a5a00; background: #fff4d6; border: 1px dashed #d9a400; padding: 6px 10px; display: inline-block; }
+  .wf-top { background: #1b1b1b; color: #fff; padding: 12px 40px; font: 13px Arial, sans-serif; }
+  .wf-top b { font-size: 15px; }
+  header { height: 80px; border-bottom: 1px solid #bbb; display: flex; align-items: center; gap: 24px; padding: 0 40px; }
+  header .logo { width: 47px; height: 32px; background: #ccc; }
+  header nav { margin-left: auto; display: flex; gap: 28px; font: 700 14px Arial; color: #555; }
+  header nav .on { color: #111; text-decoration: underline; }
+  header .cta { background: #555; color: #fff; padding: 14px 22px; font: 700 14px Arial; }
+  .annot { position: relative; }
+  .annot > .note { position: absolute; top: 20px; right: 20px; z-index: 2; }
+  .wrap { padding-left: 90px; padding-right: 90px; }
+
+  /* 1. Photo hero: full screen, copy white and vertically centred */
+  .hero { height: calc(100vh - 80px); min-height: 560px; background: #9a9a9a; display: flex; align-items: center; color: #fff; }
+  .hero .ph-label { position: absolute; left: 20px; bottom: 20px; font: 600 11px Arial; letter-spacing: .06em; text-transform: uppercase; color: #eee; }
+  .hero h1 { margin: 0; font-weight: 700; font-size: 140px; line-height: 140px; letter-spacing: -0.02em; }
+  .hero p { margin: 40px 0 0; font-size: 22px; line-height: 32px; font-weight: 300; max-width: 760px; }
+
+  /* 2. Press coverage: year on the left, thin ruled list with thumbnails on the right */
+  .press { padding-top: 120px; padding-bottom: 80px; }
+  .yr { display: grid; grid-template-columns: 2fr 5fr; column-gap: 40px; padding: 40px 0 80px; border-top: 2px solid #222; }
+  .yr h2 { margin: 0; font-size: 40px; line-height: 48px; font-weight: 300; }
+  .yr ul { list-style: none; margin: 0; padding: 0; }
+  .yr li { display: grid; grid-template-columns: 180px 1fr; column-gap: 40px; align-items: start; padding: 20px 0; border-bottom: 1px solid #ccc; }
+  .yr li:first-child { padding-top: 0; }
+  .th { aspect-ratio: 3 / 2; background: #d0d0d0; display: grid; place-items: center; text-align: center; padding: 6px; font: 600 10px Arial; color: #666; letter-spacing: .06em; text-transform: uppercase; }
+  .th.none { background: #ececec; border: 1px dashed #aaa; }
+  .meta { margin: 0; font: 400 14px/20px Arial; color: #777; }
+  .yr h3 { margin: 6px 0 0; font-size: 20px; line-height: 24px; font-weight: 700; }
+  .flag { display: inline-block; margin-top: 8px; font: 700 11px Arial; color: #b00020; text-transform: uppercase; letter-spacing: .04em; }
+
+  /* 3. Media enquiries: heading left, text right */
+  .media { display: grid; grid-template-columns: 2fr 5fr; column-gap: 40px; padding-top: 40px; padding-bottom: 120px; border-top: 2px solid #222; margin: 0 90px; padding-left: 0; padding-right: 0; }
+  .media > .note { top: -14px; }
+  .media h2 { margin: 0; font-size: 40px; line-height: 48px; }
+  .media p { margin: 0; font-size: 16px; line-height: 24px; max-width: 640px; }
+  .media .btn { display: inline-block; margin-top: 40px; background: #555; color: #fff; padding: 14px 22px; font: 700 14px Arial; }
+
+  .signup { background: #6f6f6f; color: #fff; padding: 120px 90px; }
+  .signup h2 { margin: 0; font-size: 40px; line-height: 48px; }
+  .signup p { margin: 10px 0 0; font-size: 22px; line-height: 32px; }
+  .signup .form { margin-top: 60px; display: flex; max-width: 430px; height: 40px; }
+  .signup .form span:first-child { flex: 1; border: 1px solid #fff; padding: 0 20px; line-height: 38px; font: 16px Arial; }
+  .signup .form span:last-child { background: #fff; color: #333; padding: 0 30px; line-height: 40px; font: 700 14px Arial; }
+  .signup small { display: block; margin-top: 10px; font-size: 14px; }
+  footer { background: #cfcfcf; height: 220px; display: grid; place-items: center; font: 600 13px Arial; color: #555; }
+
+  @media (max-width: 767px) {
+    .wf-top { padding: 10px 16px; }
+    header { padding: 0 16px; } header nav { display: none; } header .cta { margin-left: auto; padding: 12px 14px; }
+    .wrap { padding-left: 20px; padding-right: 20px; }
+    .hero h1 { font-size: 56px; line-height: 60px; }
+    .hero p { font-size: 16px; line-height: 24px; margin-top: 20px; }
+    .press { padding-top: 60px; }
+    .yr, .media { grid-template-columns: 1fr; row-gap: 20px; }
+    .yr { padding-bottom: 40px; }
+    .yr li { grid-template-columns: 100px 1fr; column-gap: 20px; }
+    .yr h3 { font-size: 16px; line-height: 24px; }
+    .media { margin: 0 20px; padding-bottom: 60px; }
+    .signup { padding: 60px 20px; }
+    .signup .form { max-width: none; }
+    .annot > .note { position: static; margin: 10px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wf-top"><b>WIREFRAME · News: In the media</b> &nbsp;·&nbsp; Grey boxes, approved copy. Colours and images come from the design system at build.</div>
+
+<header><div class="logo"></div><nav><span>Portfolio</span><span>Sustainability</span><span>Investors</span><span class="on">News</span><span>People</span><span>Contact</span></nav><span class="cta">Invest Now</span></header>
+
+<!-- 1. Photo hero (matches Insights) -->
+<section class="hero wrap annot">
+  <span class="note">1 · Photo hero · full screen · copy white, vertically centred · matches Insights</span>
+  <span class="ph-label">Full screen photo (image to choose)</span>
+  <div>
+    <h1>In the media<br>Since 2020</h1>
+    <p>Coverage of NZ Rural Land Co (NZL) in New Zealand business and rural media, from our listing on the NZX in December 2020 to our latest results.</p>
+  </div>
+</section>
+
+<!-- 2. Press coverage -->
+<section class="press wrap annot">
+  <span class="note">2 · Mood board Clean: heading left, narrow column right · thin ruled list with thumbnails · 40 links, newest first</span>
+  <div class="yr">
+    <h2>2026</h2>
+    <ul>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">24 Aug 2026 &nbsp;·&nbsp; The Post</p><h3>Rural NZ is at a crossroads. Agritech will influence which way it turns</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">29 May 2026 &nbsp;·&nbsp; BusinessDesk</p><h3>Board renewal and first dividend under new policy: NZL in focus</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">8 May 2026 &nbsp;·&nbsp; The Post</p><h3>We don’t want to hide the truth’: Why a rural land company is reporting green</h3><span class="flag">Flag 1: opening quote mark missing</span></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">27 Mar 2026 &nbsp;·&nbsp; BusinessDesk</p><h3>NZ Rural Land Wining up</h3><span class="flag">Flag 2: check headline</span></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">11 Mar 2026 &nbsp;·&nbsp; Rural News</p><h3>NZ Rural Land Company Lifts Annual Profit in 2025</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">2 Mar 2026 &nbsp;·&nbsp; Farmers Weekly</p><h3>Rural Land pays out 90% of annual profit</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">2 Feb 2026 &nbsp;·&nbsp; Farmers Weekly</p><h3>Rural Land beefs up dividends to draw punters</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">2 Feb 2026 &nbsp;·&nbsp; NBR</p><h3>Higher dividends flagged at Rural Land Co</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">2 Feb 2026 &nbsp;·&nbsp; BusinessDesk</p><h3>NZ Rural Land Co to revamp dividend payout after KPMG review flags investor concerns</h3></div></li>
+    </ul>
+  </div>
+  <div class="yr">
+    <h2>2025</h2>
+    <ul>
+      <li><div class="th">Image from article</div><div><p class="meta">12 Sep 2025 &nbsp;·&nbsp; BusinessDesk</p><h3>Savor Group’s new venture, Rural Land Co’s first ever, Rua does it again, and more</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">28 Aug 2025 &nbsp;·&nbsp; The Post</p><h3>Here’s how the listed property sector is doing</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">22 Aug 2025 &nbsp;·&nbsp; Farmers Weekly</p><h3>Rural Land reports a healthy six months</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">10 Mar 2025 &nbsp;·&nbsp; The Dairy Exporter</p><h3>The ETS Opportunity</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">4 Mar 2025 &nbsp;·&nbsp; The Post</p><h3>Rural Land a bright spot in the listed property sector</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">28 Feb 2025 &nbsp;·&nbsp; Farmers Weekly</p><h3>Rural Land Management profitability</h3></div></li>
+    </ul>
+  </div>
+  <div class="yr">
+    <h2>2024</h2>
+    <ul>
+      <li><div class="th">Image from article</div><div><p class="meta">12 Nov 2024 &nbsp;·&nbsp; Farmers Weekly</p><h3>Rural Land buys into Roxburgh orchards</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">10 Oct 2024 &nbsp;·&nbsp; Rural News</p><h3>Be an investor, not a landlord</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">19 Jan 2024 &nbsp;·&nbsp; Rural News</p><h3>New Zealand Rural Land sells 25% of portfolio to Australian investment fund</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">19 Jan 2024 &nbsp;·&nbsp; Farmers Weekly</p><h3>Roc Partners to buy slice of NZL assets</h3></div></li>
+    </ul>
+  </div>
+  <div class="yr">
+    <h2>2023</h2>
+    <ul>
+      <li><div class="th">Image from article</div><div><p class="meta">27 Nov 2023 &nbsp;·&nbsp; Farmers Weekly</p><h3>Looking for the high ground in NZ soil carbon survey</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">28 Aug 2023 &nbsp;·&nbsp; Farmers Weekly</p><h3>Rural Land Makes Profit, Holds Course</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">25 Aug 2023 &nbsp;·&nbsp; BusinessDesk</p><h3>NZL Reports $2.5m Profit, Announces Buyback</h3><span class="flag">Flag 4: wrong link</span></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">23 Jun 2023 &nbsp;·&nbsp; BusinessDesk</p><h3>NZL Confident in PwC Auditors After Aussie Scandal, Chair Says</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">29 May 2023 &nbsp;·&nbsp; Farmers Weekly</p><h3>NZ Rural Land Co Suspends Dividend to Buy Back Shares</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">7 Mar 2023 &nbsp;·&nbsp; NZ Herald</p><h3>New Zealand Rural Land Co Acquire Mangamahu Forestry Estate Near Whanganui</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">4 Mar 2023 &nbsp;·&nbsp; Otago Daily Times</p><h3>Rural Land Raises Forestry-Buy Funds</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">2 Mar 2023 &nbsp;·&nbsp; Otago Daily Times</p><h3>Rural Property Investor NZL Lists on German Stock Exchange</h3></div></li>
+    </ul>
+  </div>
+  <div class="yr">
+    <h2>2022</h2>
+    <ul>
+      <li><div class="th">Image from article</div><div><p class="meta">26 Dec 2022 &nbsp;·&nbsp; NZ Herald</p><h3>Brokers’ Picks: The hot stocks to watch in 2023</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">29 Aug 2022 &nbsp;·&nbsp; NZ Herald</p><h3>New Zealand Rural Land Company’s full-year result exceeds expectations</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">8 Jun 2022 &nbsp;·&nbsp; NZ Herald</p><h3>NZ Rural Land seeks funds for two more farm buys</h3></div></li>
+    </ul>
+  </div>
+  <div class="yr">
+    <h2>2021</h2>
+    <ul>
+      <li><div class="th">Image from article</div><div><p class="meta">22 Oct 2021 &nbsp;·&nbsp; NZ Herald</p><h3>New Zealand Rural Land Company buys six South Island dairy farms for $61.4 million</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">29 Jul 2021 &nbsp;·&nbsp; News Releases</p><h3>New Zealand Rural Land Company will acquire dairy farm for $12 million</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">16 Mar 2021 &nbsp;·&nbsp; NZ Herald</p><h3>NZ Rural Land buys its first dairy farm for $10.4m</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">10 Mar 2021 &nbsp;·&nbsp; AgBrief</p><h3>NZRL Decides on First Farm</h3></div></li>
+    </ul>
+  </div>
+  <div class="yr">
+    <h2>2020</h2>
+    <ul>
+      <li><div class="th">Image from article</div><div><p class="meta">21 Dec 2020 &nbsp;·&nbsp; NZ Herald</p><h3>NZ Rural Land Co lists on NZX at small premium</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">21 Dec 2020 &nbsp;·&nbsp; RNZ</p><h3>NZ Rural Land Company has quiet NZX debut</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">26 Nov 2020 &nbsp;·&nbsp; Rural Life</p><h3>NZ Rural Land Company to list publicly</h3></div></li>
+      <li><div class="th">Image from article</div><div><p class="meta">18 Nov 2020 &nbsp;·&nbsp; NZ Herald</p><h3>Rural landlord NZRLC aims to raise $150m, sets sights on December listing</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">18 Nov 2020 &nbsp;·&nbsp; Farmers Weekly</p><h3>Pre-Christmas IPO for NZ Rural Land Co</h3></div></li>
+      <li><div class="th none">No image: fallback</div><div><p class="meta">19 Oct 2020 &nbsp;·&nbsp; Farmers Weekly</p><h3>NZ Rural Land Co’s $150m IPO a step closer</h3></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3. Media enquiries -->
+<section class="media annot">
+  <span class="note">3 · Same heading left, text right pattern</span>
+  <h2>Media enquiries</h2>
+  <div>
+    <p>For interviews, comment or information about NZ Rural Land Co (NZL), email X@nzrlc.co.nz.</p>
+    <span class="btn">Download our logo</span>
+  </div>
+</section>
+
+<!-- 4. Signup band -->
+<section class="signup annot">
+  <span class="note">4 · Signup band · approved wording</span>
+  <h2>More than the headlines</h2>
+  <p>Sign up to receive market recaps and company news without having to look for them.</p>
+  <div class="form"><span>Email address</span><span>Sign up</span></div>
+</section>
+
+<footer>FOOTER (identical on every page)</footer>
+
+</body>
+</html>

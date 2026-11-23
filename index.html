@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Zealand Rural Land Company (NZL)</title>
+<meta name="description" content="New Zealand Rural Land Company (NZL) is an NZX-listed company that owns productive rural land across New Zealand and leases it to experienced operators.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png?v=2">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="assets/css/nzl.css?v=28">
+<style>
+  /* Homepage-only layout values, measured from the Figma homepage frame (1440 wide) */
+  .home .block--hero { margin-top: var(--section-gap); }
+  .home .intro-split { padding-top: 80px; padding-bottom: 80px; gap: 0 var(--grid-gutter); align-items: start; }
+  .home .intro-split h2 { grid-column: 1 / span 5; }
+  .home .intro-split p { grid-column: 6 / span 2; padding-top: 20px; max-width: 250px; }
+  .home .intro-split p { font-size: var(--body); line-height: var(--lh-body); color: var(--bottle); }
+  .home .rule { margin-top: 0; }
+  .home .icon-row { padding-top: 20px; }
+  .home .statement .block__inner { padding-top: 30px; padding-bottom: 50px; }
+  .home .stats { padding-top: 60px; padding-bottom: 40px; }
+  .home .stats > * { grid-column: 1 / -1; }
+  .home .stats__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--grid-gutter); }
+  .home .stats__grid > div { text-align: center; }
+  .home .split-list { padding-top: 70px; padding-bottom: 70px; gap: 0 var(--grid-gutter); }
+  .home .split-list h2 { grid-column: 1 / span 3; }
+  .home .split-list ul { grid-column: 4 / span 4; max-width: 720px; }
+  .home .split-list li h4 { font-size: var(--h4); }
+  .home .tint-wrap .block__inner { padding-top: 60px; padding-bottom: 70px; }
+  .home .tint-wrap .feature { margin-top: var(--space-md); }
+  .home .cards-section { padding-top: 50px; padding-bottom: 110px; }
+  .home .card ul { padding-left: 30px; }
+  .home .why .split-list li h4 { font-size: var(--h4); }
+  .home .insights { background: var(--tint-mint); padding-left: var(--copy-edge); padding-right: var(--copy-edge); margin-top: var(--section-gap); }
+  .home .insights h2 { font-size: var(--h3); color: var(--grass); }
+  .home .insights .articles__intro { font-size: var(--h3); font-weight: 300; line-height: var(--lh-h3); margin-top: 40px; max-width: 1330px; }
+  .carousel { margin-top: 30px; display: grid; grid-auto-flow: column; grid-auto-columns: 339px; gap: 40px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; }
+  .carousel .article-card { scroll-snap-align: start; padding: var(--card-pad); }
+  .carousel .article-card .card__img { aspect-ratio: 318 / 197; }
+  .carousel .article-card h3 { margin-top: 30px; }
+  .carousel .article-card p { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+  .home .insights .btn { margin-top: var(--space-sm); }
+  .home .brokers-block .block__inner { padding-top: 0; padding-bottom: var(--space-sm); }
+  .home .brokers-block .empty { height: 516px; }
+  .home .brokers-block img { width: 100%; height: auto; background: var(--white); }
+  @media (max-width: 1100px) {
+    .home .stats__grid { grid-template-columns: repeat(3, 1fr); }
+    .home .split-list h2, .home .split-list ul { grid-column: 1 / -1; }
+    .home .split-list { row-gap: 40px; }
+  }
+  @media (max-width: 767px) {
+    .home .block--hero { margin-top: 0; }
+    .home .intro-split { padding-top: 40px; padding-bottom: 40px; row-gap: 20px; }
+    .home .intro-split h2, .home .intro-split p { grid-column: 1 / -1; padding-top: 0; max-width: none; }
+    .home .statement .block__inner { padding-top: 40px; padding-bottom: 40px; }
+    .home .stats { padding-top: 40px; padding-bottom: 40px; }
+    .home .stats__grid { grid-template-columns: 1fr 1fr; }
+    .home .stats__grid > div:last-child { grid-column: 1 / -1; }
+    .home .split-list { padding-top: 40px; padding-bottom: 40px; }
+    .home .split-list li h4 { font-size: var(--h5); }
+    .home .tint-wrap .block__inner { padding-top: 40px; padding-bottom: 40px; }
+    .home .cards-section { padding-top: 40px; padding-bottom: 60px; }
+    .home .insights { padding-top: 40px; padding-bottom: 40px; }
+    .home .insights .articles__intro { font-size: 24px; }
+    .carousel { grid-auto-columns: 82%; gap: 20px; }
+    .home .brokers-block .block__inner { padding-bottom: 20px; }
+    .home .brokers-block .empty { height: 180px; }
+  }
+</style>
+</head>
+<body class="home" data-root="">
+
+<main class="page">
+
+  <!-- 1. Hero -->
+  <section class="block block--grass block--hero">
+    <div class="block__inner pad-md">
+      <h1>Your pathway to<br class="br-desk"> investing in rural land</h1>
+      <p class="lede">Access a scarce, appreciating and productive asset, without operational or landlord responsibility.</p>
+      <div class="btn-row">
+        <a class="btn btn--dark" href="how-to-invest.html">Invest Now</a>
+        <a class="btn btn--outline-white" href="#investor-overview" title="Placeholder: investor overview document not yet supplied">Download investor overview</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Full-screen sticky media (video to come; photo stands in) -->
+  <div class="media-sticky">
+    <img src="assets/img/home/hero-mountains-cattle.jpg" alt="Cattle grazing on New Zealand farmland below the Southern Alps">
+    <span class="media-label">Video placeholder · photo shown until the video is supplied</span>
+  </div>
+
+  <div class="after-media">
+
+  <!-- 3. Welcome -->
+  <section class="intro-split grid-7 pad-md">
+    <h2 class="two-tone"><span class="dark">Welcome to</span><span class="bright">New Zealand Rural<br class="br-desk"> Land Company (NZL)</span></h2>
+    <p>We’re the New Zealand Rural Land Company (NZL), a NZX-listed provider of investment opportunities in diversified, productive rural land across New Zealand. The land is owned outright and leased to experienced operators, delivering CPI-linked income and long-term capital growth for investors without the burden of working the land.</p>
+  </section>
+
+  <!-- 4. Trust row -->
+  <hr class="rule">
+  <section class="icon-row pad-sm">
+    <h3>Listed. Governed. Transparent</h3>
+    <ul>
+      <li><img src="assets/img/icons/nzx-listed.png" alt=""><span>NZX-listed investment company</span></li>
+      <li><img src="assets/img/icons/valuations.png" alt=""><span>Independent third-party land valuations</span></li>
+      <li><img src="assets/img/icons/lease-income.png" alt=""><span>Long-term contracted lease income</span></li>
+      <li><img src="assets/img/icons/governance.png" alt=""><span>Institutional-grade governance and reporting</span></li>
+    </ul>
+  </section>
+
+  <!-- 5. Access statement -->
+  <section class="block block--mint statement">
+    <div class="block__inner pad-md">
+      <h2>Access New Zealand rural land<br class="br-desk"> as an investment</h2>
+      <p>Before we established our business model, investing in rural New Zealand land came with a series of responsibilities that most investors simply didn’t want. So while it has always been a high-value, scarce asset class, capable of generating both stable income and long-term capital growth, land needs to be looked after and put to work to do so. At NZL, we ensure all properties are expertly managed and leased to experienced operators via carefully-structured leasing agreements. Leaving our investors free to enjoy consistent returns and robust capital preservation without operational or landlord responsibility.</p>
+    </div>
+  </section>
+
+  <!-- 6. Stats -->
+  <section class="stats grid-7 pad-md">
+    <h3>Established scale. Measurable performance.</h3>
+    <div class="stats__grid">
+      <div><div class="stat__num">$450M</div><div class="stat__label">Worth of assets</div><p class="stat__text">A substantial, diversified portfolio of productive rural land holdings across New Zealand, constantly enhancing investor value.</p></div>
+      <div><div class="stat__num">17,077</div><div class="stat__label">Hectares of rural land owned</div><p class="stat__text">Premium rural land, strategically leased to highly-reputable operators for optimal yield.</p></div>
+      <div><div class="stat__num">X Years</div><div class="stat__label">Listed track record</div><p class="stat__text">After X years listed on the NZX, we offer a trusted history of stable returns and enduring financial security.*</p></div>
+      <div><div class="stat__num">X</div><div class="stat__label">Portfolio rental value</div><p class="stat__text">TBA</p></div>
+      <div><div class="stat__num">X</div><div class="stat__label">Performance Rewards</div><p class="stat__text">TBA</p></div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <!-- 7. Why rural land -->
+  <section class="split-list grid-7 pad-md">
+    <h2 class="two-tone"><span class="dark">Why rural land,</span><span class="bright">why now?</span></h2>
+    <ul>
+      <li><h4>Scarce and finite</h4><p>New Zealand’s productive rural land is a finite asset. This inherent scarcity, coupled with growing population and evolving land use, drives sustained long-term capital appreciation.</p></li>
+      <li><h4>Resilient through cycles</h4><p>Rural land consistently demonstrates resilience across economic cycles. It provides stable income streams and safeguards capital, offering proven stability even during market volatility.</p></li>
+      <li><h4>Global reputation, sustained demand</h4><p>New Zealand’s rural land is the bedrock of our world-renowned reputation for high-quality, sustainably produced food, ensuring strong and continuous international demand.</p></li>
+      <li><h4>Tangible asset, intrinsic security</h4><p>Unlike abstract financial instruments, rural land is a real, productive asset. It produces food for a growing global population, addressing one of humanity's most fundamental needs and ensuring enduring intrinsic value.</p></li>
+    </ul>
+  </section>
+
+  <!-- 8. How we create value + feature -->
+  <section class="block block--tint tint-wrap">
+    <div class="block__inner pad-md">
+      <div class="steps">
+        <h2>How we create value</h2>
+        <div class="steps__grid">
+          <div><div class="step__num">01.</div><div class="step__title">Secure premium land assets</div><p class="step__text">Our strategy is based on acquiring high-quality, productive rural land across New Zealand, with strong fundamentals and significant growth potential.</p></div>
+          <div><div class="step__num">02.</div><div class="step__title">Conduct rigorous due diligence</div><p class="step__text">Every acquisition undergoes a comprehensive technical, environmental, climate and tenant assessment to ensure asset quality, resilience and long-term income security.</p></div>
+          <div><div class="step__num">03.</div><div class="step__title">Partner with elite operators</div><p class="step__text">Our properties are leased to established operators with proven track records, ensuring stable income generation and responsible stewardship.</p></div>
+          <div><div class="step__num">04.</div><div class="step__title">Implement proactive management</div><p class="step__text">Through professional oversight, we maintain asset quality, optimise land use and safeguard long-term capital value.</p></div>
+          <div><div class="step__num">05.</div><div class="step__title">Drive sustainable portfolio growth</div><p class="step__text">Returns are reinvested strategically to expand our portfolio, guided by rigorous financial discipline and a focus on long-term sustainability.</p></div>
+          <div><div class="step__num">06.</div><div class="step__title">Deliver superior risk adjusted returns</div><p class="step__text">Our proven land-investment expertise consistently generates stable income and robust capital growth for our shareholders.</p></div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature__img"><img src="assets/img/home/feature-rolling-hills.jpg" alt="Rolling green hill country in New Zealand"></div>
+        <div class="feature__card">
+          <h4>Strategic diversification delivers resilient returns, optimal growth</h4>
+          <p>At NZL, we strategically diversify our investments across New Zealand’s productive rural land. Our expansive portfolio includes a wide range of land-use categories, ensuring resilience and flexibility in the face of evolving economic conditions. This strategic approach not only capitalises on emerging opportunities, it also delivers stability through a foundation of diversified, quality assets. Each property is selected for its productivity, land use capability, environmental resilience and long-term value potential, supported by strong lease structures with experienced operators.</p>
+          <a class="btn btn--mint" href="#portfolio">Explore our portfolio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Investment pathways -->
+  <section class="block block--grass block--full cards-section pad-lg">
+    <h2>Investment pathways</h2>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card__img"><img src="assets/img/home/pathway-orchard.jpg" alt="Aerial view of orchard blocks"></div>
+        <p class="card__kicker">New Zealand investors</p>
+        <h3 class="card__title">Unlock rural land value</h3>
+        <p class="card__text">Gain direct, liquid access to New Zealand’s productive rural land through NZX-listed shares, transforming a traditionally illiquid asset class into a simple investment for individual investors.</p>
+        <ul><li>Direct NZX shareholding</li><li>Consistent dividend income</li><li>Expert portfolio management</li><li>Strong capital growth potential</li></ul>
+        <a class="link-arrow" href="#nz-guide" title="Placeholder: guide not yet supplied">Get our NZ-based investment guide &gt;</a>
+      </article>
+      <article class="card">
+        <div class="card__img"><img src="assets/img/home/pathway-forestry.jpg" alt="Aerial view of forestry hill country"></div>
+        <p class="card__kicker">Strategic portfolios:</p>
+        <h3 class="card__title">Boost institutional growth</h3>
+        <p class="card__text">Integrate New Zealand rural land into your institutional portfolio to get robust and responsibly-derived returns for pension funds, wealth managers, and large-scale investment strategies.</p>
+        <ul><li>Enhanced diversification</li><li>Proven inflation hedge</li><li>ESG-aligned investment</li><li>Long-term capital preservation</li></ul>
+        <a class="link-arrow" href="#institutional-guide" title="Placeholder: guide not yet supplied">View our guide for institutional investors &gt;</a>
+      </article>
+      <article class="card">
+        <div class="card__img"><img src="assets/img/home/pathway-dairy.jpg" alt="Dairy herd grazing on green pasture"></div>
+        <p class="card__kicker">Global opportunities</p>
+        <h3 class="card__title">International access</h3>
+        <p class="card__text">New Zealand actively encourages offshore investment in rural land. NZL offers compliant, transparent access to this stable, high-potential market for international investors.</p>
+        <ul><li>Regulatory clarity assured</li><li>Currency diversification benefits</li><li>Stable, secure jurisdiction</li><li>Professional governance standards</li></ul>
+        <a class="link-arrow" href="#international-guide" title="Placeholder: guide not yet supplied">Download our international investor guide &gt;</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- 10. Why investors choose NZL -->
+  <section class="split-list why grid-7 pad-md">
+    <h2 class="two-tone"><span class="dark">Why investors</span><span class="bright">choose NZL</span></h2>
+    <ul>
+      <li><h4>Disciplined capital allocation</h4><p>Acquisitions and reinvestment decisions are guided by rigorous criteria, ensuring sustainable growth and long-term shareholder value.</p></li>
+      <li><h4>Unwavering transparency and professional governance</h4><p>Our NZX listing guarantees robust regulatory oversight, comprehensive reporting and enduring investor confidence.</p></li>
+      <li><h4>Pure land ownership, zero farming risk</h4><p>Invest solely in premium land assets, with all operational farming responsibilities managed by experienced tenant operators.</p></li>
+      <li><h4>Dynamic and adaptive investment approach</h4><p>Our flexible investment mandate ensures resilience, adapting to evolving land-use trends and economic landscapes to deliver long-term growth.</p></li>
+    </ul>
+  </section>
+
+  <!-- 11. Company insights -->
+  <section class="insights pad-md">
+    <h2>Company insights</h2>
+    <p class="articles__intro">Access in-depth analysis of New Zealand's rural land markets, comprehensive portfolio performance updates and expert investment commentary, all directly from the NZL team.</p>
+    <div class="carousel" aria-label="Company insights articles">
+      <article class="article-card"><div class="card__img"><img src="assets/img/home/insight-dairy.jpg" alt=""></div><h3>The NZ dairy sector – A cornerstone of the NZL’s portfolio</h3><p>New Zealand’s pasture-based dairy system has held a structural cost advantage over more intensive international models for decades – not as a cyclical outcome, but as a feature of how the system is designed. As global food systems</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+      <article class="article-card"><div class="card__img"><img src="assets/img/home/insight-diversification.jpg" alt=""></div><h3>The Role of Land Use Diversification in Rural Land Investment</h3><p>Most capital remains concentrated in single-use farming systems – farms dedicated to a single land use (e.g., dairy, sheep and beef, or forestry) – an inefficiency that presents opportunity for investors. Analysis of ten years of New Zealand</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+      <article class="article-card"><div class="card__img"><img src="assets/img/home/insight-compelling.jpg" alt=""></div><h3>Rural Land – A Compelling part of a Diversified Investment Strategy</h3><p>Institutional farmland has delivered equity-like returns with half the volatility over three decades, exhibiting near-zero correlation with traditional assets and strong inflation-hedging characteristics. This analysis examines the</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+      <article class="article-card"><div class="card__img"><img src="assets/img/home/insight-ets.jpg" alt=""></div><h3>Understanding the NZ ETS Changes and What They Mean for Your Investment</h3><p>When November's ETS announcement sent carbon prices tumbling, the market missed what actually changed. The government removed a Paris Agreement alignment requirement, but domestic emissions budgets (305 Mt and 240</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+      <article class="article-card"><div class="card__img"><img src="assets/img/home/insight-stability.jpg" alt=""></div><h3>Rural Land: A Quiet Beacon of Stability</h3><p>While most investors chase volatile markets, one asset class has quietly delivered 5.9% compound annual growth over 28 years with far less drama than equities. Here's why the world's most essential investment is finally getting the</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+      <article class="article-card"><div class="card__img"><img src="assets/img/home/insight-trade.jpg" alt=""></div><h3>The Growing Impact of Trade Disruption</h3><p>Trade tensions are reshaping New Zealand's export landscape, but the numbers tell a clear story: farmland's 70% correlation with inflation and half the volatility of equities position it as a genuine stabiliser when traditional markets face</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+    </div>
+    <a class="btn btn--grass" href="#subscribe">Subscribe</a>
+  </section>
+
+  <!-- 12. Green block with broker logos (top area empty in Figma, left as designed) -->
+  <section class="block block--grass brokers-block">
+    <div class="empty" aria-hidden="true"></div>
+    <div class="block__inner"><img src="assets/img/home/brokers.png" alt="Brokers: Craigs Investment Partners, Jarden, Sharesies"></div>
+  </section>
+
+  </div><!-- /after-media -->
+</main>
+
+<script src="assets/js/layout.js?v=24"></script>
+</body>
+</html>

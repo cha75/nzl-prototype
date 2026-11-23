@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site map and page status | NZ Rural Land Co (NZL) website rebuild</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/css/nzl.css?v=28">
+<style>
+  body { background: var(--light); color: var(--bottle-dark); }
+  .sm { padding: 60px 40px 80px; min-width: 1480px; }
+  .sm-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 50px; }
+  .sm-top h1 { font-size: var(--h3); line-height: var(--lh-h3); font-weight: 700; color: var(--bottle); }
+  .sm-top p { margin-top: 8px; font-size: var(--body); line-height: var(--lh-body); font-weight: 300; color: var(--smoke); }
+
+  /* Legend */
+  .sm-legend { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: var(--body-sm); line-height: var(--lh-body-sm); }
+  .sm-legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+  .s-done .dot, .dot.s-done { background: var(--clover); }
+  .s-built .dot, .dot.s-built { background: var(--grass); }
+  .s-prog .dot, .dot.s-prog { background: var(--hay); }
+  .s-next .dot, .dot.s-next { background: var(--mint); }
+  .s-todo .dot, .dot.s-todo { background: var(--ash); }
+
+  /* Tree */
+  .tree { position: relative; }
+  .root { display: flex; justify-content: center; position: relative; padding-bottom: 40px; }
+  .invest { position: absolute; right: 0; top: 0; width: 230px; }
+  .invest .pg { width: 230px; border-top-color: var(--grass); }
+  .invest .btn-mock { display: inline-block; margin: 2px 0 8px; padding: 6px 14px; background: var(--grass); color: var(--white); font-size: var(--body-sm); font-weight: 700; }
+  .root::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 2px; height: 40px; background: var(--smoke); }
+  .cols { display: grid; grid-template-columns: repeat(6, 1fr); gap: 28px; position: relative; padding-top: 40px; }
+  .cols::before { content: ""; position: absolute; top: 0; left: calc((100% - 140px) / 12); right: calc((100% - 140px) / 12); height: 2px; background: var(--smoke); }
+  .col { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .col::before { content: ""; position: absolute; top: -40px; left: 50%; width: 2px; height: 40px; background: var(--smoke); }
+
+  /* Page card */
+  .pg { position: relative; width: 210px; background: var(--white); border: 1px solid var(--ash); border-top: 6px solid var(--ash); padding: 14px 14px 12px; }
+  .pg.s-done { border-top-color: var(--clover); }
+  .pg.s-built { border-top-color: var(--grass); }
+  .pg.s-prog { border-top-color: var(--hay); }
+  .pg.s-next { border-top-color: var(--mint); }
+  .pg .no { position: absolute; top: -16px; right: -12px; width: 28px; height: 28px; border-radius: 50%; background: var(--bottle); color: var(--white); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .pg h2 { font-size: var(--body); line-height: var(--lh-body); font-weight: 700; color: var(--bottle); text-transform: none; letter-spacing: 0; }
+  .pg .st { display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: var(--body-sm); line-height: var(--lh-body-sm); color: var(--smoke); }
+  .pg .note { margin-top: 6px; font-size: 12px; line-height: 16px; color: var(--smoke); }
+  .pg .open { display: inline-block; margin-top: 8px; font-size: var(--body-sm); font-weight: 700; color: var(--clover); text-decoration: none; }
+  .pg .open:hover { text-decoration: underline; }
+  .pg.menu { background: var(--bottle); border-color: var(--bottle); }
+  .pg.menu h2, .pg.menu .st, .pg.menu .note { color: var(--white); }
+
+  /* Mini wireframe */
+  .wf { height: 64px; background: var(--light); margin-bottom: 10px; padding: 8px; display: flex; flex-direction: column; gap: 5px; }
+  .wf i { display: block; height: 5px; background: var(--ash); }
+  .wf i.hero { height: 22px; background: #cfcdcc; }
+  .wf i.s { width: 60%; } .wf i.m { width: 80%; }
+  .wf .row { display: flex; gap: 5px; } .wf .row i { flex: 1; height: 16px; }
+
+  /* Deliverable ticks */
+  .dl { display: flex; gap: 4px; margin-top: 8px; }
+  .dl b { flex: 1; text-align: center; font-size: 10px; line-height: 18px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; background: var(--light); color: var(--smoke); }
+  .dl b.y { background: var(--clover); color: var(--white); }
+  .dl b.u { background: var(--hay-light); color: var(--hay-dark); }
+
+  /* Children */
+  .kids { position: relative; display: flex; flex-direction: column; gap: 22px; margin-top: 22px; padding-left: 28px; width: 238px; }
+  .kids > .pg::before, .kids > .list::before { content: ""; position: absolute; left: -21px; top: 30px; width: 20px; height: 2px; background: var(--smoke); }
+  .kids::before { content: ""; position: absolute; left: 8px; top: -22px; bottom: 0; width: 2px; background: var(--smoke); }
+  .kids > :last-child::after { content: ""; position: absolute; left: -23px; top: 32px; bottom: -2px; width: 6px; background: var(--light); }
+  .kids .kids::before { top: -16px; }
+  .kids .pg { width: 210px; }
+  .kids .kids { width: 220px; padding-left: 22px; margin-top: 16px; gap: 16px; }
+  .kids .kids > .pg, .kids .kids > .list { width: 198px; }
+  .kids .kids > .pg::before, .kids .kids > .list::before { left: -15px; width: 14px; }
+  .kids .kids > :last-child::after { left: -17px; }
+
+  .list { position: relative; background: transparent; border: 1px dashed var(--smoke); padding: 10px 12px; font-size: 12px; line-height: 16px; color: var(--smoke); }
+  .list strong { display: block; margin-bottom: 4px; font-size: var(--body-sm); color: var(--bottle); }
+  .list ul { margin: 0; padding-left: 14px; }
+
+  /* Footer pages */
+  .foot { margin-top: 70px; padding-top: 30px; border-top: 2px solid var(--smoke); }
+  .foot h3 { font-size: var(--body); line-height: var(--lh-body); font-weight: 700; color: var(--bottle); text-transform: none; letter-spacing: 0; }
+  .foot p.lead { margin: 4px 0 24px; font-size: var(--body-sm); color: var(--smoke); }
+  .foot .row { display: flex; gap: 28px; align-items: flex-start; }
+
+  .gone { margin-top: 50px; font-size: var(--body-sm); line-height: var(--lh-body-sm); color: var(--smoke); max-width: 900px; }
+  .gone strong { color: var(--bottle); }
+</style>
+</head>
+<body>
+<main class="sm">
+
+  <div class="sm-top">
+    <div>
+      <h1>Site map and page status</h1>
+      <p>New site structure as approved on 19 November 2026. Updated 23 November 2026.</p>
+    </div>
+    <div class="sm-legend">
+      <span class="s-done"><i class="dot"></i>Complete (signed off, PDF and Word done)</span>
+      <span class="s-built"><i class="dot"></i>Built, refining</span>
+      <span class="s-prog"><i class="dot"></i>In progress</span>
+      <span class="s-next"><i class="dot"></i>Next</span>
+      <span class="s-todo"><i class="dot"></i>Not started</span>
+    </div>
+  </div>
+
+  <div class="tree">
+
+    <div class="root">
+      <div class="pg s-done">
+        <span class="no">1</span>
+        <div class="wf"><i class="hero"></i><i class="m"></i><div class="row"><i></i><i></i><i></i></div></div>
+        <h2>Homepage</h2>
+        <div class="st"><i class="dot s-done"></i>Complete</div>
+        <div class="dl"><b class="y">Desk</b><b class="y">Mob</b><b class="y">PDF</b><b class="y">Word</b></div>
+        <a class="open" href="index.html">Open page</a>
+      </div>
+    </div>
+
+    <div class="invest">
+      <div class="pg">
+        <span class="no">&#9733;</span>
+        <span class="btn-mock">Invest Now</span>
+        <h2>Header button</h2>
+        <div class="st">On every page, desktop and mobile</div>
+        <div class="note">Main action. Links to How to invest (4b). Wording confirmed 23 November 2026.</div>
+        <a class="open" href="how-to-invest.html">Open How to invest</a>
+      </div>
+    </div>
+
+    <div class="cols">
+
+      <!-- Portfolio -->
+      <div class="col">
+        <div class="pg menu">
+          <span class="no">2</span>
+          <h2>Portfolio</h2>
+          <div class="st">Menu heading</div>
+          <div class="note">Two sub pages in the dropdown.</div>
+        </div>
+        <div class="kids">
+          <div class="pg s-todo"><span class="no">2a</span><div class="wf"><i class="hero"></i><i class="s"></i><i></i><i></i></div><h2>Landholdings</h2><div class="st"><i class="dot s-todo"></i>Not started</div><div class="note">Replaces Our landholdings: map, sectors and property table.</div><div class="dl"><b>Desk</b><b>Mob</b><b>PDF</b><b>Word</b></div></div>
+          <div class="pg s-todo"><span class="no">2b</span><h2>Tenants</h2><div class="st"><i class="dot s-todo"></i>Not started</div><div class="note">The operators who farm our land. Tenant list and wording to come from the client.</div></div>
+        </div>
+      </div>
+
+      <!-- Sustainability -->
+      <div class="col">
+        <div class="pg s-todo">
+          <span class="no">3</span>
+          <div class="wf"><i class="hero"></i><i class="s"></i><div class="row"><i></i><i></i><i></i></div></div>
+          <h2>Sustainability</h2>
+          <div class="st"><i class="dot s-todo"></i>Not started</div>
+          <div class="note">Projects page merges in as a section. Climate Related Disclosure reports.</div>
+          <div class="dl"><b>Desk</b><b>Mob</b><b>PDF</b><b>Word</b></div>
+        </div>
+      </div>
+
+      <!-- Investors -->
+      <div class="col">
+        <div class="pg menu">
+          <span class="no">4</span>
+          <h2>Investors</h2>
+          <div class="st">Menu heading</div>
+          <div class="note">Seven sub pages in the dropdown.</div>
+        </div>
+        <div class="kids">
+          <div class="pg s-todo"><span class="no">4a</span><div class="wf"><i class="hero"></i><div class="row"><i></i><i></i></div><i class="m"></i></div><h2>Overview</h2><div class="st"><i class="dot s-todo"></i>Not started</div><div class="note">Key figures, latest documents, key dates, your shareholding block.</div><div class="dl"><b>Desk</b><b>Mob</b><b>PDF</b><b>Word</b></div></div>
+          <div class="pg s-built">
+            <span class="no">4b</span>
+            <h2>How to invest</h2>
+            <div class="st"><i class="dot s-built"></i>Built. PDF and Word need updating</div>
+            <div class="dl"><b class="y">Desk</b><b class="y">Mob</b><b class="u">PDF</b><b class="u">Word</b></div>
+            <a class="open" href="how-to-invest.html">Open page</a>
+          </div>
+          <div class="pg s-todo"><span class="no">4c</span><h2>Reports and presentations</h2><div class="st"><i class="dot s-todo"></i>Not started</div><div class="note">Results webinars sit beside their results.</div></div>
+          <div class="pg s-todo"><span class="no">4d</span><h2>NZX announcements</h2><div class="st"><i class="dot s-todo"></i>Not started</div></div>
+          <div class="pg s-todo"><span class="no">4e</span><h2>Dividends</h2><div class="st"><i class="dot s-todo"></i>Not started</div></div>
+          <div class="pg s-todo"><span class="no">4f</span><h2>Company documents</h2><div class="st"><i class="dot s-todo"></i>Not started</div><div class="note">Includes the 2020 IPO documents.</div></div>
+          <div class="pg s-todo"><span class="no">4g</span><h2>FAQ</h2><div class="st"><i class="dot s-todo"></i>Not started</div><div class="note">Includes the director FAQ videos.</div></div>
+        </div>
+      </div>
+
+      <!-- News -->
+      <div class="col">
+        <div class="pg menu">
+          <span class="no">5</span>
+          <h2>News</h2>
+          <div class="st">Menu heading</div>
+          <div class="note">Two sub pages. Landing page not decided.</div>
+        </div>
+        <div class="kids">
+          <div class="pg s-built">
+            <span class="no">5a</span>
+            <div class="wf"><i class="hero"></i><div class="row"><i></i><i></i><i></i></div><i class="m"></i></div>
+            <h2>Insights</h2>
+            <div class="st"><i class="dot s-built"></i>Desktop built (option 3)</div>
+            <div class="dl"><b class="y">Desk</b><b>Mob</b><b>PDF</b><b>Word</b></div>
+            <a class="open" href="options/insights-3.html">Open page</a>
+          </div>
+          <div class="kids">
+            <div class="pg s-prog">
+              <h2>Article template</h2>
+              <div class="st"><i class="dot s-prog"></i>Refining desktop</div>
+              <div class="note">Example: the dairy sector article.</div>
+              <div class="dl"><b class="u">Desk</b><b>Mob</b><b>PDF</b><b>Word</b></div>
+              <a class="open" href="insights-dairy-article.html">Open page</a>
+            </div>
+            <div class="list">
+              <strong>13 articles</strong>
+              <ul>
+                <li>The NZ dairy sector</li>
+                <li>Land use diversification</li>
+                <li>Rural land in a diversified strategy</li>
+                <li>NZ ETS changes</li>
+                <li>Geopolitics and trade volatility</li>
+                <li>A beacon of stability</li>
+                <li>On the ground in Hawke's Bay</li>
+                <li>Carbon sequestration and biodiversity</li>
+                <li>Keeping food on the table</li>
+                <li>Be an investor, not a landlord</li>
+                <li>Soil carbon sequestration</li>
+                <li>Enduring land, enduring value</li>
+                <li>The farm beneath the numbers</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pg s-built">
+            <span class="no">5b</span>
+            <h2>In the media</h2>
+            <div class="st"><i class="dot s-built"></i>Desktop built</div>
+            <div class="note">40 press links, press contact and logo download.</div>
+            <div class="dl"><b class="y">Desk</b><b>Mob</b><b>PDF</b><b>Word</b></div>
+            <a class="open" href="in-the-media.html">Open page</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- People -->
+      <div class="col">
+        <div class="pg s-built">
+          <span class="no">6</span>
+          <div class="wf"><i class="hero"></i><div class="row"><i></i><i></i><i></i></div><div class="row"><i></i><i></i><i></i></div></div>
+          <h2>People</h2>
+          <div class="st"><i class="dot s-built"></i>Desktop built</div>
+          <div class="note">Board and management on one page.</div>
+          <div class="dl"><b class="y">Desk</b><b>Mob</b><b>PDF</b><b>Word</b></div>
+          <a class="open" href="our-people.html">Open page</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="col">
+        <div class="pg s-built">
+          <span class="no">7</span>
+          <div class="wf"><i class="hero"></i><div class="row"><i></i><i></i></div><i class="s"></i></div>
+          <h2>Contact</h2>
+          <div class="st"><i class="dot s-built"></i>Desktop built</div>
+          <div class="note">Contact details and enquiry form.</div>
+          <div class="dl"><b class="y">Desk</b><b>Mob</b><b>PDF</b><b>Word</b></div>
+          <a class="open" href="contact.html">Open page</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="foot">
+    <h3>Footer links</h3>
+    <p class="lead">Linked from the footer on every page, not the main menu.</p>
+    <div class="row">
+      <div class="pg s-todo"><span class="no">8</span><h2>Privacy policy</h2><div class="st"><i class="dot s-todo"></i>Not started</div><div class="note">Wording from the client's lawyer.</div></div>
+      <div class="pg s-todo"><span class="no">9</span><h2>Legal disclaimer</h2><div class="st"><i class="dot s-todo"></i>Not started</div><div class="note">Wording from the client's lawyer.</div></div>
+      <div class="pg s-todo"><span class="no">10</span><h2>Newsletter signup</h2><div class="st"><i class="dot s-todo"></i>Only if needed</div><div class="note">Standalone page for sharing from social posts and emails.</div></div>
+    </div>
+  </section>
+
+  <p class="gone"><strong>Not carried over from the live site:</strong> Our Story (duplicate of the homepage), Learn more (split into Insights and FAQ), Videos (split into Reports and presentations and In the media), Historical IPO documents (merged into Company documents), Projects (merged into Sustainability), the hidden invest page, and eight hidden drafts and template pages.</p>
+
+</main>
+</body>
+</html>

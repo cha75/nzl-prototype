@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NZL Component Set</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png?v=2">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="assets/css/nzl.css?v=28">
+<style>
+  /* Showcase-only labels. Not part of the website design. */
+  .sc-intro { max-width: 1100px; margin: 48px auto 24px; padding: 0 34px; }
+  .sc-intro h1 { font-size: 48px; color: var(--bottle); }
+  .sc-intro p { margin-top: 12px; font-size: 16px; max-width: 860px; }
+  .sc-key { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; font-size: 13px; }
+  .sc-label { margin: 72px var(--block-inset) 0; padding: 14px 18px; background: #1b1b1b; color: #fff; font-size: 13px; line-height: 1.5; display: grid; grid-template-columns: 70px 1fr; gap: 4px 16px; }
+  .sc-label b { font-size: 15px; }
+  .sc-label .k { color: #a9a9a9; }
+  .tag { display: inline-block; padding: 2px 8px; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+  .tag--existing { background: #caf3de; color: #004b29; }
+  .tag--extended { background: #fbf4eb; color: #7c664c; }
+  .tag--new { background: #ffe1a8; color: #5a3b00; }
+  .tag--risk { background: #f4d0c8; color: #6a1b0a; }
+  .sc-frame { margin: 0 var(--block-inset); outline: 1px dashed #c8c8c8; }
+  .sc-frame > .block, .sc-frame > .image-block { margin-left: 0; margin-right: 0; }
+  .swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; padding: 24px; }
+  .sw { font-size: 12px; } .sw i { display: block; height: 72px; border: 1px solid rgba(0,0,0,.06); margin-bottom: 6px; }
+  .swatches2 { padding: 24px; }
+  .sw-row { display: grid; grid-template-columns: 170px repeat(6, 104px); gap: 14px; margin-bottom: 14px; align-items: start; }
+  .sw-head { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: #666; margin-bottom: 2px; }
+  .sw-name span { font-size: 12px; color: #666; }
+  .swatches2 .sw { font-size: 11px; } .swatches2 .sw i { height: 56px; }
+  @media (max-width: 900px) { .sw-row { grid-template-columns: 110px repeat(6, 1fr); gap: 8px; } .swatches2 .sw i { height: 40px; } .swatches2 .sw { font-size: 9px; } }
+  .type-ramp > div { display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: baseline; padding: 10px 24px; border-bottom: 1px solid #eee; }
+  .type-ramp code { font-size: 12px; color: #666; }
+  .type-sets { padding: 8px 24px 24px; } .ts-group { margin: 20px 0 10px; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: #666; }
+  .ts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; } .ts { border: 1px solid #e6e6e6; padding: 14px 16px; overflow: hidden; } .ts code { display: block; font-size: 11px; color: #777; margin-bottom: 8px; } .ts-note { margin-top: 16px; font-size: 13px; color: #555; }
+  @media (max-width: 900px) { .ts-grid { grid-template-columns: 1fr; } }
+  .btn-table { display: grid; grid-template-columns: 170px repeat(3, 1fr); gap: 18px 24px; padding: 24px; align-items: start; }
+  .btn-table small { display: block; margin-top: 8px; font-size: 11px; color: #666; }
+  .bt-head { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: #666; }
+  .bt-bg { font-size: 13px; font-weight: 700; padding-top: 12px; }
+  .block--grass .btn-table > .bt-head { display: none; }
+  @media (max-width: 900px) { .btn-table { grid-template-columns: 1fr; } .bt-head { display: none; } }
+  .space-row { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: center; margin-bottom: 16px; font-size: 14px; }
+  .space-row span:not(.space-bar) { color: #666; font-size: 13px; }
+  .space-bar { display: block; width: 120px; background: repeating-linear-gradient(45deg, #caf3de 0 6px, #8fdcaa 6px 12px); border: 1px solid #3d926b; }
+  .space-notes { margin-top: 20px; font-size: 14px; } .space-notes p + p { margin-top: 6px; }
+  .sc-tabs { position: sticky; top: 0; z-index: 60; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; padding: 10px 34px; background: #1b1b1b; }
+  .sc-tab { position: relative; } .sc-tab > a, .sc-top { display: block; padding: 8px 14px; color: #fff; text-decoration: none; font-size: 14px; font-weight: 700; border-radius: 3px; }
+  .sc-tab > a:hover, .sc-tab:focus-within > a, .sc-top:hover { background: #00b865; } .sc-top { margin-left: auto; font-weight: 400; }
+  .sc-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 300px; max-height: 70vh; overflow: auto; background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.2); padding: 6px 0; }
+  .sc-tab:hover .sc-menu, .sc-tab:focus-within .sc-menu { display: block; }
+  .sc-menu a { display: block; padding: 7px 16px; color: #004b29; text-decoration: none; font-size: 13px; } .sc-menu a:hover { background: #f0fcf6; } .sc-menu b { display: inline-block; width: 40px; color: #0d6338; }
+  .sc-label { scroll-margin-top: 70px; }
+  .sc-header-demo .site-header { position: relative; }
+  .contrast { width: calc(100% - 48px); margin: 24px; border-collapse: collapse; font-size: 14px; }
+  .contrast td, .contrast th { border-bottom: 1px solid #eee; padding: 10px 8px; text-align: left; }
+  .contrast .sample { padding: 8px 12px; font-weight: 700; }
+  .pass { color: #0d6338; font-weight: 700; } .fail { color: #a3200d; font-weight: 700; }
+  .demo-pad { padding: 32px var(--content-pad); }
+  @media (max-width: 767px) { .swatches { grid-template-columns: repeat(2, 1fr); } .type-ramp > div { grid-template-columns: 1fr; } .sc-label { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-root="" id="top">
+<nav class="sc-tabs" aria-label="Component sections"><div class="sc-tab"><a href="#f1">Foundations</a><div class="sc-menu"><a href="#f1"><b>F1</b> Colours</a><a href="#f2"><b>F2</b> Type scale</a><a href="#f3"><b>F3</b> Buttons and links</a><a href="#f4"><b>F4</b> Text contrast check</a><a href="#f5"><b>F5</b> Spacing and layout</a></div></div><div class="sc-tab"><a href="#c1">Header and footer</a><div class="sc-menu"><a href="#c1"><b>C1</b> Header and menu</a><a href="#c2"><b>C2</b> Footer</a></div></div><div class="sc-tab"><a href="#c3">Homepage</a><div class="sc-menu"><a href="#c3"><b>C3</b> Hero colour block</a><a href="#c4"><b>C4</b> Full-screen sticky media</a><a href="#c5"><b>C5</b> Intro split: two-tone headline with side text</a><a href="#c6"><b>C6</b> Icon trust row</a><a href="#c7"><b>C7</b> Statement colour block</a><a href="#c8"><b>C8</b> Stats row</a><a href="#c9"><b>C9</b> Split list: headline left, points right</a><a href="#c10"><b>C10</b> Numbered steps</a><a href="#c11"><b>C11</b> Feature image with text card</a><a href="#c12"><b>C12</b> Card grid on colour</a><a href="#c13"><b>C13</b> Article cards</a><a href="#c14"><b>C14</b> Partner logo strip</a></div></div><div class="sc-tab"><a href="#c15">Emails</a><div class="sc-menu"><a href="#c15"><b>C15</b> Section label and two-tone headline</a><a href="#c16"><b>C16</b> Big stat pair</a><a href="#c17"><b>C17</b> Chart</a><a href="#c18"><b>C18</b> Comparison table</a><a href="#c19"><b>C19</b> Highlight list</a><a href="#c20"><b>C20</b> Numbered reasons</a><a href="#c21"><b>C21</b> Commitments icon row</a><a href="#c22"><b>C22</b> Closing statement</a><a href="#c23"><b>C23</b> Director video panel</a></div></div><div class="sc-tab"><a href="#c24">New</a><div class="sc-menu"><a href="#c24"><b>C24</b> Newsletter signup banner</a><a href="#c25"><b>C25</b> Document list</a><a href="#c26"><b>C26</b> Accordion</a><a href="#c27"><b>C27</b> Video</a><a href="#c28"><b>C28</b> Contact form</a><a href="#c29"><b>C29</b> Interior page hero</a><a href="#c30"><b>C30</b> Numbered step card</a></div></div><a class="sc-top" href="#top">Top ↑</a></nav>
+
+<div class="sc-intro">
+  <p class="eyebrow">Step 3 · Design system</p>
+  <h1>NZL component set</h1>
+  <p>Every building block the new site will use, built once and shared by every page. Each component shows where it comes from, which Squarespace element replaces it, and any flag. Copy shown is taken from the approved homepage and the welcome emails, as examples only. Grey boxes are image placeholders.</p>
+  <p><b>This is a starting kit, not a fixed list.</b> The foundations (colours, type, spacing, buttons) are fixed. Components will be added or adapted as each page's content needs them, using the same foundations, and shown for approval as they come up.</p>
+  <div class="sc-key">
+    <span class="tag tag--existing">Existing</span> in the Figma homepage or the emails
+    <span class="tag tag--extended">Extended</span> existing, adjusted for the website
+    <span class="tag tag--new">New</span> not in Figma or the emails: needs your approval
+  </div>
+</div>
+
+<!-- ============ FOUNDATIONS ============ -->
+<div class="sc-label" id="f1"><span class="k">F1</span><b>Colours</b><span class="k">Source</span><span>Figma variables "NZL Colours" (match Brand Colours 2026 PDF) <span class="tag tag--existing">Existing</span></span><span class="k">Flag</span><span>Homepage leads with Grass; the brand guide names Clover the main colour. Following the homepage, as the brief directs. Bottle has no background tint in the brand guide: not invented.</span></div>
+<div class="sc-frame">
+  <div class="swatches2">
+    <div class="sw-row sw-head"><div></div><div>Brand</div><div>Dark</div><div>Light</div><div>Tint</div></div>
+    <div class="sw-row"><div class="sw-name"><b>Clover</b><br><span>Primary · brand guide main colour</span></div><div class="sw"><i style="background:#007640"></i><b>Clover</b><br>#007640</div><div class="sw"><i style="background:#084527"></i><b>Dark Clover</b><br>#084527</div><div class="sw"><i style="background:#80b995"></i><b>Light Clover</b><br>#80b995</div><div class="sw"><i style="background:#e8f3ee"></i><b>Clover tint</b><br>#e8f3ee</div></div>
+    <div class="sw-row"><div class="sw-name"><b>Bottle</b><br><span>Primary · headings</span></div><div class="sw"><i style="background:#004b29"></i><b>Bottle</b><br>#004b29</div><div class="sw"><i style="background:#001a0e"></i><b>Dark Bottle</b><br>#001a0e</div><div class="sw"><i style="background:#528366"></i><b>Light Bottle</b><br>#528366</div><div class="sw"><i style="background:repeating-linear-gradient(45deg,#fff 0 8px,#eee 8px 16px)"></i><b>Bottle tint</b><br>None in Figma or brand guide</div></div>
+    <div class="sw-row"><div class="sw-name"><b>Grass</b><br><span>Primary · leads on the homepage</span></div><div class="sw"><i style="background:#00b865"></i><b>Grass</b><br>#00b865</div><div class="sw"><i style="background:#0d6338"></i><b>Dark Grass</b><br>#0d6338</div><div class="sw"><i style="background:#8fdcaa"></i><b>Light Grass</b><br>#8fdcaa</div><div class="sw"><i style="background:#ebf5ec"></i><b>Grass tint</b><br>#ebf5ec</div></div>
+    <div class="sw-row"><div class="sw-name"><b>Mint</b><br><span>Primary</span></div><div class="sw"><i style="background:#58dba0"></i><b>Mint</b><br>#58dba0</div><div class="sw"><i style="background:#3d926b"></i><b>Dark Mint</b><br>#3d926b</div><div class="sw"><i style="background:#caf3de"></i><b>Light Mint</b><br>#caf3de</div><div class="sw"><i style="background:#f0fcf6"></i><b>Mint tint</b><br>#f0fcf6</div></div>
+    <div class="sw-row"><div class="sw-name"><b>Hay</b><br><span>Secondary</span></div><div class="sw"><i style="background:#d9b183"></i><b>Hay</b><br>#d9b183</div><div class="sw"><i style="background:#7c664c"></i><b>Dark Hay</b><br>#7c664c</div><div class="sw"><i style="background:#fbf4eb"></i><b>Light Hay</b><br>#fbf4eb</div><div class="sw"><i style="background:#fcf8f4"></i><b>Hay tint</b><br>#fcf8f4</div></div>
+    <div class="sw-row"><div class="sw-name"><b>Wood</b><br><span>Secondary</span></div><div class="sw"><i style="background:#4a1700"></i><b>Wood</b><br>#4a1700</div><div class="sw"><i style="background:#1c0e08"></i><b>Dark Wood</b><br>#1c0e08</div><div class="sw"><i style="background:#9b7060"></i><b>Light Wood</b><br>#9b7060</div><div class="sw"><i style="background:#e3dad6"></i><b>Wood tint</b><br>#e3dad6</div></div>
+    <div class="sw-row sw-row--6"><div class="sw-name"><b>Neutrals</b><br><span>From Figma · darkest to lightest</span></div><div class="sw"><i style="background:#000000"></i><b>Black</b><br>#000000</div><div class="sw"><i style="background:#434343"></i><b>Charcoal</b><br>#434343</div><div class="sw"><i style="background:#858485"></i><b>Smoke</b><br>#858485</div><div class="sw"><i style="background:#dedcdb"></i><b>Ash</b><br>#dedcdb</div><div class="sw"><i style="background:#f2f2f2"></i><b>Light</b><br>#f2f2f2</div><div class="sw"><i style="background:#ffffff"></i><b>White</b><br>#ffffff</div></div>
+  </div>
+</div>
+
+<div class="sc-label" id="f2"><span class="k">F2</span><b>Type scale</b><span class="k">Source</span><span>Figma text styles: Proxima Nova, Bold / Regular / Light <span class="tag tag--existing">Existing</span></span><span class="k">Flag</span><span>Proxima Nova is an Adobe font. It shows correctly on this Mac. Dan to confirm it can load in Squarespace. Mobile sizes are new (Figma has desktop only). Figma conflict: the Caption text style is 10px, but the Font Size variable "Caption" is 12px. The text style is used here.</span></div>
+<div class="sc-frame type-sets">
+  <h4 class="ts-group">Headings · Proxima Nova</h4><div class="ts-grid"><div class="ts" style="grid-column:1/-1"><code>Display · 140px · line height 140px · letter spacing −2% · mobile 72/80 · used for the Contact headline</code><div style="font-size:140px;line-height:140px;letter-spacing:-0.02em"><span style="font-weight:700;display:block">Display Bold</span></div></div><div class="ts"><code>H1 · 80px · line height 96px</code><div style="font-size:80px;line-height:96px;letter-spacing:0"><span style="font-weight:700;display:block">H1 Bold</span><span style="font-weight:300;display:block">H1 Light</span></div></div><div class="ts"><code>H2 · 48px · line height 56px</code><div style="font-size:48px;line-height:56px;letter-spacing:0"><span style="font-weight:700;display:block">H2 Bold</span><span style="font-weight:300;display:block">H2 Light</span></div></div><div class="ts"><code>H3 · 40px · line height 48px</code><div style="font-size:40px;line-height:48px;letter-spacing:0"><span style="font-weight:700;display:block">H3 Bold</span><span style="font-weight:300;display:block">H3 Light</span></div></div><div class="ts"><code>H4 · 32px · line height 40px · letter spacing −3%</code><div style="font-size:32px;line-height:40px;letter-spacing:-0.03em"><span style="font-weight:700;display:block">H4 Bold</span><span style="font-weight:300;display:block">H4 Light</span></div></div><div class="ts"><code>H5 · 24px · line height 32px</code><div style="font-size:24px;line-height:32px;letter-spacing:0"><span style="font-weight:700;display:block">H5 Bold</span><span style="font-weight:300;display:block">H5 Light</span></div></div><div class="ts"><code>H6 · 20px · line height 24px</code><div style="font-size:20px;line-height:24px;letter-spacing:0"><span style="font-weight:700;display:block">H6 Bold</span><span style="font-weight:300;display:block">H6 Light</span></div></div></div>
+  <h4 class="ts-group">Body</h4><div class="ts-grid"><div class="ts"><code>Body Large · 22px · line height 32px</code><div style="font-size:22px;line-height:32px"><span>Base</span> &nbsp;<b>Bold</b> &nbsp;<span style="font-weight:300">Light</span> &nbsp;<i>Italic</i></div></div><div class="ts"><code>Body Regular · 16px · line height 24px</code><div style="font-size:16px;line-height:24px"><span>Base</span> &nbsp;<b>Bold</b> &nbsp;<span style="font-weight:300">Light</span> &nbsp;<i>Italic</i></div></div><div class="ts"><code>Body Small · 14px · line height 20px</code><div style="font-size:14px;line-height:20px"><span>Base</span> &nbsp;<b>Bold</b> &nbsp;<span style="font-weight:300">Light</span> &nbsp;<i>Italic</i></div></div></div>
+  <h4 class="ts-group">Captions</h4><div class="ts-grid"><div class="ts"><code>Caption · 10px Semibold · capitals · letter spacing 4% · line height 16px</code><div style="font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;line-height:16px">Caption</div></div><div class="ts"><code>Footnote · 10px Regular · line height 16px</code><div style="font-size:10px;line-height:16px">Footnote</div></div></div>
+  <p class="ts-note">Display (140px) added 20 Nov for the Contact headline. Page-opening headlines use the two-tone Bold treatment from the emails (C15) since 20 Nov. Rule: no full stops on any H1, including each two-tone line (Charis, 20 Nov). H1 is used in Light across the site (Charis, 13 Nov). Line heights are whole pixels on a 4px rhythm (Charis, 13 Nov). Mobile size / line height: H1 48/56 · H2 36/44 · H3 32/40 · H4 28/36 · H5 24/32 · H6 20/24 · Body Large 20/28. Body, Body Small, Caption and Footnote unchanged.</p>
+</div>
+
+<div class="sc-label" id="f3"><span class="k">F3</span><b>Buttons and links</b><span class="k">Source</span><span>Homepage <span class="tag tag--existing">Existing</span> · Secondary on white and all hover states <span class="tag tag--new">New</span></span><span class="k">Rule</span><span>Primary = solid, the main action (one per section). Secondary = outline, the alternative action beside it. Text link = lowest priority. Square corners, 44px high, Bold 14. White text on Grass and Mint fails contrast (F4), to be handled page by page.</span></div>
+<div class="sc-frame">
+  <div class="btn-table">
+    <div class="bt-head"></div><div class="bt-head">Primary · solid</div><div class="bt-head">Secondary · outline</div><div class="bt-head">Text link</div>
+    <div class="bt-bg">On white or tint</div>
+    <div><a class="btn btn--grass" href="#">Invest Now</a><small>Grass, white text · hover Dark Grass</small></div>
+    <div><a class="btn btn--outline-grass" href="#">Explore our portfolio</a><small>Grass outline and text · hover fills Grass</small></div>
+    <div><a class="link-arrow" href="#">Read more &gt;</a><small>Grass, underlined</small></div>
+  </div>
+  <div class="block block--grass" style="margin:0"><div class="btn-table">
+    <div class="bt-bg" style="color:#fff">On Grass</div>
+    <div><a class="btn btn--dark" href="#">Invest Now</a><small style="color:#fff">Dark Grass, white text · hover Bottle · passes contrast (7.35)</small></div>
+    <div><a class="btn btn--outline-white" href="#">Download investor overview</a><small style="color:#fff">White outline and text · hover fills white</small></div>
+    <div><a class="link-arrow" href="#" style="color:#fff">Read more &gt;</a><small style="color:#fff">White, underlined</small></div>
+  </div></div>
+</div>
+
+<div class="sc-label" id="f4"><span class="k">F4</span><b>Text contrast check (WCAG AA)</b><span class="k">Result</span><span>4.5:1 needed for body text, 3:1 for large headings. Brand colours unchanged. Decision needed on each failing pair.</span></div>
+<div class="sc-frame">
+  <table class="contrast">
+    <tr><th>Pair</th><th>Where it is used</th><th>Ratio</th><th>Result</th></tr>
+    <tr><td><span class="sample" style="background:#00b865;color:#fff">White on Grass</span></td><td>Hero, buttons, pathways, director panel, footer signup</td><td>2.61</td><td class="fail">Fails, even for large headings</td></tr>
+    <tr><td><span class="sample" style="background:#00b865;color:#f0fcf6">Mint tint on Grass</span></td><td>Hero subline</td><td>2.48</td><td class="fail">Fails</td></tr>
+    <tr><td><span class="sample" style="background:#58dba0;color:#fff">White on Mint</span></td><td>Hero Invest Now button</td><td>1.74</td><td class="fail">Fails</td></tr>
+    <tr><td><span class="sample" style="background:#fff;color:#00b865">Grass on White</span></td><td>Bright headline lines, stat numbers, subheads, links</td><td>2.61</td><td class="fail">Fails, even for large headings</td></tr>
+    <tr><td><span class="sample" style="background:#f0fcf6;color:#00b865">Grass on Mint tint</span></td><td>"How we create value", insights title</td><td>2.48</td><td class="fail">Fails</td></tr>
+    <tr><td><span class="sample" style="background:#58dba0;color:#004b29">Bottle on Mint</span></td><td>"Access" statement block</td><td>5.91</td><td class="pass">Passes</td></tr>
+    <tr><td><span class="sample" style="background:#fff;color:#004b29">Bottle on White</span></td><td>Dark headline lines, body</td><td>10.30</td><td class="pass">Passes</td></tr>
+    <tr><td><span class="sample" style="background:#fff;color:#007640">Clover on White</span></td><td>Card titles</td><td>5.73</td><td class="pass">Passes</td></tr>
+    <tr><td><span class="sample" style="background:#007640;color:#fff">White on Clover</span></td><td>Possible alternative for buttons and blocks</td><td>5.73</td><td class="pass">Passes</td></tr>
+    <tr><td><span class="sample" style="background:#004b29;color:#fff">White on Bottle</span></td><td>Possible alternative</td><td>10.30</td><td class="pass">Passes</td></tr>
+  </table>
+</div>
+
+<div class="sc-label" id="f5"><span class="k">F5</span><b>Spacing and layout</b><span class="k">Source</span><span>Charis, 13 Nov <span class="tag tag--new">New</span> · grid from the Figma homepage <span class="tag tag--existing">Existing</span></span><span class="k">Rule</span><span>Only three section spacings, used above and below every section (header and footer excluded). All values rounded up to the nearest 10px.</span></div>
+<div class="sc-frame"><div class="demo-pad">
+  <div class="space-row"><span class="space-bar" style="height:var(--space-sm)"></span><div><b>Small</b> · 40px desktop · 20px mobile<br><span>Sub-sections (for example the trust row under a line) and the gap between stacked blocks</span></div></div>
+  <div class="space-row"><span class="space-bar" style="height:var(--space-md)"></span><div><b>Medium</b> · 80px desktop · 40px mobile<br><span>Standard sections</span></div></div>
+  <div class="space-row"><span class="space-bar" style="height:var(--space-lg)"></span><div><b>Large</b> · 120px desktop · 60px mobile<br><span>Major colour sections (for example Investment pathways)</span></div></div>
+  <div class="space-row"><span class="space-bar" style="height:20px;width:20px"></span><div><b>Card padding</b> · 20px on all sides<br><span>Space inside every card before its content starts (pathway cards, article cards)</span></div></div>
+  <div class="space-notes">
+    <p><b>Rule:</b> every padding, margin and gap is a multiple of 10px.</p>
+    <p><b>Layout grid:</b> 7 columns, 40px gutters, fluid to any screen width (4 columns on mobile).</p>
+    <p><b>Copy edge:</b> all page copy starts 90px from the page edge (20px on mobile). Colour blocks sit 40px in, with 50px padding inside.</p>
+    <p><b>Header and footer:</b> 40px from the page edge, not tied to the copy edge.</p>
+  </div>
+</div></div>
+
+<!-- ============ GLOBAL ============ -->
+<div class="sc-label" id="c1"><span class="k">C1</span><b>Header and menu</b><span class="k">Source</span><span>Figma header <span class="tag tag--extended">Extended</span>: menu changed to the approved structure, drop-down sub pages added, mobile menu added</span><span class="k">Build</span><span>Squarespace header with navigation folders and header button. Invest Now always visible, also on mobile beside the menu icon (Dan to confirm). Hover a menu item to see its sub pages.</span></div>
+<div class="sc-frame sc-header-demo"><div id="header-slot"></div></div>
+
+
+<div class="sc-label" id="c2"><span class="k">C2</span><b>Footer</b><span class="k">Source</span><span>Email footer style <span class="tag tag--new">New</span> as a website footer</span><span class="k">Build</span><span>Squarespace footer, identical on every page: link columns, contact, privacy and legal links. No newsletter signup in the footer (Charis, 18 Nov). Signup wording approved (18 Nov).</span></div>
+<div class="sc-frame"><div id="footer-slot"></div></div>
+
+
+<!-- ============ HOMEPAGE COMPONENTS ============ -->
+<div class="sc-label" id="c3"><span class="k">C3</span><b>Hero colour block</b><span class="k">Source</span><span>Homepage <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Section with Grass background, text and two buttons.</span></div>
+<div class="sc-frame">
+  <section class="block block--grass block--hero"><div class="block__inner">
+    <h1>Your pathway to<br>investing in rural land</h1>
+    <p class="lede">Access a scarce, appreciating and productive asset, without operational or landlord responsibility.</p>
+    <div class="btn-row"><a class="btn btn--dark" href="#">Invest Now</a><a class="btn btn--outline-white" href="#">Download investor overview</a></div>
+  </div></section>
+</div>
+
+<div class="sc-label" id="c4"><span class="k">C4</span><b>Full-screen sticky media (video or image)</b><span class="k">Source</span><span>Homepage image <span class="tag tag--extended">Extended</span>: full screen, edge to edge, stays in place while the next content scrolls over it (Charis, 13 Nov)</span><span class="k">Build</span><span>Squarespace section with a background video (or image) set to fill the screen, fixed position. Video to be supplied. See it working on the homepage.</span></div>
+<div class="sc-frame"><div class="image-block" style="margin:0"><img src="assets/img/home/hero-mountains-cattle.jpg" alt=""></div></div>
+
+<div class="sc-label" id="c5"><span class="k">C5</span><b>Intro split: two-tone headline with side text</b><span class="k">Source</span><span>Homepage "Welcome to" <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Two-column section, text blocks.</span></div>
+<div class="sc-frame">
+  <section class="intro-split">
+    <h2 class="two-tone"><span class="dark">Welcome to</span><span class="bright">New Zealand Rural Land Company (NZL)</span></h2>
+    <p>We're the New Zealand Rural Land Company (NZL), a NZX-listed provider of investment opportunities in diversified, productive rural land across New Zealand.</p>
+  </section>
+</div>
+
+<div class="sc-label" id="c6"><span class="k">C6</span><b>Icon trust row</b><span class="k">Source</span><span>Homepage <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Section with heading and four image and text pairs.</span></div>
+<div class="sc-frame">
+  <section class="icon-row">
+    <h3>Listed. Governed. Transparent</h3>
+    <ul>
+      <li><img src="assets/img/icons/nzx-listed.png" alt=""><span>NZX-listed investment company</span></li>
+      <li><img src="assets/img/icons/valuations.png" alt=""><span>Independent third-party land valuations</span></li>
+      <li><img src="assets/img/icons/lease-income.png" alt=""><span>Long-term contracted lease income</span></li>
+      <li><img src="assets/img/icons/governance.png" alt=""><span>Institutional-grade governance and reporting</span></li>
+    </ul>
+  </section>
+</div>
+
+<div class="sc-label" id="c7"><span class="k">C7</span><b>Statement colour block</b><span class="k">Source</span><span>Homepage "Access" block <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Section with Mint background. Mint, Grass, Bottle and tint backgrounds all available.</span></div>
+<div class="sc-frame">
+  <section class="block block--mint statement"><div class="block__inner">
+    <h2>Access New Zealand rural land as an investment</h2>
+    <p>Before we established our business model, investing in rural New Zealand land came with a series of responsibilities that most investors simply didn't want.</p>
+  </div></section>
+</div>
+
+<div class="sc-label" id="c8"><span class="k">C8</span><b>Stats row</b><span class="k">Source</span><span>Homepage <span class="tag tag--existing">Existing</span></span><span class="k">Flag</span><span>Missing figures show as X, as agreed. Dashed outline marks data still needed (prototype only). 17,077 ha conflicts with the live Landholdings total (17,317 ha).</span></div>
+<div class="sc-frame">
+  <section class="stats">
+    <h3>Established scale. Measurable performance.</h3>
+    <div class="stats__grid">
+      <div><div class="stat__num">$450M</div><div class="stat__label">Worth of assets</div><div class="stat__text">A substantial, diversified portfolio of productive rural land holdings across New Zealand.</div></div>
+      <div><div class="stat__num">17,077</div><div class="stat__label">Hectares of rural land owned</div><div class="stat__text">Premium rural land, strategically leased to highly-reputable operators.</div></div>
+      <div class="needs"><div class="stat__num">X Years</div><div class="stat__label">Listed track record</div><div class="stat__text">After X years listed on the NZX.</div></div>
+      <div class="needs"><div class="stat__num">X</div><div class="stat__label">Portfolio rental value</div><div class="stat__text">TBA</div></div>
+      <div class="needs"><div class="stat__num">X</div><div class="stat__label">Performance Rewards</div><div class="stat__text">TBA</div></div>
+    </div>
+  </section>
+</div>
+
+<div class="sc-label" id="c9"><span class="k">C9</span><b>Split list: headline left, points right</b><span class="k">Source</span><span>Homepage "Why rural land, why now?" and "Why investors choose NZL" <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Two-column section, text blocks with lines.</span></div>
+<div class="sc-frame">
+  <section class="split-list">
+    <h2 class="two-tone"><span class="dark">Why rural land,</span><span class="bright">why now?</span></h2>
+    <ul>
+      <li><h4>Scarce and finite</h4><p>New Zealand's productive rural land is a finite asset.</p></li>
+      <li><h4>Resilient through cycles</h4><p>Rural land consistently demonstrates resilience across economic cycles.</p></li>
+      <li><h4>Tangible asset, intrinsic security</h4><p>Unlike abstract financial instruments, rural land is a real, productive asset.</p></li>
+    </ul>
+  </section>
+</div>
+
+<div class="sc-label" id="c10"><span class="k">C10</span><b>Numbered steps</b><span class="k">Source</span><span>Homepage "How we create value" <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Section with Mint tint background, six text columns (two per row on mobile).</span></div>
+<div class="sc-frame">
+  <section class="block block--tint steps"><div class="block__inner">
+    <h2>How we create value</h2>
+    <div class="steps__grid">
+      <div><div class="step__num">01.</div><div class="step__title">Secure premium land assets</div><p class="step__text">Our strategy is based on acquiring high-quality, productive rural land.</p></div>
+      <div><div class="step__num">02.</div><div class="step__title">Conduct rigorous due diligence</div><p class="step__text">Every acquisition undergoes a comprehensive assessment.</p></div>
+      <div><div class="step__num">03.</div><div class="step__title">Partner with elite operators</div><p class="step__text">Our properties are leased to established operators.</p></div>
+      <div><div class="step__num">04.</div><div class="step__title">Implement proactive management</div><p class="step__text">We maintain asset quality and optimise land use.</p></div>
+      <div><div class="step__num">05.</div><div class="step__title">Drive sustainable portfolio growth</div><p class="step__text">Returns are reinvested strategically.</p></div>
+      <div><div class="step__num">06.</div><div class="step__title">Deliver superior risk adjusted returns</div><p class="step__text">Stable income and capital growth.</p></div>
+    </div>
+  </div></section>
+</div>
+
+<div class="sc-label" id="c11"><span class="k">C11</span><b>Feature image with text card</b><span class="k">Source</span><span>Homepage <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Image with a text card layered on top (Squarespace Fluid Engine). On mobile the card sits under the photo.</span></div>
+<div class="sc-frame">
+  <section class="block block--tint" style="margin:0"><div class="block__inner">
+    <div class="feature">
+      <div class="feature__img"><div class="ph">Rolling hills photo</div></div>
+      <div class="feature__card"><h4>Strategic diversification delivers resilient returns, optimal growth</h4><p>At NZL, we strategically diversify our investments across New Zealand's productive rural land.</p><a class="btn btn--mint" href="#">Explore our portfolio</a></div>
+    </div>
+  </div></section>
+</div>
+
+<div class="sc-label" id="c12"><span class="k">C12</span><b>Card grid on colour</b><span class="k">Source</span><span>Homepage "Investment pathways" <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Full-width Grass section, three columns of image, text and link.</span></div>
+<div class="sc-frame">
+  <section class="block block--grass block--full cards-section">
+    <h2>Investment pathways</h2>
+    <div class="card-grid">
+      <article class="card"><div class="card__img"><div class="ph">Orchard aerial</div></div><p class="card__kicker">New Zealand investors</p><h3 class="card__title">Unlock rural land value</h3><p class="card__text">Gain direct, liquid access to New Zealand's productive rural land through NZX-listed shares.</p><ul><li>Direct NZX shareholding</li><li>Consistent dividend income</li></ul><a class="link-arrow" href="#">Get our NZ-based investment guide &gt;</a></article>
+      <article class="card"><div class="card__img"><div class="ph">Forestry aerial</div></div><p class="card__kicker">Strategic portfolios:</p><h3 class="card__title">Boost institutional growth</h3><p class="card__text">Integrate New Zealand rural land into your institutional portfolio.</p><ul><li>Enhanced diversification</li><li>Proven inflation hedge</li></ul><a class="link-arrow" href="#">View our guide for institutional investors &gt;</a></article>
+      <article class="card"><div class="card__img"><div class="ph">Dairy herd</div></div><p class="card__kicker">Global opportunities</p><h3 class="card__title">International access</h3><p class="card__text">New Zealand actively encourages offshore investment in rural land.</p><ul><li>Regulatory clarity assured</li><li>Stable, secure jurisdiction</li></ul><a class="link-arrow" href="#">Download our international investor guide &gt;</a></article>
+    </div>
+  </section>
+</div>
+
+<div class="sc-label" id="c13"><span class="k">C13</span><b>Article cards</b><span class="k">Source</span><span>Homepage "Company insights" <span class="tag tag--extended">Extended</span>: author and date line added (brief: named authors on every article)</span><span class="k">Build</span><span>Squarespace blog summary block, fed by the Company Insights blog.</span></div>
+<div class="sc-frame">
+  <section class="block block--tint articles" style="margin:0">
+    <h2 class="articles__title">Company insights</h2>
+    <p class="articles__intro">Access in-depth analysis of New Zealand's rural land markets, comprehensive portfolio performance updates and expert investment commentary, all directly from the NZL team.</p>
+    <div class="article-grid">
+      <article class="article-card"><div class="card__img"><div class="ph">Dairy herd</div></div><h3>The NZ dairy sector: a cornerstone of NZL's portfolio</h3><p class="meta needs">X author · X date</p><p>New Zealand's pasture-based dairy system has held a structural cost advantage for decades.</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+      <article class="article-card"><div class="card__img"><div class="ph">Hill country</div></div><h3>The Role of Land Use Diversification in Rural Land Investment</h3><p class="meta needs">X author · X date</p><p>Most capital remains concentrated in single-use farming systems.</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+      <article class="article-card"><div class="card__img"><div class="ph">Pasture</div></div><h3>Rural Land: A Compelling part of a Diversified Investment Strategy</h3><p class="meta needs">X author · X date</p><p>Institutional farmland has delivered equity-like returns.</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+      <article class="article-card"><div class="card__img"><div class="ph">Forest</div></div><h3>Understanding the NZ ETS changes and what they mean for your investment</h3><p class="meta needs">X author · X date</p><p>When November's ETS announcement sent carbon prices tumbling.</p><a class="link-arrow" href="#">Read more &gt;</a></article>
+    </div>
+  </section>
+</div>
+
+<div class="sc-label" id="c14"><span class="k">C14</span><b>Partner logo strip</b><span class="k">Source</span><span>Homepage brokers <span class="tag tag--existing">Existing</span></span><span class="k">Flag</span><span>The green area above the logos is empty in Figma. Separately, the Figma file has unused text beside the canvas ("Invest in New Zealand's productive rural assets", "Timeless assets. Proven returns. Tangible security.", two buttons) that looks meant for it. Left empty, as you directed.</span></div>
+<div class="sc-frame">
+  <section class="block block--grass partners" style="margin:0"><div style="height:120px"></div>
+    <div class="partners__strip"><div class="ph">Craigs Investment Partners logo</div><div class="ph">Jarden logo</div><div class="ph">Sharesies logo</div></div>
+  </section>
+</div>
+
+<!-- ============ EMAIL COMPONENTS ============ -->
+<div class="sc-label" id="c15"><span class="k">C15</span><b>Section label and two-tone headline</b><span class="k">Source</span><span>Emails 2 to 7 <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Text blocks. Small label above, headline pairs bright and dark lines.</span></div>
+<div class="sc-frame"><div class="demo-pad">
+  <p class="eyebrow">Lower risk</p>
+  <h2 class="two-tone" style="margin-top:12px"><span class="bright">Own the land.</span><span class="dark">Not the risk.</span></h2>
+  <p class="t-body-lg" style="margin-top:18px;max-width:760px">NZL owns the land, not the farming operation.</p>
+</div></div>
+
+<div class="sc-label" id="c16"><span class="k">C16</span><b>Big stat pair</b><span class="k">Source</span><span>Emails 2 and 6 <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Text blocks in columns. Every statistic carries a source in the notes list.</span></div>
+<div class="sc-frame"><div class="block block--tint" style="margin:0"><div class="block__inner">
+  <p class="eyebrow">Global trends</p>
+  <div class="bigstats" style="margin-top:20px">
+    <div><div class="bigstat__num">-52<small>%</small></div><div class="bigstat__label">Productive land per person since 1961</div></div>
+    <div><div class="bigstat__num">+70<small>%</small></div><div class="bigstat__label">Projected food demand by 2050</div></div>
+  </div>
+</div></div></div>
+
+<div class="sc-label" id="c17"><span class="k">C17</span><b>Chart</b><span class="k">Source</span><span>Emails 2, 3 and 6 <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Squarespace Chart block, or the chart as an image. Key figures also written as text so search and AI tools can read them.</span></div>
+<div class="sc-frame"><div class="block block--tint" style="margin:0"><div class="block__inner"><div class="chart"><div class="ph">Chart image: arable land per person, 1961 to 2021</div></div></div></div></div>
+
+<div class="sc-label" id="c18"><span class="k">C18</span><b>Comparison table</b><span class="k">Source</span><span>Email 5 <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Text and shape blocks laid out as a grid (Fluid Engine).</span></div>
+<div class="sc-frame"><div class="demo-pad">
+  <table class="compare">
+    <thead><tr><th></th><th>Traditional rural investments</th><th>NZL</th></tr></thead>
+    <tbody>
+      <tr><td>Volatile commodity prices</td><td class="is-exposed">Exposed</td><td class="is-not">Not exposed</td></tr>
+      <tr><td>Animal health risks</td><td class="is-exposed">Exposed</td><td class="is-not">Not exposed</td></tr>
+      <tr><td>Farmer co-ops</td><td class="is-exposed">Exposed</td><td class="is-not">Not exposed</td></tr>
+      <tr><td>Operational farming risks</td><td class="is-exposed">Exposed</td><td class="is-not">Not exposed</td></tr>
+    </tbody>
+  </table>
+</div></div>
+
+<div class="sc-label" id="c19"><span class="k">C19</span><b>Highlight list</b><span class="k">Source</span><span>Email 5 <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Text block with lines.</span></div>
+<div class="sc-frame"><div class="demo-pad">
+  <ul class="highlights">
+    <li>Lower depreciable asset base than urban property</li>
+    <li>Low obsolescence risk, particularly versus commercial real estate</li>
+    <li>Rural land readily adapts to alternative uses</li>
+  </ul>
+</div></div>
+
+<div class="sc-label" id="c20"><span class="k">C20</span><b>Numbered reasons</b><span class="k">Source</span><span>Email 7 <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Text blocks. Suits The Opportunity landing page.</span></div>
+<div class="sc-frame"><div class="demo-pad">
+  <ol class="reasons">
+    <li class="reason"><div class="reason__num">01</div><div><h3>Scarcity</h3><h4>They are not making any more of it.</h4><p>The world's productive rural land is shrinking while population and food demand keep growing.</p></div></li>
+    <li class="reason"><div class="reason__num">02</div><div><h3>Sustainability</h3><h4>The lowest-carbon dairy producer in the world.</h4><p>New Zealand is the only top 10 global producer to hold that distinction.</p></div></li>
+  </ol>
+</div></div>
+
+<div class="sc-label" id="c21"><span class="k">C21</span><b>Commitments icon row</b><span class="k">Source</span><span>Email 3 <span class="tag tag--existing">Existing</span></span><span class="k">Flag</span><span>Icon files needed from you (the six lease commitment icons). Shown as placeholders.</span></div>
+<div class="sc-frame"><div class="block block--tint" style="margin:0"><div class="block__inner"><div class="commitments">
+  <h3>Six commitments written into every lease</h3>
+  <ul><li><div class="ph"></div>Environmental sustainability</li><li><div class="ph"></div>Social integrity</li><li><div class="ph"></div>Economic resilience</li><li><div class="ph"></div>Animal welfare responsibility</li><li><div class="ph"></div>Mana whenua</li><li><div class="ph"></div>Governance</li></ul>
+</div></div></div></div>
+
+<div class="sc-label" id="c22"><span class="k">C22</span><b>Closing statement</b><span class="k">Source</span><span>Emails 1 to 7 <span class="tag tag--existing">Existing</span></span><span class="k">Build</span><span>Text block, ends a page or section.</span></div>
+<div class="sc-frame"><section class="closing"><p>NZL gives investors access to a lower-risk asset class without sacrificing the returns that make rural land worth owning.</p></section></div>
+
+<div class="sc-label" id="c23"><span class="k">C23</span><b>Director video panel</b><span class="k">Source</span><span>Emails 2 to 6 <span class="tag tag--extended">Extended</span>: photo opens the director's video</span><span class="k">Build</span><span>Grass section, text and a Video block or image linking to the video. Fails contrast (white on Grass): see F4. Use for "Your questions, answered by our directors".</span></div>
+<div class="sc-frame"><section class="block block--grass" style="margin:0"><div class="director">
+  <div><h3>What makes NZL different to traditional REITs</h3><p>NZL independent chairman Rob Campbell on why the land-ownership model changes the risk profile for investors.</p></div>
+  <div class="director__photo"><div class="ph">Rob Campbell photo</div><span class="director__play" aria-hidden="true"></span></div>
+</div></section></div>
+
+<!-- ============ NEW COMPONENTS ============ -->
+<div class="sc-label" id="c24"><span class="k">C24</span><b>Newsletter signup banner</b><span class="k">Source</span><span><span class="tag tag--new">New</span> approved in Step 2, design for your approval</span><span class="k">Build</span><span>Section with Newsletter block, added to each page where it is relevant (the only signup on the site; not in the footer). Wording approved by Charis, 18 Nov.</span></div>
+<div class="sc-frame"><section class="block block--tint" style="margin:0"><div class="signup-banner">
+  <div><h3>The rural land market, explained in your inbox</h3><p>Market recaps and company news and updates, sent straight to you.</p></div>
+  <form class="signup-form" onsubmit="return false"><input type="email" placeholder="Email address" aria-label="Email address"><button class="btn btn--grass">Sign up</button></form>
+</div></section></div>
+
+<div class="sc-label" id="c25"><span class="k">C25</span><b>Document list</b><span class="k">Source</span><span><span class="tag tag--new">New</span> for Investors sub pages</span><span class="k">Build</span><span>Text blocks with file links, or a Squarespace list section. Newest first.</span></div>
+<div class="sc-frame"><div class="demo-pad">
+  <ul class="doc-list">
+    <li><span class="date">27 Aug 2026</span><span><span class="title">Interim Results Presentation</span><br><span class="type">Presentation · PDF</span></span><a class="dl" href="#">Download</a></li>
+    <li><span class="date">27 Aug 2026</span><span><span class="title">Financial Statements</span><br><span class="type">Report · PDF</span></span><a class="dl" href="#">Download</a></li>
+    <li><span class="date">20 May 2026</span><span><span class="title">Annual Meeting Chair Address</span><br><span class="type">Address · PDF</span></span><a class="dl" href="#">Download</a></li>
+  </ul>
+</div></div>
+
+<div class="sc-label" id="c26"><span class="k">C26</span><b>Accordion</b><span class="k">Source</span><span><span class="tag tag--new">New</span> for the FAQ and long sections</span><span class="k">Build</span><span>Squarespace Accordion block. Text inside stays readable by search engines.</span></div>
+<div class="sc-frame"><div class="demo-pad"><div class="accordion">
+  <details open><summary>[Real investor question 1: supplied by Charis]</summary><div class="answer">[Answer, linking to the full page on the topic.]</div></details>
+  <details><summary>[Real investor question 2: supplied by Charis]</summary><div class="answer">[Answer.]</div></details>
+</div></div></div>
+
+<div class="sc-label" id="c27"><span class="k">C27</span><b>Video</b><span class="k">Source</span><span><span class="tag tag--new">New</span></span><span class="k">Build</span><span>Squarespace Video block with the existing Vimeo or YouTube link.</span></div>
+<div class="sc-frame"><div class="demo-pad" style="max-width:760px"><div class="video-ph"><span>Video placeholder · Vimeo embed</span></div></div></div>
+
+<div class="sc-label" id="c28"><span class="k">C28</span><b>Contact form</b><span class="k">Source</span><span><span class="tag tag--new">New</span> styling of the existing form</span><span class="k">Build</span><span>Squarespace Form block. Fields to match the current form.</span></div>
+<div class="sc-frame"><div class="demo-pad"><form class="form" onsubmit="return false">
+  <label>Name<input type="text"></label><label>Email<input type="email"></label><label>Message<textarea></textarea></label>
+  <div><button class="btn btn--grass">Send</button></div>
+</form></div></div>
+
+<div class="sc-label" id="c29"><span class="k">C29</span><b>Interior page hero</b><span class="k">Source</span><span><span class="tag tag--new">New</span> How to invest, direction "Clean" (Charis, 16 Nov)</span><span class="k">Build</span><span>White section: Light H1 in Grass, followed by a large figure on the left (here the NZX code) with the explainer beside it, both in Grass, on a Mint tint panel (30px padding top and bottom). Interior pages use this instead of the homepage's Grass hero.</span></div>
+<div class="sc-frame">
+  <section class="grid-7 pad-md" style="row-gap:0;align-items:end">
+    <div style="grid-column:1/span 5;padding-top:var(--space-md)"><h1 style="font-weight:300;color:var(--grass)">How to invest in New Zealand Rural Land Company</h1><p style="margin-top:30px;max-width:640px;font-size:var(--body-lg);line-height:var(--lh-body-lg);color:var(--bottle-dark)">New Zealand Rural Land Company is listed on the NZX, New Zealand's stock exchange, under the code NZL.</p></div>
+    <div style="grid-column:6/span 2;justify-self:end;text-align:right"><div style="font-size:var(--caption);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--bottle)">NZX code</div><div style="font-size:var(--h1);line-height:var(--lh-h1);font-weight:700;color:var(--grass)">NZL</div></div>
+  </section>
+</div>
+
+<div class="sc-label" id="c30"><span class="k">C30</span><b>Numbered step card</b><span class="k">Source</span><span><span class="tag tag--new">New</span> How to invest; numbers follow the email "01 / 02" style</span><span class="k">Build</span><span>White card with a Light Grass border, 40px padding: heading, intro, numbered steps (48px Grass numbers, no dividing lines), buttons, then logos at the bottom.</span></div>
+<div class="sc-frame"><div style="padding:40px 50px"><article style="background:#fff;border:1px solid var(--grass-light);padding:40px;max-width:620px">
+  <h2 style="font-size:var(--h3);line-height:var(--lh-h3);color:var(--bottle)">Invest online yourself</h2>
+  <p style="margin-top:10px;color:var(--bottle-dark)">Use an investing app such as Sharesies.</p>
+  <ol style="list-style:none;margin:30px 0 0;padding:0">
+    <li style="display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:center;padding:10px 0"><span style="font-size:var(--h2);line-height:var(--lh-h2);font-weight:700;color:var(--grass)">01</span>Open an account.</li>
+    <li style="display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:center;padding:10px 0"><span style="font-size:var(--h2);line-height:var(--lh-h2);font-weight:700;color:var(--grass)">02</span>Search for NZL.</li>
+  </ol>
+  <div class="btn-row" style="padding-top:40px"><a class="btn btn--grass" href="#">Go to Sharesies</a></div>
+  <div style="margin-top:40px;height:60px;display:flex;align-items:center"><img src="assets/img/logo-sharesies.png" alt="Sharesies" style="height:50px;width:auto"></div>
+</article></div></div>
+
+<script src="assets/js/layout.js?v=24"></script>
+</body>
+</html>

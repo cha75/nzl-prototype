@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe: Insights</title>
+<style>
+  /* Wireframe only: grey boxes, approved structure, real spacing scale (40/80/120), 90px copy edge. Squarespace Blog page, Basic Grid, 3 columns. */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Proxima Nova", "Helvetica Neue", Arial, sans-serif; color: #222; background: #fff; }
+  .note { font: 600 11px/1.4 Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #8a5a00; background: #fff4d6; border: 1px dashed #d9a400; padding: 6px 10px; display: inline-block; }
+  .wf-top { background: #1b1b1b; color: #fff; padding: 12px 40px; font: 13px Arial, sans-serif; }
+  .wf-top b { font-size: 15px; }
+  header { height: 80px; border-bottom: 1px solid #bbb; display: flex; align-items: center; gap: 24px; padding: 0 40px; }
+  header .logo { width: 47px; height: 32px; background: #ccc; }
+  header nav { margin-left: auto; display: flex; gap: 28px; font: 700 14px Arial; color: #555; }
+  header nav .on { color: #111; text-decoration: underline; }
+  header .cta { background: #555; color: #fff; padding: 14px 22px; font: 700 14px Arial; }
+  .annot { position: relative; }
+  .annot > .note { position: absolute; top: -14px; right: 20px; }
+  .wrap { padding-left: 90px; padding-right: 90px; }
+  .hero { padding-top: 80px; padding-bottom: 80px; }
+  .hero h1 { margin: 0; font-weight: 300; font-size: 80px; line-height: 96px; }
+  .hero p { margin: 30px 0 0; font-size: 22px; line-height: 32px; max-width: 760px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 40px; row-gap: 80px; padding-bottom: 120px; }
+  .card .img { aspect-ratio: 3 / 2; background: #d0d0d0; display: grid; place-items: center; font: 600 11px Arial; color: #666; letter-spacing: .06em; text-transform: uppercase; }
+  .card .meta { margin: 20px 0 0; font: 400 13px/20px Arial; color: #777; }
+  .card h3 { margin: 10px 0 0; font-size: 24px; line-height: 32px; }
+  .card .ex { margin: 10px 0 0; font-size: 16px; line-height: 24px; }
+  .card .more { display: inline-block; margin-top: 20px; font: 700 14px Arial; text-decoration: underline; }
+  .signup { background: #6f6f6f; color: #fff; padding: 120px 90px; }
+  .signup h2 { margin: 0; font-size: 40px; line-height: 48px; }
+  .signup p { margin: 10px 0 0; font-size: 22px; line-height: 32px; }
+  .signup .form { margin-top: 60px; display: flex; max-width: 430px; height: 40px; }
+  .signup .form span:first-child { flex: 1; border: 1px solid #fff; padding: 0 20px; line-height: 38px; font: 16px Arial; }
+  .signup .form span:last-child { background: #fff; color: #333; padding: 0 30px; line-height: 40px; font: 700 14px Arial; }
+  footer { background: #cfcfcf; height: 220px; display: grid; place-items: center; font: 600 13px Arial; color: #555; }
+  @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 767px) {
+    .wf-top { padding: 10px 16px; }
+    header { padding: 0 16px; } header nav { display: none; } header .cta { margin-left: auto; padding: 12px 14px; }
+    .wrap { padding-left: 20px; padding-right: 20px; }
+    .hero { padding-top: 40px; padding-bottom: 40px; }
+    .hero h1 { font-size: 48px; line-height: 56px; }
+    .hero p { font-size: 20px; line-height: 28px; margin-top: 20px; }
+    .grid { grid-template-columns: 1fr; row-gap: 60px; padding-bottom: 60px; }
+    .signup { padding: 60px 20px; }
+    .signup .form { max-width: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wf-top"><b>WIREFRAME · News: Insights</b> &nbsp;·&nbsp; Squarespace Blog page, Basic Grid layout, 3 columns. Grey boxes, draft copy. Colours and images come from the design system at build.</div>
+
+<header><div class="logo"></div><nav><span>Portfolio</span><span>Sustainability</span><span>Investors</span><span class="on">News</span><span>People</span><span>Contact</span></nav><span class="cta">Invest Now</span></header>
+
+<!-- 1. Headline -->
+<section class="hero wrap annot">
+  <span class="note">1 · Headline · white · medium spacing</span>
+  <h1>Insights</h1>
+  <p>Articles on the pastoral, horticulture and forestry sectors we invest in, what drives New Zealand farmland values and how we manage our properties.</p>
+</section>
+
+<!-- 2. Blog grid: 13 posts -->
+<section class="wrap annot">
+  <span class="note">2 · Blog page · Basic Grid · 3 columns · image, date and author, title, excerpt, Read more</span>
+  <div class="grid">
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>The NZ dairy sector – A cornerstone of the NZL’s portfolio</h3>
+      <p class="ex">Why dairy land provides a reliable income base within a diversified rural land portfolio.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>The Role of Land Use Diversification in Rural Land Investment</h3>
+      <p class="ex">How spreading investment across different land uses strengthens a rural land portfolio.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>Rural Land – A Compelling part of a Diversified Investment Strategy</h3>
+      <p class="ex">Why rural land matters as geopolitical risk, inflation and trade disruption reshape investing.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>Understanding the NZ ETS changes and what they mean for your investment</h3>
+      <p class="ex">What recent changes to New Zealand's Emissions Trading Scheme mean, beyond the drop in carbon prices.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>Geopolitics, trade volatility, and rural land investment</h3>
+      <p class="ex">How tariffs and trade disruption are shaping New Zealand's export landscape.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>Why Rural Land Remains a Beacon of Stability in Uncertain Times</h3>
+      <p class="ex">Where to find long-term stability amid inflation, strained supply chains and financial uncertainty.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">October X · X</p>
+      <h3>On the Ground in Hawke's Bay</h3>
+      <p class="ex">The board's site visit to our Hawke's Bay orchards with the NZRLM directors and team.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>Commitment to carbon sequestration and biodiversity</h3>
+      <p class="ex">How we put sustainable land management into practice through specialist operators.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>Keeping food on the table</h3>
+      <p class="ex">New Zealand horticulture's growth, with export revenue up 19% to $8.4 billion in the year to 30 June 2025.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · Richard Milsom</p>
+      <h3>Be an investor, not a landlord</h3>
+      <p class="ex">A different way to invest in property, beyond the traditional rental.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>Understanding Soil Carbon sequestration in mitigating Climate Change</h3>
+      <p class="ex">How carbon stored in soil can improve farm productivity and help address climate change.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · Richard Milsom</p>
+      <h3>Enduring Land, Enduring Value</h3>
+      <p class="ex">What REINZ farm sales figures for early 2024 mean for rural land.</p>
+      <span class="more">Read more</span>
+    </article>
+    <article class="card">
+      <div class="img">Featured image</div>
+      <p class="meta">X · X</p>
+      <h3>The Farm Beneath the Numbers</h3>
+      <p class="ex">X (article text to be confirmed)</p>
+      <span class="more">Read more</span>
+    </article>
+  </div>
+</section>
+
+<!-- 3. Signup band -->
+<section class="signup annot">
+  <span class="note">3 · Signup band · same design as Our People · headline to choose (A shown)</span>
+  <h2>Get more insights by email</h2>
+  <p>Market recaps and company updates sent straight to your inbox.</p>
+  <div class="form"><span>Your email address</span><span>Sign up</span></div>
+</section>
+
+<footer>Shared footer (as built)</footer>
+
+</body>
+</html>

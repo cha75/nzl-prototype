@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe: Our People</title>
+<style>
+  /* Wireframe only: grey boxes, approved copy, real spacing scale (40/80/120), 90px copy edge */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Proxima Nova", "Helvetica Neue", Arial, sans-serif; color: #222; background: #fff; }
+  .note { font: 600 11px/1.4 Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #8a5a00; background: #fff4d6; border: 1px dashed #d9a400; padding: 6px 10px; display: inline-block; }
+  .wf-top { background: #1b1b1b; color: #fff; padding: 12px 40px; font: 13px Arial, sans-serif; }
+  .wf-top b { font-size: 15px; }
+  header { height: 80px; border-bottom: 1px solid #bbb; display: flex; align-items: center; gap: 24px; padding: 0 40px; }
+  header .logo { width: 47px; height: 32px; background: #ccc; }
+  header nav { margin-left: auto; display: flex; gap: 28px; font: 700 14px Arial; color: #555; }
+  header nav .on { color: #111; text-decoration: underline; }
+  header .cta { background: #555; color: #fff; padding: 14px 22px; font: 700 14px Arial; }
+  .annot { position: relative; }
+  .annot > .note { position: absolute; top: -14px; right: 20px; }
+  .wrap { padding-left: 90px; padding-right: 90px; }
+
+  .hero { padding-top: 80px; padding-bottom: 80px; }
+  .hero h1 { margin: 0; font-weight: 300; font-size: 80px; line-height: 96px; max-width: 1000px; }
+  .hero p { margin: 30px 0 0; font-size: 22px; line-height: 32px; max-width: 760px; }
+
+  .run { margin: 0 40px; padding: 80px 50px; background: #e6e6e6; display: grid; grid-template-columns: 2fr 5fr; gap: 40px; }
+  .run h2 { margin: 0; font-size: 40px; line-height: 48px; }
+  .run p { margin: 0; font-size: 22px; line-height: 32px; max-width: 760px; }
+
+  .board { padding-top: 120px; padding-bottom: 80px; }
+  .board h2 { margin: 0 0 40px; font-size: 40px; line-height: 48px; }
+  /* Each row of people stands on one full-width grey band (reference supplied by Charis) */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 0; row-gap: 80px; background: linear-gradient(#dcdcdc, #dcdcdc) top / 100% 300px no-repeat; }
+  .card { padding: 0 30px; text-align: left; }
+  .card .bio { padding: 0; }
+  .photo { height: 300px; display: flex; align-items: flex-end; justify-content: flex-start; }
+  .photo span { width: 170px; height: 270px; background: #b8b8b8; border-radius: 75px 75px 0 0; display: grid; place-items: center; font: 600 11px Arial; color: #555; letter-spacing: .06em; text-transform: uppercase; }
+  .card h3 { margin: 30px 0 0; font-size: 20px; line-height: 24px; font-weight: 400; }
+  .card .role { margin: 4px 0 0; font: 400 13px/20px Arial; color: #777; }
+  .card p.bio { margin: 20px 0 0; font-size: 16px; line-height: 24px; }
+
+  .docs { margin: 40px 40px 0; padding: 40px 50px; border: 2px solid #999; display: grid; grid-template-columns: 2fr 3fr auto; gap: 40px; align-items: center; }
+  .docs h2, .people h2 { margin: 0; font-size: 32px; line-height: 40px; }
+  .docs p, .people p { margin: 0; font-size: 16px; line-height: 24px; }
+  .btn { display: inline-block; font: 700 14px Arial; height: 50px; line-height: 50px; padding: 0 30px; background: #555; color: #fff; white-space: nowrap; }
+
+  .mgmt { padding-top: 40px; }
+  .grp { margin: 60px 0 30px; font: 600 13px/20px Arial; letter-spacing: .08em; text-transform: uppercase; color: #666; }
+  .mgmt h2 + .grp { margin-top: 0; }
+  .board .sub { margin: -20px 0 40px; font-size: 22px; line-height: 32px; max-width: 760px; }
+  .people { margin: 40px 40px 0; padding: 80px 50px; background: #d0d0d0; display: grid; grid-template-columns: 2fr 3fr auto; gap: 40px; align-items: center; }
+  footer { margin-top: 40px; background: #cfcfcf; height: 220px; display: grid; place-items: center; font: 600 13px Arial; color: #555; }
+
+  @media (max-width: 767px) {
+    .wf-top { padding: 10px 16px; }
+    header { padding: 0 16px; } header nav { display: none; } header .cta { margin-left: auto; padding: 12px 14px; }
+    .wrap { padding-left: 20px; padding-right: 20px; }
+    .hero { padding-top: 40px; padding-bottom: 40px; }
+    .hero h1 { font-size: 48px; line-height: 56px; }
+    .hero p { font-size: 20px; line-height: 28px; margin-top: 20px; }
+    .run, .docs, .people { margin-left: 0; margin-right: 0; padding: 40px 20px; grid-template-columns: 1fr; gap: 20px; }
+    .run h2, .board h2 { font-size: 32px; line-height: 40px; }
+    .run p { font-size: 20px; line-height: 28px; }
+    .board { padding-top: 60px; padding-bottom: 40px; }
+    .cards { grid-template-columns: 1fr; gap: 40px; }
+    .cards { background: none; }
+    .photo { background: #dcdcdc; height: 260px; }
+    .card .bio { padding: 0; }
+    .btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wf-top"><b>WIREFRAME · Our People</b> &nbsp;·&nbsp; About NZL (one page: board and management). Layout only: grey boxes, approved copy. Colours, images and styling come from the design system at build.</div>
+
+<header><div class="logo"></div><nav><span>The Opportunity</span><span>Portfolio</span><span>Sustainability</span><span>Investors</span><span>News</span><span class="on">About NZL</span><span>Contact</span></nav><span class="cta">Invest Now</span></header>
+
+<!-- 1. Hero: white, Light H1, intro -->
+<section class="hero wrap annot">
+  <span class="note">1 · Headline · white · medium spacing</span>
+  <h1>The people behind<br>NZ Rural Land Co (NZL)</h1>
+  <p>Meet the board that governs NZ Rural Land Co (NZL) and the team that manages it day to day.</p>
+</section>
+
+<!-- 2. How it is run: tinted block, heading left, copy right -->
+<section class="run annot">
+  <span class="note">2 · How it is run · tint block</span>
+  <h2>How NZ Rural Land Co (NZL) is run</h2>
+  <p>NZ Rural Land Co (NZL) is listed on the NZX. Our board of directors oversees the company. An external manager, New Zealand Rural Land Management (NZRLM), runs it day to day under a Management Agreement. NZRLM is 100% owned by Allied Farmers Limited. Our accountants are Deloitte, our auditors are PwC and our share registry is MUFG.</p>
+</section>
+
+<!-- 3. Board: three equal cards, circle photo placeholder -->
+<section class="board wrap annot">
+  <span class="note">3 · Board · grey band · waist-up photos</span>
+  <h2>Our board</h2>
+  <div class="cards">
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>Rob Campbell</h3>
+      <p class="role">Independent Chair<br>Appointed September 2020</p>
+      <p class="bio">Rob has more than 40 years' experience in investment management and corporate governance. He is Chair of Ara Ake and Chancellor of Auckland University of Technology. He has previously chaired SkyCity Entertainment Group, Summerset Group, Tourism Holdings and WEL Networks. Rob trained as an economist and began his career teaching economic history at Victoria University of Wellington. He is a Chartered Fellow of the Institute of Directors and was made a Companion of the New Zealand Order of Merit (CNZM) in 2019 for services to governance and business.</p>
+    </article>
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>Sarah Kennedy</h3>
+      <p class="role">Independent Director<br>Appointed April 2020</p>
+      <p class="bio">Sarah is the founder and CEO of Calocurb, a direct-to-consumer company focused on weight management. She has held executive roles at Lifestream International and Designer Textiles. From 2011 to 2014 she held senior roles at Fonterra, including Vice President of International Farming and Managing Director of RD1, Fonterra's rural retail chain. Before Fonterra, Sarah spent 10 years as Managing Director of Healtheries/Vitaco. She is a trained veterinarian.</p>
+    </article>
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>Tia Greenaway</h3>
+      <p class="role">Independent Director<br>Appointed X</p>
+      <p class="bio">Tia (Ngāti Tūwharetoa, Waikato-Tainui) leads the Rautaki Māori team at He Pou a Rangi, the Climate Change Commission. She holds roles on Iwi and Ahu Whenua trusts and committees, mainly in farming and forestry. Tia contributed to He Ara Waiora - A Pathway towards Wellbeing, a wellbeing framework developed by Māori thought leaders and the Treasury. She has a Bachelor of Music and a Masters in Professional Accounting, and is a member of Chartered Accountants Australia and New Zealand.</p>
+    </article>
+  </div>
+</section>
+
+<!-- 4. NZRLM team: grouped as in NZL's own structure chart -->
+<section class="board mgmt wrap annot">
+  <span class="note">4 · NZRLM team · three groups · same cards</span>
+  <h2>The NZRLM team</h2>
+  <h3 class="grp">Directors</h3>
+  <div class="cards">
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>Shelley Ruha</h3>
+      <p class="role">Director, NZRLM<br>Appointed April 2020</p>
+      <p class="bio">Shelley is Chair of Allied Farmers and PaySauce, and a director of Heartland Bank, Partners Group Holdings and Partners Life, 9 Spokes International and SmartPay. Her governance experience covers fintech, technology infrastructure, payments, wealth management and venture capital. Shelley has extensive banking experience in New Zealand. Her last executive role was leading BNZ Partners, covering business banking and wealth management for Bank of New Zealand.</p>
+    </article>
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>Richard Milsom</h3>
+      <p class="role">Director, NZRLM<br>Appointed X</p>
+      <p class="bio">Richard is a founder and director of NZRLM and Managing Director of Allied Farmers, NZRLM's parent company. He holds a BCom in finance and economics from the University of Canterbury, with postgraduate certificates in value investing from Columbia University in New York, and in agricultural business and leadership from Harvard Business School in Boston.</p>
+    </article>
+  </div>
+  <h3 class="grp">In-house team</h3>
+  <div class="cards">
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>Xavier Lynch</h3>
+      <p class="role">General Manager - Corporate<br>Appointed X</p>
+      <p class="bio">Xavier has experience in valuations, project finance, debt advisory, and mergers and acquisitions. His previous roles include Crown Irrigation Investments, Todd Property Group, Deloitte Corporate Finance and Bancorp Corporate Finance. Xavier holds a Master of Business (Finance) with Distinction from the University of Otago and a BCom from Massey University.</p>
+    </article>
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>Stephen Reid</h3>
+      <p class="role">Chief Financial Officer<br>Appointed X</p>
+      <p class="bio">Stephen is a Chartered Accountant with more than 20 years' experience in the property and investment management sectors, including senior finance roles in NZX-listed and private businesses. Before joining NZRLM he was Chief Financial Officer at The Icon Group, a private commercial real estate investment company. Earlier in his career he worked in accounting, analysis and investor relations, including as a sell-side analyst covering listed property for First NZ Capital (now Jarden).</p>
+    </article>
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>Ross O'Neill</h3>
+      <p class="role">Legal Counsel &amp; Secretary<br>Appointed X</p>
+      <p class="bio">Ross is a lawyer and has provided governance services to the Allied Farmers Group since February 2010. He also provides governance services to other NZX-listed entities on contract. Ross was previously a Partner at Dentons Kensington Swan, and General Counsel and Company Secretary for Contact Energy. He holds a Bachelor of Laws (LLB) from Victoria University of Wellington and is a member of the New Zealand Law Society.</p>
+    </article>
+  </div>
+  <h3 class="grp">Consultants and specialists</h3>
+  <div class="cards">
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>Hayden Dillon</h3>
+      <p class="role">Consultant<br>Appointed X</p>
+      <p class="bio">Hayden co-founded NZ Rural Land Co (NZL). He is Managing Partner for Findex's Waikato region and leads Agribusiness New Zealand. He is Chairman of Bicoeta and an independent director for farming and forestry assets around New Zealand. Hayden has more than 25 years' experience in governance, finance and risk management, including banking roles at Bank of New Zealand and NAB. He holds a Bachelor of Commerce in Agriculture and a Graduate Diploma in Applied Finance and Investment.</p>
+    </article>
+    <article class="card">
+      <div class="photo"><span>Photo</span></div>
+      <h3>James Treadwell</h3>
+      <p class="role">Forestry Specialist<br>Appointed X</p>
+      <p class="bio">James is an NZIF Registered Professional Forester and has served as President of the New Zealand Institute of Forestry for more than a decade. He founded Forest Leaders, a forestry investment and management company, and has run it for more than 20 years. With more than 30 years in forestry across New Zealand and Australia, he specialises in sustainable forest management, forestry investment, carbon forestry, and native and exotic plantations. He holds a Forest Science degree from Canterbury and a History and Economics degree from Victoria.</p>
+    </article>
+  </div>
+</section>
+
+<!-- 5. Governance documents: outlined strip, one button -->
+<section class="docs annot">
+  <span class="note">5 · Governance documents · one link</span>
+  <h2>Governance documents</h2>
+  <p>Our constitution, Management Agreement and company policies.</p>
+  <span class="btn">View company documents</span>
+</section>
+
+<footer>Shared footer (as built)</footer>
+
+</body>
+</html>

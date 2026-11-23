@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our people | NZ Rural Land Co (NZL)</title>
+<meta name="description" content="The board that governs NZ Rural Land Co (NZL) and the New Zealand Rural Land Management team that runs it day to day.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png?v=2">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="assets/css/nzl.css?v=28">
+<style>
+  /* Our People (About NZL): one page, board and NZRLM team. Wireframe approved 18 Nov. */
+  .op-hero { row-gap: 0; }
+  .op-hero .copy { grid-column: 1 / -1; }
+  .op-hero h1 { font-size: var(--display); line-height: var(--lh-display); font-weight: 700; letter-spacing: -0.02em; } /* two-tone (C15), Display size to match Contact and How to invest */
+  .op-hero h1 .dark { white-space: nowrap; }
+  @media (max-width: 1400px) { .op-hero h1 .dark { white-space: normal; } }
+  .op-hero h1 .code { font-size: 0.5em; font-weight: 300; letter-spacing: 0; }
+  .op-hero .lede { margin-top: 30px; max-width: 640px; font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--bottle-dark); }
+
+  /* How it is run: homepage feature block (C11), shorter image, card on the right */
+  .op-run { margin: 0 var(--block-inset); }
+  .op-run .feature__img { aspect-ratio: auto; height: 560px; }
+  .op-run .feature__card { left: auto; right: 50px; top: 50%; transform: translateY(-50%); width: 600px; }
+  .op-run .feature__card p { font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
+
+  .op-section { padding-top: var(--space-lg); }
+  .op-section > h2 { font-weight: 300; padding: 0 var(--grid-margin); margin-bottom: 40px; font-size: var(--h3); line-height: var(--lh-h3); color: var(--bottle); }
+  .op-group { padding: 0 var(--grid-margin); margin: 80px 0 30px; font-size: var(--caption); line-height: var(--lh-caption); font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--grass-dark); }
+  .op-section > h2 + .op-group { margin-top: 0; }
+
+  /* Each row of people stands on one grey band across the row (reference supplied by Charis) */
+  .people { margin: 0 var(--block-inset); padding: 0 var(--content-pad); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--grid-gutter); background: linear-gradient(var(--ash), var(--ash)) top / 100% 370px no-repeat; }
+  .person__photo { height: 370px; display: flex; align-items: flex-end; }
+  .person__photo img { display: block; height: 330px; width: auto; max-width: 100%; object-fit: contain; object-position: left bottom; }
+  .person__photo span { width: 180px; height: 280px; background: var(--ash); border-radius: 90px 90px 0 0; }
+  .person h3 { margin-top: 30px; font-size: var(--h6); line-height: var(--lh-h6); color: var(--bottle); }
+  .person__role { margin-top: 10px; font-size: var(--body-sm); line-height: var(--lh-body-sm); color: var(--smoke); }
+  .person__bio { margin-top: 20px; font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
+
+  .op-docs { margin: var(--space-lg) var(--block-inset) var(--space-sm); border: 1px solid var(--grass-light); }
+  /* Signup banner: left-aligned on a darkened photo, full width, joins the footer (Charis reference, 19 Nov) */
+  .op-signup { margin: 0; min-height: 394px; display: flex; align-items: center; justify-content: flex-start; text-align: left; background: linear-gradient(rgba(0, 26, 14, .45), rgba(0, 26, 14, .45)), url("assets/img/signup-banner-pasture.jpg") center / cover no-repeat, var(--bottle); color: var(--white); }
+  body:has(.op-signup) .site-footer { margin-top: 0; }
+  .op-signup .inner { width: 100%; padding: 60px var(--grid-margin); }
+  .op-signup form { max-width: 430px; margin-left: 0; margin-right: 0; }
+  .op-signup h3 { font-size: var(--h3); line-height: var(--lh-h3); white-space: nowrap; font-weight: 700; letter-spacing: 0; color: var(--white); }
+  .op-signup p { margin: 10px 0 0; max-width: 620px; font-weight: 400; font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--white); }
+  .op-signup form { margin-top: 60px; display: flex; }
+  .op-signup input { flex: 1; min-width: 0; height: 40px; padding: 0 20px; border: 1px solid var(--white); border-right: 0; background: transparent; color: var(--white); font: 400 var(--body) var(--font); letter-spacing: 0; }
+  .op-signup input::placeholder { color: var(--white); opacity: .85; }
+  .op-signup input:focus { outline: none; background: rgba(255, 255, 255, .1); }
+  .op-signup button { height: 40px; padding: 0 40px; border: 1px solid var(--white); background: var(--white); color: var(--bottle); font: 700 var(--body-sm) var(--font); letter-spacing: 0; cursor: pointer; }
+  .op-signup button:hover { background: var(--tint-mint); }
+  @media (max-width: 767px) { .op-signup .inner { padding: 60px 20px; } .op-signup h3 { white-space: normal; } .op-signup form { flex-direction: column; gap: 10px; } .op-signup input { border-right: 1px solid var(--white); } }
+  .op-docs .block__inner { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); column-gap: var(--grid-gutter); align-items: center; padding-top: 40px; padding-bottom: 40px; }
+  .op-docs h2 { grid-column: 1 / span 2; font-weight: 300; font-size: var(--h4); line-height: var(--lh-h4); letter-spacing: 0; color: var(--bottle); }
+  .op-docs p { grid-column: 3 / span 3; color: var(--bottle-dark); }
+  .op-docs .btn { grid-column: 6 / span 2; justify-self: end; }
+
+  @media (max-width: 1100px) {
+    .op-docs h2 { grid-column: 1 / -1; margin-bottom: 20px; }
+    .op-docs p { grid-column: 1 / -1; }
+    .op-docs .btn { grid-column: 1 / -1; justify-self: start; margin-top: 20px; }
+  }
+  @media (max-width: 767px) {
+    .op-hero .copy { grid-column: 1 / -1; }
+    .op-docs .block__inner { grid-template-columns: 1fr; }
+    .op-run .feature__img { height: 260px; }
+    .op-run .feature__card { width: auto; transform: none; }
+    .people { grid-template-columns: 1fr; row-gap: 60px; padding: 0 20px; background: none; }
+    .person__photo { background: var(--ash); justify-content: center; height: 280px; }
+    .person__photo span { width: 160px; height: 250px; }
+  }
+</style>
+</head>
+<body data-root="">
+
+<main class="page">
+
+  <!-- 1. Headline -->
+  <section class="op-hero grid-7 pad-md">
+    <div class="copy">
+      <h1 class="two-tone"><span class="bright">The people behind</span><span class="dark">NZ Rural Land Co <span class="code">(NZL)</span></span></h1>
+      <p class="lede">Meet the board that governs NZ Rural Land Co (NZL) and the team that manages it day to day.</p>
+    </div>
+  </section>
+
+  <!-- 2. How it is run -->
+  <section class="op-run">
+    <div class="feature">
+      <div class="feature__img"><img src="assets/img/people-pasture-shelterbelt.jpg" alt="Green pasture with a shelter belt and grazing cattle under a blue sky"></div>
+      <div class="feature__card">
+        <h4>How NZ Rural Land Co (NZL) is run</h4>
+        <p>NZ Rural Land Co (NZL) is listed on the NZX. Our board of directors oversees the company. An external manager, New Zealand Rural Land Management (NZRLM), runs it day to day under a Management Agreement. NZRLM is 100% owned by Allied Farmers Limited. Our accountants are Deloitte, our auditors are PwC and our share registry is MUFG.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Board -->
+  <section class="op-section">
+    <h2>Our board</h2>
+    <div class="people">
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>Rob Campbell</h3>
+        <p class="person__role">Independent Chair<br>Appointed September 2020</p>
+        <p class="person__bio">Rob has more than 40 years' experience in investment management and corporate governance. He is Chair of Ara Ake and Chancellor of Auckland University of Technology. He has previously chaired SkyCity Entertainment Group, Summerset Group, Tourism Holdings and WEL Networks. Rob trained as an economist and began his career teaching economic history at Victoria University of Wellington. He is a Chartered Fellow of the Institute of Directors and was made a Companion of the New Zealand Order of Merit (CNZM) in 2019 for services to governance and business.</p>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>Sarah Kennedy</h3>
+        <p class="person__role">Independent Director<br>Appointed April 2020</p>
+        <p class="person__bio">Sarah is the founder and CEO of Calocurb, a direct-to-consumer company focused on weight management. She has held executive roles at Lifestream International and Designer Textiles. From 2011 to 2014 she held senior roles at Fonterra, including Vice President of International Farming and Managing Director of RD1, Fonterra's rural retail chain. Before Fonterra, Sarah spent 10 years as Managing Director of Healtheries/Vitaco. She is a trained veterinarian.</p>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>Tia Greenaway</h3>
+        <p class="person__role">Independent Director<br>Appointed X</p>
+        <p class="person__bio">Tia (Ngāti Tūwharetoa, Waikato-Tainui) leads the Rautaki Māori team at He Pou a Rangi, the Climate Change Commission. She holds roles on Iwi and Ahu Whenua trusts and committees, mainly in farming and forestry. Tia contributed to He Ara Waiora - A Pathway towards Wellbeing, a wellbeing framework developed by Māori thought leaders and the Treasury. She has a Bachelor of Music and a Masters in Professional Accounting, and is a member of Chartered Accountants Australia and New Zealand.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4. NZRLM team -->
+  <section class="op-section">
+    <h2>The NZRLM team</h2>
+    <p class="op-group">Directors</p>
+    <div class="people">
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>Shelley Ruha</h3>
+        <p class="person__role">Director, NZRLM<br>Appointed April 2020</p>
+        <p class="person__bio">Shelley is Chair of Allied Farmers and PaySauce, and a director of Heartland Bank, Partners Group Holdings and Partners Life, 9 Spokes International and SmartPay. Her governance experience covers fintech, technology infrastructure, payments, wealth management and venture capital. Shelley has extensive banking experience in New Zealand. Her last executive role was leading BNZ Partners, covering business banking and wealth management for Bank of New Zealand.</p>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>Richard Milsom</h3>
+        <p class="person__role">Director, NZRLM<br>Appointed X</p>
+        <p class="person__bio">Richard is a founder and director of NZRLM and Managing Director of Allied Farmers, NZRLM's parent company. He holds a BCom in finance and economics from the University of Canterbury, with postgraduate certificates in value investing from Columbia University in New York, and in agricultural business and leadership from Harvard Business School in Boston.</p>
+      </article>
+    </div>
+    <p class="op-group">In-house team</p>
+    <div class="people">
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>Xavier Lynch</h3>
+        <p class="person__role">General Manager - Corporate<br>Appointed X</p>
+        <p class="person__bio">Xavier has experience in valuations, project finance, debt advisory, and mergers and acquisitions. His previous roles include Crown Irrigation Investments, Todd Property Group, Deloitte Corporate Finance and Bancorp Corporate Finance. Xavier holds a Master of Business (Finance) with Distinction from the University of Otago and a BCom from Massey University.</p>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>Stephen Reid</h3>
+        <p class="person__role">Chief Financial Officer<br>Appointed X</p>
+        <p class="person__bio">Stephen is a Chartered Accountant with more than 20 years' experience in the property and investment management sectors, including senior finance roles in NZX-listed and private businesses. Before joining NZRLM he was Chief Financial Officer at The Icon Group, a private commercial real estate investment company. Earlier in his career he worked in accounting, analysis and investor relations, including as a sell-side analyst covering listed property for First NZ Capital (now Jarden).</p>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>Ross O'Neill</h3>
+        <p class="person__role">Legal Counsel &amp; Secretary<br>Appointed X</p>
+        <p class="person__bio">Ross is a lawyer and has provided governance services to the Allied Farmers Group since February 2010. He also provides governance services to other NZX-listed entities on contract. Ross was previously a Partner at Dentons Kensington Swan, and General Counsel and Company Secretary for Contact Energy. He holds a Bachelor of Laws (LLB) from Victoria University of Wellington and is a member of the New Zealand Law Society.</p>
+      </article>
+    </div>
+    <p class="op-group">Consultants and specialists</p>
+    <div class="people">
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>Hayden Dillon</h3>
+        <p class="person__role">Consultant<br>Appointed X</p>
+        <p class="person__bio">Hayden co-founded NZ Rural Land Co (NZL). He is Managing Partner for Findex's Waikato region and leads Agribusiness New Zealand. He is Chairman of Bicoeta and an independent director for farming and forestry assets around New Zealand. Hayden has more than 25 years' experience in governance, finance and risk management, including banking roles at Bank of New Zealand and NAB. He holds a Bachelor of Commerce in Agriculture and a Graduate Diploma in Applied Finance and Investment.</p>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt="Placeholder photo"></div>
+        <h3>James Treadwell</h3>
+        <p class="person__role">Forestry Specialist<br>Appointed X</p>
+        <p class="person__bio">James is an NZIF Registered Professional Forester and has served as President of the New Zealand Institute of Forestry for more than a decade. He founded Forest Leaders, a forestry investment and management company, and has run it for more than 20 years. With more than 30 years in forestry across New Zealand and Australia, he specialises in sustainable forest management, forestry investment, carbon forestry, and native and exotic plantations. He holds a Forest Science degree from Canterbury and a History and Economics degree from Victoria.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 5. Governance documents -->
+  <section class="op-docs">
+    <div class="block__inner">
+      <h2>Governance documents</h2>
+      <p>Our constitution, Management Agreement and company policies.</p>
+      <a class="btn btn--grass" href="#">View company documents</a>
+    </div>
+  </section>
+
+  <!-- 6. Newsletter signup banner (C24), wording for this page -->
+  <section class="op-signup">
+    <div class="inner">
+      <h3>Get news from the people behind the land</h3>
+      <p>Market recaps and company updates sent straight to your inbox.</p>
+      <form onsubmit="return false"><input type="email" placeholder="Your email address" aria-label="Email address"><button type="submit">Sign up</button></form>
+    </div>
+  </section>
+
+</main>
+
+<script src="assets/js/layout.js?v=24"></script>
+</body>
+</html>

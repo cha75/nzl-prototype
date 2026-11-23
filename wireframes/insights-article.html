@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe: Insights article</title>
+<style>
+  /* Wireframe v3 (21 Nov): from Charis's editorial reference (Luchford / rag & bone article): image on top, centred title
+     and standfirst, then a narrow left-aligned reading column. Our fonts, sizes and images at build. Pull quote unchanged from v2.
+     Squarespace blog post, classic editor: everything is one content column. Running text is Body 16/24. */
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Proxima Nova", "Helvetica Neue", Arial, sans-serif; color: #222; background: #fff; }
+  .note { font: 600 11px/1.4 Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #8a5a00; background: #fff4d6; border: 1px dashed #d9a400; padding: 6px 10px; display: inline-block; }
+  .wf-top { background: #1b1b1b; color: #fff; padding: 12px 40px; font: 13px Arial, sans-serif; }
+  .wf-top b { font-size: 15px; }
+  header { height: 80px; border-bottom: 1px solid #bbb; display: flex; align-items: center; gap: 24px; padding: 0 40px; }
+  header .logo { width: 47px; height: 32px; background: #ccc; }
+  header nav { margin-left: auto; display: flex; gap: 28px; font: 700 14px Arial; color: #555; }
+  header nav .on { color: #111; text-decoration: underline; }
+  header .cta { background: #555; color: #fff; padding: 14px 22px; font: 700 14px Arial; }
+  .annot { position: relative; }
+  .annot > .note { position: absolute; top: -14px; right: 20px; z-index: 2; }
+  .g7 { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); column-gap: 40px; padding-left: 90px; padding-right: 90px; }
+
+  /* Article column widths (ref): image a little wider than the text */
+  .img-w { max-width: 860px; margin-left: auto; margin-right: auto; }
+  .col { max-width: 640px; margin-left: auto; margin-right: auto; }
+
+  /* 1. Image on top */
+  .a-top { padding: 80px 20px 0; }
+  .feature { aspect-ratio: 16 / 9; background: #d0d0d0; display: grid; place-items: center; font: 600 12px Arial; color: #666; letter-spacing: .06em; text-transform: uppercase; }
+
+  /* 2. Centred title and standfirst */
+  .a-title { padding: 80px 20px 0; text-align: center; }
+  .a-title h1 { margin: 0 auto; max-width: 860px; font-size: 48px; line-height: 56px; font-weight: 700; }
+  .a-title .stand { margin: 30px auto 0; max-width: 640px; font-size: 20px; line-height: 24px; font-weight: 700; }
+
+  /* 3. Meta line, then the reading column (left aligned) */
+  .a-body { padding: 80px 20px 0; }
+  .meta { margin: 0 0 20px; font-size: 14px; line-height: 20px; color: #777; }
+  .a-body p { margin: 0 0 20px; font-size: 16px; line-height: 24px; }
+  .a-body h2 { margin: 40px 0 10px; font-size: 16px; line-height: 24px; font-weight: 700; }
+  .skip { margin: 0 0 20px; font: 600 12px Arial; letter-spacing: .06em; text-transform: uppercase; color: #999; }
+  .fig { margin: 30px 0 30px; }
+  .fig .chart { aspect-ratio: 16 / 9; background: #e4e4e4; border: 1px solid #ccc; display: grid; place-items: center; font: 600 12px Arial; color: #666; letter-spacing: .06em; text-transform: uppercase; }
+  .fig figcaption { margin-top: 10px; font-size: 14px; line-height: 20px; color: #777; }
+
+  /* Pull quote: unchanged from v2 (Charis: "Pull quote is good") */
+  .quote { padding-top: 120px; padding-bottom: 40px; }
+  .quote blockquote { grid-column: 2 / span 5; margin: 0; font-size: 48px; line-height: 56px; font-weight: 300; }
+  .quote cite { grid-column: 2 / span 5; margin-top: 20px; font-style: normal; font-size: 14px; line-height: 20px; color: #777; }
+
+  /* 4. End of article */
+  .end { padding: 60px 20px 120px; }
+  .end .wrap { border-top: 1px solid #bbb; padding-top: 30px; }
+  .end .author { margin: 0; font-size: 16px; line-height: 24px; }
+  .end .author b { display: block; }
+  .end ol { margin: 30px 0 0; padding-left: 20px; font-size: 14px; line-height: 20px; color: #777; }
+  .end ol li { margin-bottom: 10px; }
+  .end .disc { margin: 30px 0 0; font-size: 14px; line-height: 20px; color: #777; }
+
+  /* 5. More insights (ruled list) and 6. signup, unchanged */
+  .more { padding: 80px 20px 120px; }
+  .more h2 { margin: 0 0 30px; font-size: 48px; line-height: 56px; font-weight: 300; }
+  .more ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid #bbb; }
+  .more li { padding: 20px 0; border-bottom: 1px solid #bbb; }
+  .more li .m { font-size: 14px; line-height: 20px; color: #777; }
+  .more li h3 { margin: 4px 0 0; font-size: 24px; line-height: 32px; font-weight: 400; }
+  .more .all { display: inline-block; margin-top: 30px; font: 700 14px Arial; text-decoration: underline; color: #555; }
+  .signup { background: #6f6f6f; color: #fff; padding: 120px 90px; }
+  .signup h2 { margin: 0; font-size: 40px; line-height: 48px; }
+  .signup p { margin: 10px 0 0; font-size: 22px; line-height: 32px; }
+  .signup .form { margin-top: 60px; display: flex; max-width: 430px; height: 40px; }
+  .signup .form span:first-child { flex: 1; border: 1px solid #fff; padding: 0 20px; line-height: 38px; font: 16px Arial; }
+  .signup .form span:last-child { background: #fff; color: #333; padding: 0 30px; line-height: 40px; font: 700 14px Arial; }
+  footer { background: #cfcfcf; height: 220px; display: grid; place-items: center; font: 600 13px Arial; color: #555; }
+
+  @media (max-width: 767px) {
+    .wf-top { padding: 10px 16px; }
+    header { padding: 0 16px; } header nav { display: none; } header .cta { margin-left: auto; padding: 12px 14px; }
+    .g7 { grid-template-columns: 1fr; padding-left: 20px; padding-right: 20px; }
+    .annot > .note { position: static; grid-column: 1 / -1; margin-bottom: 10px; justify-self: start; }
+    .a-top { padding-top: 40px; } .a-title, .a-body { padding-top: 40px; }
+    .a-title h1 { font-size: 32px; line-height: 40px; }
+    .quote { padding-top: 60px; } .quote blockquote, .quote cite { grid-column: 1; } .quote blockquote { font-size: 32px; line-height: 40px; }
+    .end { padding-bottom: 60px; }
+    .more { padding-top: 60px; padding-bottom: 60px; } .more h2 { font-size: 32px; line-height: 40px; }
+    .more li h3 { font-size: 18px; line-height: 24px; }
+    .signup { padding: 60px 20px; } .signup .form { max-width: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wf-top"><b>WIREFRAME v3 · Insights article</b> &nbsp;·&nbsp; From Charis’s editorial reference: image, centred title and standfirst, narrow reading column. Squarespace blog post, one content column. Example: “The NZ dairy sector”. Full article text from the live site.</div>
+
+<header><div class="logo"></div><nav><span>Portfolio</span><span>Sustainability</span><span>Investors</span><span class="on">News</span><span>People</span><span>Contact</span></nav><span class="cta">Invest Now</span></header>
+
+<!-- 1. Image -->
+<section class="a-top annot">
+  <span class="note">1 · Featured image on top · a little wider than the text</span>
+  <div class="feature img-w">Featured image</div>
+</section>
+
+<!-- 2. Title and standfirst -->
+<section class="a-title annot">
+  <span class="note">2 · Title (H1 at H2 size, one colour) and standfirst · centred</span>
+  <h1>The NZ dairy sector – A cornerstone of the NZL’s portfolio</h1>
+  <p class="stand">Why dairy land provides a reliable income base within a diversified rural land portfolio.</p>
+</section>
+
+<!-- 3. Body: full article text from the live site -->
+<section class="a-body annot">
+  <span class="note">3 · Meta line, then Body 16/24 reading column · left aligned · bold subheadings (H2) · full article</span>
+  <div class="col">
+    <p class="meta">Carla Muller, Perrin Ag &nbsp;•&nbsp; April 2026</p>
+    <h2>Why dairy still matters</h2>
+    <p>Within a diversified rural land portfolio, not all land uses play the same role. Some provide growth, some provide diversification, and some provide a reliable income base over time, even where underlying commodity prices are volatile.</p>
+    <p>But in an increasingly uncertain world, the more important question is not just how an asset performs in stable conditions, it is how it performs in volatile conditions. What happens to demand if global trade fragments? What happens to supply chains in a geopolitical shock? What happens to consumption patterns as technologies like GLP-1[1] drugs reshape diets? And which agricultural systems and countries remain competitive as environmental and social constraints tighten?</p>
+    <p>In that context, the competitiveness of New Zealand dairy is not just about cost of production, but about its ability to remain viable and relevant across a range of future scenarios. It is this durability that underpins dairy’s role within NZ Rural Land Co’s (NZL’s) portfolio.</p>
+    <h2>A structurally competitive production system</h2>
+    <p>New Zealand dairy’s dominant global position is not accidental. It is built on a set of structural advantages that have proven durable across commodity cycles, regulatory change, and shifting market conditions.</p>
+    <p>At the core of this competitiveness is New Zealand’s pasture-based production system. In simple terms, New Zealand cows graze on pasture year-round - they eat grass grown in the paddocks where they live, rather than being housed and fed on imported feed. Unlike many Northern Hemisphere dairy industries, which rely heavily on imported feed and intensive animal housing systems, New Zealand farms are built around high utilisation of homegrown pasture. This reduces exposure to volatile global input markets, particularly feed, fertiliser, and energy. In more intensive international systems, feed can represent a substantial share of total production costs, whereas New Zealand’s use of pasture creates a structurally lower-cost model.</p>
+    <p>This advantage is evident in long-term global benchmarking data. As shown in Figure 1, New Zealand has consistently operated at the lower end of the global dairy cost curve over the past two decades, despite periods of rising input costs and market volatility. While all systems experience cost cycles, the relative position is persistent: more intensive systems, such as those in the United States, tend to carry structurally higher costs, while pasture-based systems such as New Zealand and parts of Ireland remain more cost-efficient. This reflects fundamental differences in system design rather than short-term market conditions.</p>
+    <figure class="fig">
+      <div class="chart">Figure 1 · chart (original file, not a screenshot)</div>
+      <figcaption>Figure 1: On-farm cost of milk production in various dairy countries (DairyNZ, 2025)[2] (Cost of production is measured in US cents per litre of milk and is energy corrected to allow for differences in milksolids % between countries)</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="quote g7 annot">
+  <span class="note">Pull quote 1 of 3 · same style throughout · credit only if not the article author</span>
+  <blockquote>“New Zealand dairy’s dominant global position is not accidental.”</blockquote>
+</section>
+
+<section class="a-body">
+  <div class="col">
+    <p>New Zealand produces a small share of global milk supply, but accounts for a disproportionately large share of internationally traded dairy products. This means global prices directly affect New Zealand&#x27;s returns - but it also means New Zealand plays a meaningful role in how those prices are set, particularly for commodities like whole milk powder. For investors, this is a reminder that the New Zealand dairy sector is not a peripheral market. It is deeply embedded in global food systems and aligned with long-term demand for high-quality protein.</p>
+    <p>Importantly, productivity gains within the New Zealand dairy sector have historically been achieved through system optimisation rather than intensification. Improvements in pasture utilisation, genetics, and farm systems have driven steady increases in output without a proportional increase in input use. This focus on efficiency, producing more from the same land and inputs, has become increasingly important as both environmental constraints and input costs rise globally.</p>
+    <h2>Dairy in an uncertain world</h2>
+    <p>The global operating environment for agriculture is becoming more complex. Geopolitical tension, trade realignment, and supply chain fragility are no longer edge-case risks, they are recurring features of the global economy. In a more fragmented world, access to reliable food supply becomes more important. Countries that are structurally short on land, water, or climate suitability will continue to depend on imported protein. In that context, export-oriented dairy systems shift from being participants in global trade to becoming components of global food security. New Zealand’s dairy sector, built on natural advantages of climate and pasture, remains one of the more efficient exporters of milk solids globally. That efficiency matters more, in a more constrained world.</p>
+    <p>At the same time, global trade is unlikely to move in a straight line. Periods of protectionism or disruption may restrict access to specific markets. However, New Zealand dairy’s broad export footprint and established trade relationships provide diversification across end markets. While individual trade channels may tighten, underlying global demand for dairy is unlikely to disappear.</p>
+    <p>New Zealand’s dairy export markets have evolved materially over the past decade (Figure 2). China’s share of New Zealand’s exports increased steadily from the mid-2010s, peaking in 2021 before moderating and stabilising at around one-third of total exports. While this highlights a period of increased concentration, it also reflects the sector’s ability to rebalance over time. Demand from Southeast Asia, alongside stable markets such as Australia, Japan and the United States, continues to provide a broader base of support. Importantly, many of these Southeast Asian and Middle Eastern markets represent fast-growing, structurally undersupplied regions, where rising incomes, population growth and limited domestic dairy production are expected to support long-term demand. This reinforces the resilience and forward demand profile of New Zealand’s dairy export sector.</p>
+    <figure class="fig">
+      <div class="chart">Figure 2 · chart (original file, not a screenshot)</div>
+      <figcaption>Figure 2: Proportion of New Zealand’s total dairy exports by country (Source: StatsNZ)</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="quote g7 annot">
+  <span class="note">Pull quote 2 of 3 · same style throughout · credit only if not the article author</span>
+  <blockquote>“In a more fragmented world, access to reliable food supply becomes more important.”</blockquote>
+</section>
+
+<section class="a-body">
+  <div class="col">
+    <p>There are also emerging demand-side questions. The rise of GLP-1 drugs, for example, may influence consumption patterns in developed markets, particularly for high-calorie or discretionary foods. However, dairy is not a single product category. It spans a wide range of nutritional uses, from infant formula and protein ingredients to everyday staples and functional foods. Any demand shifts are likely to be uneven across products rather than a structural collapse in demand for dairy as a whole.</p>
+    <p>As shown in Figure 3, export values have increased materially over the past three decades, reflecting both rising global demand and the sector’s ability to scale efficiently. While milk powder remains the backbone of export revenue, the composition of exports has broadened, with butter and cheese becoming increasingly significant contributors. This shift toward a more diversified product mix enhances revenue resilience and reduces reliance on any single product category, particularly in periods of commodity price volatility.</p>
+    <figure class="fig">
+      <div class="chart">Figure 3 · chart (original file, not a screenshot)</div>
+      <figcaption>Figure 3: New Zealand dairy export value by product group (Source, StatsNZ)</figcaption>
+    </figure>
+    <p>More broadly, as global food systems evolve, attributes such as traceability, emissions intensity, and production efficiency are becoming increasingly important. New Zealand’s pasture-based systems, with relatively low reliance on imported inputs and established quality assurance frameworks, are well positioned in this environment. Taken together, these dynamics suggest that while volatility may increase, the strategic importance of efficient, export-capable dairy systems is likely to persist.</p>
+    <h2>Alignment with NZL’s investment model</h2>
+    <p>NZL’s investment model is based on owning high-quality rural land and leasing it to capable operators under long-term, CPI-linked agreements. Dairy aligns strongly with this model because of its ability to generate consistent production and cashflow over time. While dairy farm profitability varies with payout cycles, production continues annually, supporting the underlying capacity of tenants to meet lease obligations. Over time, dairy prices tend to reflect broader inflationary trends, reinforcing the inflation-linked characteristics of both farm income and NZL’s lease structures. This creates a natural alignment between the underlying land use and the investment model.</p>
+    <p>The sector also benefits from depth of capability. Dairy is one of the most professionally developed agricultural industries in New Zealand, supported by strong management expertise, well-established service industries, and robust benchmarking systems. This supports consistent operational performance across different market conditions.</p>
+    <p>Importantly, NZL’s lease-based structure separates land ownership from operational volatility. While farm-level returns may fluctuate, lease structures provide a degree of income stability at the portfolio level. This becomes increasingly valuable in a more volatile global environment.</p>
+  </div>
+</section>
+
+<section class="quote g7 annot">
+  <span class="note">Pull quote 3 of 3 · same style throughout · credit only if not the article author</span>
+  <blockquote>“Dairy is not simply another component of the portfolio. It anchors the income base of the portfolio.”</blockquote>
+</section>
+
+<section class="a-body">
+  <div class="col">
+    <h2>Operating within new constraints</h2>
+    <p>Despite its strengths, the dairy sector is operating in a more constrained and scrutinised environment than in previous decades. Environmental regulation, evolving social expectations, and both input and output price volatility all present ongoing challenges.</p>
+    <p>Regulatory requirements around water quality, nutrient management, and emissions are increasing the cost and complexity of farming. However, these changes are also driving system improvements. Lower-input, pasture-based systems (the New Zealand model) are generally better aligned with emerging regulatory expectations than more intensive international models. In this context, environmental pressure acts not only as a constraint but also as a driver of efficiency and system optimisation.</p>
+    <p>Social licence, both locally and globally, is another important consideration. Public expectations around environmental performance and animal welfare continue to evolve, requiring greater transparency and ongoing investment from the sector. While this adds complexity, it also reinforces the importance of high-quality land stewardship, which aligns closely with NZL’s long-term ownership approach.</p>
+    <p>Commodity price volatility remains an inherent feature of dairy markets. This volatility is reflected in sector-level return variability, which is higher than for other land uses in NZL’s portfolio. However, within NZL’s model, this risk is partially buffered at the investor level through lease structures, allowing exposure to long-term sector performance without full exposure to short-term price movements.</p>
+    <h2>A cornerstone within a diversified portfolio</h2>
+    <p>Within NZL’s portfolio, dairy plays a distinct and foundational role. As highlighted in previous analysis, diversification across land uses reduces risk and improves overall portfolio resilience. However, diversification depends on the presence of assets that can consistently generate income over time. Dairy provides that foundation. It delivers consistent production and cashflow, supporting the reliability of lease income even in the presence of market volatility. It complements higher-growth or less correlated sectors such as horticulture and forestry, which may offer stronger capital upside or diversification benefits but typically carry different risk profiles. In this context, dairy is not simply another component of the portfolio. It anchors the income base of the portfolio, providing the stability that makes diversification into higher-growth sectors both possible and lower-risk.</p>
+    <h2>Built for an uncertain future</h2>
+    <p>The New Zealand dairy sector is not without pressure. Environmental constraints, evolving social expectations, and global market volatility will continue to shape how the sector operates. At the same time, the broader context is becoming more uncertain, with geopolitical tension, shifting trade dynamics, and changing consumption patterns all influencing how food systems evolve. For investors, the critical question is not whether dairy is exposed to volatility, but whether it remains relevant across a range of possible futures.</p>
+    <p>New Zealand dairy’s pasture-based efficiency, global market integration, and ability to produce high-quality protein at scale position it well in a world where food security, supply chain resilience, and production efficiency are becoming increasingly important. While demand patterns may shift and trade flows may become less predictable, the underlying need for reliable, scalable food production is unlikely to diminish.</p>
+    <p>For NZL, this reinforces the role of dairy within the portfolio. It provides a dependable income base today, supported by consistent production, while also sitting on land that is likely to retain its productive and strategic value over time. In a portfolio context, dairy is not about eliminating volatility or predicting a single future. It is about holding an asset that performs across multiple futures, resilient where it needs to be, adaptable where it must be, and globally relevant and competitive throughout.</p>
+    <p>In that sense, dairy is not just a cornerstone of NZL’s portfolio. It is a land use that remains strategically important in a world where the reliability of food production is becoming increasingly valuable.</p>
+  </div>
+</section>
+
+<!-- 4. End of article -->
+<section class="end annot">
+  <span class="note">4 · Author, footnotes, disclaimer · Body Small</span>
+  <div class="col wrap">
+    <p class="author"><b>Carla Muller</b>Principal Consultant, Perrin Ag, in collaboration with NZ Rural Land Co (NZL)</p>
+    <ol>
+      <li>GLP-1 drugs are a class of medications, such as Ozempic and Wegovy, that mimic a natural gut hormone to regulate appetite, slow digestion, and increase feelings of fullness. Originally designed to treat Type 2 diabetes, they are increasing in popularity as weight loss drugs.</li>
+      <li>dairynz.co.nz: How New Zealand became and remains the world’s lowest cost milk producer</li>
+    </ol>
+    <p class="disc">The opinions and views expressed in this article are the author’s own and do not necessarily reflect the views and opinions of New Zealand Rural Land Company Limited or its Board of Directors.</p>
+  </div>
+</section>
+
+<!-- 5. More insights -->
+<section class="more annot">
+  <span class="note">5 · Summary block, list layout · ruled rows, no image · article text width</span>
+  <div class="col">
+  <h2>More insights</h2>
+  <div class="list">
+    <ul>
+      <li><div><span class="m">Diversification · X</span><h3>The Role of Land Use Diversification in Rural Land Investment</h3></div></li>
+      <li><div><span class="m">Markets · X</span><h3>Rural Land – A Compelling part of a Diversified Investment Strategy</h3></div></li>
+      <li><div><span class="m">Carbon and sustainability · X</span><h3>Understanding the NZ ETS changes and what they mean for your investment</h3></div></li>
+    </ul>
+    <span class="all">All insights</span>
+  </div>
+  </div>
+</section>
+
+<!-- 6. Signup -->
+<section class="signup annot">
+  <span class="note">6 · Newsletter block · same banner and copy as Insights · joins the footer</span>
+  <h2>Get our next insight in your inbox</h2>
+  <p>New articles on New&nbsp;Zealand rural land, plus market recaps and company updates.</p>
+  <div class="form"><span>Your email address</span><span>Sign up</span></div>
+</section>
+
+<footer>Footer</footer>
+
+</body>
+</html>

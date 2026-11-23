@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-NZ"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact: option 3</title>
+<link rel="icon" type="image/png" href="../assets/img/favicon.png?v=2">
+<link rel="stylesheet" href="../assets/css/nzl.css?v=28">
+<style>
+  /* Option 3, revised (Charis, 18 Nov): reference layout. Left: headline, short intro, compact form. Right: contacts by area, address, wide image. */
+  .ct { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); column-gap: var(--grid-gutter); padding-left: var(--grid-margin); padding-right: var(--grid-margin); }
+  .ct-left { grid-column: 1 / span 2; display: flex; flex-direction: column; }
+  .ct-left h1 { font-weight: 300; color: var(--grass); font-size: var(--h2); line-height: var(--lh-h2); }
+  .ct-left .lede { margin-top: 20px; font-size: var(--body-sm); line-height: var(--lh-body-sm); color: var(--bottle-dark); }
+  .ct-right { grid-column: 4 / span 4; }
+  .ct-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--grid-gutter); row-gap: 40px; }
+  .ct-item .lbl { font-size: var(--body-sm); line-height: var(--lh-body-sm); color: var(--smoke); }
+  .ct-item p, .ct-item a { display: block; margin-top: 10px; font-size: var(--body-sm); line-height: var(--lh-body-sm); font-weight: 700; color: var(--bottle-dark); text-decoration: none; }
+  .ct-item a:hover { color: var(--grass-dark); }
+  .ct-item p { font-weight: 400; }
+  .ct-img { margin-top: var(--space-sm); aspect-ratio: 16 / 7; overflow: hidden; }
+  .ct-img img { width: 100%; height: 100%; object-fit: cover; }
+  /* Compact form: thin underline fields, no boxes */
+  .mini-form { margin-top: var(--space-sm); display: grid; gap: 10px; }
+  .mini-form label { display: block; font-size: var(--caption); line-height: var(--lh-caption); color: var(--smoke); }
+  .mini-form input, .mini-form textarea { display: block; width: 100%; border: 1px solid var(--grass-light); padding: 10px; margin-top: 4px; font: 400 var(--body-sm)/var(--lh-body-sm) var(--font); color: var(--bottle-dark); background: transparent; }
+  .mini-form textarea { height: 60px; resize: vertical; }
+  .mini-form input:focus, .mini-form textarea:focus { outline: none; border-color: var(--grass); }
+  .mini-form .btn { height: 40px; padding: 0 20px; }
+  @media (max-width: 767px) {
+    .ct { grid-template-columns: 1fr; row-gap: 40px; }
+    .ct-left, .ct-right { grid-column: 1; }
+    .ct-left .lede { max-width: none; }
+    .ct-grid { grid-template-columns: 1fr 1fr; row-gap: 30px; }
+  }
+</style></head>
+<body data-root="../">
+<main class="page">
+  <section class="ct pad-md">
+    <div class="ct-left">
+      <h1>Get in touch</h1>
+      <p class="lede">Have a question about investing in New Zealand rural land, or about New Zealand Rural Land Company? Get in touch with the right person below, or send us a message.</p>
+      <form class="mini-form" onsubmit="return false">
+        <label>Name<input type="text"></label>
+        <label>Email<input type="email"></label>
+        <label>Message<textarea></textarea></label>
+        <div><button class="btn btn--grass">Send message</button></div>
+      </form>
+    </div>
+    <div class="ct-right">
+      <div class="ct-grid">
+        <div class="ct-item"><div class="lbl">General enquiries</div><a href="mailto:info@nzrlc.co.nz">info@nzrlc.co.nz</a><a href="tel:+6492172905">+64 9 217 2905</a></div>
+        <div class="ct-item"><div class="lbl">Investing</div><a href="mailto:invest@nzrlc.co.nz">invest@nzrlc.co.nz</a></div>
+        <div class="ct-item"><div class="lbl">Shareholders</div><a href="mailto:shareholders@nzrlc.co.nz">shareholders@nzrlc.co.nz</a></div>
+        <div class="ct-item"><div class="lbl">Media</div><a href="mailto:media@nzrlc.co.nz">media@nzrlc.co.nz</a></div>
+        <div class="ct-item"><div class="lbl">Office</div><p>Level 4, 131 Queen Street<br>Auckland CBD, Auckland 1010</p></div>
+        <div class="ct-item"><div class="lbl">Postal</div><p>PO Box 177, Shortland Street<br>Auckland 1050</p></div>
+      </div>
+      <div class="ct-img"><img src="../assets/img/home/feature-rolling-hills.jpg" alt="Rolling green hill country"></div>
+    </div>
+  </section>
+</main>
+<script src="../assets/js/layout.js?v=24"></script>
+</body></html>

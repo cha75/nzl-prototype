@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en-NZ"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | NZ Rural Land Co (NZL)</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png?v=2">
+<link rel="stylesheet" href="assets/css/nzl.css?v=28">
+<style>
+  .opt-tag { background:#1b1b1b; color:#fff; font:600 12px Arial; letter-spacing:.06em; text-transform:uppercase; padding:10px 40px; }
+  .areas { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:var(--grid-gutter); }
+  .area .lbl { font-size:var(--caption); line-height:var(--lh-caption); font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+  .area a, .area p { display:block; margin-top:10px; font-size:var(--body); line-height:var(--lh-body); }
+  .details dt { font-size:var(--caption); line-height:var(--lh-caption); font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-top:20px; }
+  .details dd { margin:0; font-size:var(--body); line-height:var(--lh-body); }
+  .form label { color:inherit; }
+  .t-hero h1 { font-size: var(--display); line-height: var(--lh-display); font-weight: 700; letter-spacing: -0.02em; } /* two-tone, as in the emails (C15) */
+  .t-hero .lede { margin-top: 20px; max-width: 50vw; font-size: var(--h6); line-height: var(--lh-h6); font-weight: 300; color: var(--bottle-dark); }
+  .t-areas { border-top: 1px solid var(--grass-light); border-bottom: 1px solid var(--grass-light); }
+  .t-areas .lbl, .t-direct .lbl { color: var(--grass-dark); }
+  .t-direct a { color: var(--bottle); font-weight: 700; text-decoration: none; }
+  .t-direct p { color: var(--bottle); } .t-areas a { color: var(--bottle); font-weight: 700; text-decoration: none; }
+  .t-bottom { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); column-gap: var(--grid-gutter); }
+  .t-bottom .details { grid-column: 1 / span 2; color: var(--bottle-dark); } .t-bottom .details dt { color: var(--grass-dark); }
+  .t-bottom .mini-form { grid-column: 1 / span 2; align-self: start; }
+  .mini-form { display: grid; gap: 10px; }
+  .mini-form label { display: block; font-size: var(--caption); line-height: var(--lh-caption); color: var(--smoke); }
+  .mini-form input, .mini-form textarea { display: block; width: 100%; border: 1px solid var(--grass-light); padding: 10px; margin-top: 4px; font: 400 var(--body-sm)/var(--lh-body-sm) var(--font); color: var(--bottle-dark); background: transparent; }
+  .mini-form textarea { height: 60px; resize: vertical; }
+  .mini-form input:focus, .mini-form textarea:focus { outline: none; border-color: var(--grass); }
+  .mini-form .btn { height: 40px; padding: 0 20px; }
+
+  @media (max-width:767px) { .areas { grid-template-columns:1fr 1fr; row-gap:30px; } .t-hero h1 { font-size: 72px; line-height: 80px; } .t-hero .lede { max-width: none; } .t-bottom { grid-template-columns: 1fr; row-gap: 40px; } .t-bottom .details, .t-bottom .mini-form { grid-column: 1; } }
+
+  /* Contact rows (Charis, 18 Nov): labels Mint Bold; all info Light, one size (same as the email address) */
+  .t-direct .area .lbl, .t-areas .area .lbl { color: var(--grass); font-weight: 700; }
+  .t-direct .area a, .t-direct .area p, .t-areas .area a, .t-areas .area p { font-weight: 300; font-size: var(--body); line-height: var(--lh-body); color: var(--bottle); }
+
+  .t-bottom .t-img { grid-column: 3 / span 5; overflow: hidden; align-self: start; height: 445px; }
+  .t-bottom .t-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width:767px) { .t-bottom .t-img { grid-column: 1; height: auto; aspect-ratio: 4 / 3; } }
+</style></head>
+<body data-root="">
+<main class="page">
+
+  <section class="t-hero grid-7" style="padding-top:var(--space-md);padding-bottom:169px"><div style="grid-column:1/-1;width:fit-content"><h1 class="two-tone"><span class="bright">Get in touch</span><span class="dark">We’re here to help</span></h1><p class="lede">Have a question about investing in New Zealand rural land, or about New Zealand Rural Land Company? Send us a message and our team will get back to you.</p></div></section>
+  <section class="t-direct grid-7" style="margin:0 var(--grid-margin);padding:0 0 30px">
+    <div class="areas" style="grid-column:1/-1">
+      <div class="area"><div class="lbl">Email</div><a href="mailto:info@nzrlc.co.nz">info@nzrlc.co.nz</a></div>
+      <div class="area"><div class="lbl">Phone</div><a href="tel:+6492172905">+64 9 217 2905</a></div>
+      <div class="area"><div class="lbl">Office</div><p>Level 4, 131 Queen Street<br>Auckland CBD, Auckland 1010</p></div>
+      <div class="area"><div class="lbl">Postal</div><p>PO Box 177, Shortland Street<br>Auckland 1050</p></div>
+    </div>
+  </section>
+  <section class="t-areas grid-7 pad-sm" style="margin:0 var(--grid-margin);padding-left:0;padding-right:0"><div class="areas" style="grid-column:1/-1">
+      <div class="area"><div class="lbl">Investing</div><a href="mailto:invest@nzrlc.co.nz">invest@nzrlc.co.nz</a></div>
+      <div class="area"><div class="lbl">Your shareholding</div><a href="mailto:shareholders@nzrlc.co.nz">shareholders@nzrlc.co.nz</a></div>
+      <div class="area"><div class="lbl">Media</div><a href="mailto:media@nzrlc.co.nz">media@nzrlc.co.nz</a></div>
+  </div></section>
+  <section class="t-bottom pad-md" style="padding-left:var(--grid-margin);padding-right:var(--grid-margin)">
+      <form class="mini-form" onsubmit="return false">
+        <label>Name<input type="text"></label>
+        <label>Email<input type="email"></label>
+        <label>Message<textarea></textarea></label>
+        <div><button class="btn btn--grass">Send message</button></div>
+      </form>
+      <div class="t-img"><img src="assets/img/contact-dairy-herd.jpg" alt="Dairy cows on green pasture"></div>
+  </section>
+</main>
+<script src="assets/js/layout.js?v=24"></script>
+</body></html>
