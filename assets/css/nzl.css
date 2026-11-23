@@ -36,7 +36,7 @@
   --charcoal: #434343;
 
   /* Type (Figma variables: NZL Typography) */
-  --font: "Proxima Nova", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+  --font: "proxima-nova", "Helvetica Neue", Arial, sans-serif; /* published copy: skip local "Proxima Nova" installs, which can be partial and show boxes; Adobe web font goes first once the kit is added */
   --h1: 80px; --h2: 48px; --h3: 40px; --h4: 32px; --h5: 24px; --h6: 20px;
   --body-lg: 22px; --body: 16px; --body-sm: 14px; --caption: 12px; --footnote: 10px;
   --lh-head: 1.2; --lh-body: 1.4;
