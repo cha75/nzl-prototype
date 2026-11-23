@@ -40,9 +40,14 @@
   .carousel .article-card h3 { margin-top: 30px; }
   .carousel .article-card p { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
   .home .insights .btn { margin-top: var(--space-sm); }
-  .home .brokers-block .block__inner { padding-top: 0; padding-bottom: var(--space-sm); }
-  .home .brokers-block .empty { height: 516px; }
-  .home .brokers-block img { width: 100%; height: auto; background: var(--white); }
+  .home .brokers-block { background: none; } .home .brokers-block .block__inner { padding: 0; } /* no green border, white box only (Charis, 24 Nov) */
+  /* White box: NZX line, broker intro, logos at half size with tighter spacing (Charis, 24 Nov) */
+  .home .brokers-block .broker-box { background: var(--white); padding: 60px 40px; text-align: center; }
+  .home .brokers-block .nzx-line { color: var(--bottle); }
+  .home .brokers-block .nzx-logo { display: block; width: 180px; height: auto; margin: 30px auto 0; } /* NZX logo from the live site (nzx.png) */
+  .home .brokers-block .broker-intro { margin-top: 80px; font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--bottle); }
+  .home .brokers-block .broker-logos { list-style: none; margin: 30px 0 0; padding: 0; display: flex; justify-content: center; align-items: center; gap: 120px; }
+  .home .brokers-block .broker-logos img { width: auto; display: block; }
   @media (max-width: 1100px) {
     .home .stats__grid { grid-template-columns: repeat(3, 1fr); }
     .home .split-list h2, .home .split-list ul { grid-column: 1 / -1; }
@@ -63,8 +68,6 @@
     .home .insights { padding-top: 40px; padding-bottom: 40px; }
     .home .insights .articles__intro { font-size: 24px; }
     .carousel { grid-auto-columns: 82%; gap: 20px; }
-    .home .brokers-block .block__inner { padding-bottom: 20px; }
-    .home .brokers-block .empty { height: 180px; }
   }
   .home main h1, .home main h2 { font-weight: 700; } /* back to Bold to match the rest of the site (Charis, 24 Nov) */
 </style>
@@ -227,10 +230,18 @@
     <a class="btn btn--grass" href="#subscribe">Subscribe</a>
   </section>
 
-  <!-- 12. Green block with broker logos (top area empty in Figma, left as designed) -->
+  <!-- 12. White box: NZX listing and broker logos -->
   <section class="block block--grass brokers-block">
-    <div class="empty" aria-hidden="true"></div>
-    <div class="block__inner"><img src="assets/img/home/brokers.png" alt="Brokers: Craigs Investment Partners, Jarden, Sharesies"></div>
+    <div class="block__inner"><div class="broker-box">
+      <h3 class="nzx-line">NZ Rural Land Co (NZL) is an NZX listed company</h3>
+      <img class="nzx-logo" src="assets/img/home/nzx-logo.png" alt="NZX">
+      <p class="broker-intro">You can invest yourself or via a broker</p>
+      <ul class="broker-logos">
+        <li><img src="assets/img/home/broker-jarden.png" alt="Jarden" style="height: 102px"></li>
+        <li><img src="assets/img/home/broker-craigs.png" alt="Craigs Investment Partners" style="height: 57px"></li>
+        <li><img src="assets/img/home/broker-sharesies.png" alt="Sharesies" style="height: 98px"></li>
+      </ul>
+    </div></div>
   </section>
 
   </div><!-- /after-media -->
