@@ -27,6 +27,7 @@
   .su-split > h2, .su-head { font-size: var(--h3); line-height: var(--lh-h3); font-weight: 700; letter-spacing: 0; color: var(--bottle); }
   .su-copy p { max-width: 720px; font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
   .su-copy p + p { margin-top: 20px; }
+  .su-copy p.t-body-lg { font-size: var(--body-lg); line-height: var(--lh-body-lg); } /* expertise intro in Body Large Light (Charis, 25 Nov) */
   .src { color: var(--smoke); font-size: var(--body-sm); }
 
   /* 2. Why it matters */
@@ -117,21 +118,25 @@
   .docs .t small { display: block; margin-top: 4px; font-size: var(--body-sm); line-height: var(--lh-body-sm); font-weight: 400; color: var(--smoke); }
   .docs a { font-size: var(--body-sm); font-weight: 700; color: var(--clover); white-space: nowrap; }
 
-  /* 10. The people behind it: People page cards, names and roles only */
+  /* 10. The expertise behind our commitments: same heading layout as Why and Projects, then three columns with circle photos */
   .su-people { padding: var(--space-lg) 0 var(--space-lg); }
   .su-people .btn { margin-top: 40px; }
-  .people { margin: var(--space-md) var(--block-inset) 0; padding: 0 var(--content-pad); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--grid-gutter); background: linear-gradient(var(--ash), var(--ash)) top / 100% 370px no-repeat; }
-  .person__photo { height: 370px; display: flex; align-items: flex-end; }
-  .person__photo img { display: block; height: 330px; width: auto; max-width: 100%; object-fit: contain; object-position: left bottom; }
-  .person h3 { margin-top: 30px; font-size: var(--h6); line-height: var(--lh-h6); color: var(--bottle); }
-  .person__role { margin-top: 10px; font-size: var(--body-sm); line-height: var(--lh-body-sm); color: var(--smoke); }
+  .experts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: var(--space-md) var(--grid-margin) 0; }
+  .expert { padding: 0 40px; text-align: left; } /* left aligned (Charis, 24 Nov) */
+  .expert:first-child { padding-left: 0; }
+  .expert + .expert { border-left: 1.5px solid var(--grass-light); }
+  .expert img { display: block; width: 160px; height: 160px; margin: 0 auto 30px; border-radius: 50%; object-fit: cover; object-position: center top; background: var(--ash); margin-left: 0; }
+  .expert .eyebrow-p { margin: 0 0 10px; font-size: var(--caption); line-height: var(--lh-caption); font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--bottle); }
+  .expert h3 { font-size: var(--h5); line-height: var(--lh-h5); font-weight: 700; letter-spacing: 0; color: var(--grass); }
+  .expert .role { margin-top: 4px; font-size: var(--body-sm); line-height: var(--lh-body-sm); color: var(--smoke); }
+  .expert p:last-child { margin-top: 20px; font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
 
   /* 12. Signup band: same as the other pages */
-  .op-signup { margin: 0; min-height: 394px; display: flex; align-items: center; background: linear-gradient(rgba(0, 26, 14, .45), rgba(0, 26, 14, .45)), url("assets/img/signup-sustainability-pasture.jpg") center / cover no-repeat, var(--bottle); color: var(--white); }
+  .op-signup { margin: 0; min-height: 470px; /* signup strip 470px high (Charis, 25 Nov) */ display: flex; align-items: center; background: linear-gradient(rgba(0, 26, 14, .45), rgba(0, 26, 14, .45)), url("assets/img/signup-sustainability-paddock-slope.jpg") center / cover no-repeat, var(--bottle); color: var(--white); }
   body:has(.op-signup) .site-footer { margin-top: 0; }
   .op-signup .inner { width: 100%; padding: 60px var(--grid-margin); }
   .op-signup h3 { font-size: var(--h3); line-height: var(--lh-h3); font-weight: 700; letter-spacing: 0; color: var(--white); }
-  .op-signup p { margin: 10px 0 0; max-width: 620px; font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--white); }
+  .op-signup p { margin: 20px 0 0; /* doubled from 10 (Charis, 25 Nov) */ max-width: 620px; font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--white); }
   .op-signup form { margin-top: 60px; display: flex; max-width: 430px; }
   .op-signup input { flex: 1; min-width: 0; height: 40px; padding: 0 20px; border: 1px solid var(--white); border-right: 0; background: transparent; color: var(--white); font: 400 var(--body) var(--font); }
   .op-signup input::placeholder { color: var(--white); opacity: .85; }
@@ -213,9 +218,13 @@
           <li>Water use is metered and checked for efficiency.</li>
           <li>Fertiliser is matched to what pasture and crops need, and stored to avoid spills, keeping nitrogen losses within consented limits.</li>
           <li>Farming practices limit erosion, runoff and sediment loss.</li>
+          <li>Winter grazing of forage crops is planned to reduce nutrient and sediment losses.</li>
           <li>Effluent systems meet industry codes of practice, with enough storage to hold effluent until the soil is dry enough to absorb it.</li>
           <li>Stock are kept out of waterways, and planted margins along streams are maintained.</li>
+          <li>Farm tracks, gateways, water troughs and stock camps are placed to protect waterways.</li>
+          <li>Extra native planting goes in along waterways where possible.</li>
           <li>Native vegetation, wetlands and springs are identified and protected, and mahinga kai values are taken into account.</li>
+          <li>Pest plants are managed under regional council rules.</li>
           <li>Silage pits, offal pits, rubbish and fuel are managed so nothing leaks into groundwater or streams.</li>
           <li>Greenhouse gas emissions are calculated using a recognised method, with a plan and actions to reduce them.</li>
         </ul></div></details></div>
@@ -225,7 +234,7 @@
     <div class="c-row" id="c-economic">
       <div class="c-title"><img src="assets/img/icons/sustainability/economic.png" alt=""><h3>Economic<br>resilience</h3></div>
       <div>
-        <p class="sum">A tenant in a strong financial position can look after the land through good seasons and bad. Leasing also helps new farmers get started without buying land, and lets farmers nearing retirement release the value of theirs.</p>
+        <p class="sum">A tenant in a strong financial position can look after the land through good seasons and bad. Leasing also helps new farmers get started without buying land, and lets farmers nearing retirement release the value of theirs. Long leases with strong tenants create a cycle of growth: investment in innovation, more jobs and more opportunity for rural communities.</p>
         <div class="accordion"><details><summary>What we measure</summary><div class="answer"><ul>
           <li>Tenants with equity of more than six times their annual rent</li>
           <li>Tenants with earnings of at least 1.4 times their annual rent (EBITDA lease cover)</li>
@@ -307,7 +316,7 @@
           <p class="eyebrow-p">Project 01 · Biodiversity</p><h4>Bringing back native forest</h4>
           <p>In the Manawatū-Whanganui region, our tenant New&nbsp;Zealand Forest Leasing (NZFL) is using pine as a nurse crop for native forest. The pines grow fast and form a canopy that shades out weeds and holds in moisture, giving native seedlings the conditions they need. Over time, the forest becomes a self-sustaining mix of native species.</p>
           <p>Our 2,606-hectare site is part of one of New&nbsp;Zealand’s largest active pest management programmes <span class="src">[Source X]</span>. Pest control protects kiwi, whio (blue duck), kārearea (New&nbsp;Zealand falcon) and pekapeka (native bat), and keeps kererū safe as they spread the seeds of native trees.</p>
-          <p>Across our forestry land, our forests removed 70,964 tonnes of carbon dioxide equivalent in FY25 <span class="src">[Source X]</span>.</p>
+          <p>Across our forestry land, our forests removed 70,964 tonnes of carbon dioxide equivalent in FY25 <span class="src">[Source X]</span>. These forests are held as permanent forests, to store carbon over the long term.</p>
         </div>
       </div>
     </div>
@@ -318,6 +327,7 @@
         <div class="feature__card">
           <p class="eyebrow-p">Project 02 · Green finance</p><h4>A green loan for our forests</h4>
           <p>Our forestry purchases are funded through a green loan that follows the Asia Pacific Loan Market Association Green Loan Principles. It supports UN Sustainable Development Goal 15, Life on land: protecting and restoring forests, and halting land degradation and biodiversity loss.</p>
+          <p>The forests it funds are regenerating native bush, which supports birdlife, reduces soil erosion and improves water quality.</p>
         </div>
       </div>
     </div>
@@ -358,27 +368,26 @@
     </div>
   </section>
 
-  <!-- 10. The people behind it -->
+  <!-- 10. The expertise behind our commitments: three columns with circle photos, no grey band (Charis, 24 Nov) -->
   <section class="su-people">
-    <div class="su-split">
-      <h2>Experience at the table</h2>
+    <div class="su-intro">
+      <h2 class="two-tone"><span class="dark">The expertise</span><span class="bright">behind it</span></h2>
       <div class="su-copy">
-        <p>Our board includes Tia Greenaway, who leads the Rautaki Māori team at He Pou a Rangi, the Climate Change Commission, and Sarah Kennedy, a trained veterinarian who held senior roles at Fonterra. Forester James Treadwell, who has served as President of the New&nbsp;Zealand Institute of Forestry, brings more than 30 years’ experience in sustainable forest management.</p>
-        <a class="btn btn--grass" href="our-people.html">Meet our people</a>
+        <p class="t-body-lg t-light">Our board sets the sustainability goals and checks progress against them. Between them, our directors and specialists cover the areas the programme depends on.</p>
       </div>
     </div>
-    <div class="people">
-      <div class="person"><div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt=""></div><h3>Tia Greenaway</h3><p class="person__role">Independent Director</p></div>
-      <div class="person"><div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt=""></div><h3>Sarah Kennedy</h3><p class="person__role">Independent Director</p></div>
-      <div class="person"><div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt=""></div><h3>James Treadwell</h3><p class="person__role">Forestry Specialist</p></div>
+    <div class="experts">
+      <div class="expert"><img src="assets/img/people/web/staff-example.png" alt="Tia Greenaway (placeholder photo)"><p class="eyebrow-p">Climate and mana whenua</p><h3>Tia Greenaway</h3><p class="role">Independent Director</p><p>Leads the Rautaki Māori team at He Pou a Rangi, the Climate Change Commission, and holds roles on Iwi and Ahu Whenua trusts.</p></div>
+      <div class="expert"><img src="assets/img/people/web/staff-example.png" alt="Sarah Kennedy (placeholder photo)"><p class="eyebrow-p">Animal welfare and dairy</p><h3>Sarah Kennedy</h3><p class="role">Independent Director</p><p>A trained veterinarian who held senior roles at Fonterra, including Vice President of International Farming.</p></div>
+      <div class="expert"><img src="assets/img/people/web/staff-example.png" alt="James Treadwell (placeholder photo)"><p class="eyebrow-p">Forestry and carbon</p><h3>James Treadwell</h3><p class="role">Forestry Specialist, NZRLM</p><p>A registered professional forester with more than 30 years in sustainable forest management, carbon forestry and native plantations.</p></div>
     </div>
   </section>
 
   <!-- 12. Signup band -->
   <section class="op-signup">
     <div class="inner">
-      <h3>Follow the work on the land</h3>
-      <p>Sign up for company news and market recaps, sent straight to your inbox.</p>
+      <h3>Every project, every paddock, every tree</h3>
+      <p>Keep up with everything happening on our land and in the company, from new projects to market recaps.</p>
       <form onsubmit="return false"><input type="email" placeholder="Your email address" aria-label="Email address"><button type="submit">Sign up</button></form>
     </div>
   </section>
