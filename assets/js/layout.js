@@ -5,7 +5,7 @@
   if (location.search.indexOf("capture") > -1) document.documentElement.classList.add("capture");
   var NAV = [
     { label: "Portfolio", href: "#", sub: ["Landholdings", "Tenants"] },
-    { label: "Sustainability", href: "#" },
+    { label: "Sustainability", href: "sustainability.html" },
     { label: "Investors", href: "#", sub: ["Overview", "How to invest", "Reports and presentations", "NZX announcements", "Dividends", "Company documents", "FAQ"] },
     { label: "News", href: "#", sub: ["Insights", "In the media"] },
     { label: "People", href: "our-people.html" },

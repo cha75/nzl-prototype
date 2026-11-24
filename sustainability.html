@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sustainability | NZ Rural Land Co (NZL)</title>
+<meta name="description" content="How NZ Rural Land Co (NZL) looks after New Zealand rural land: six sustainability commitments written into every lease, native forest regeneration, and annual climate reporting.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png?v=2">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="assets/css/nzl.css?v=29w">
+<style>
+  /* Sustainability. Copy draft 24 Nov (copy/NZL Sustainability Copy DRAFT.md). Built straight from the copy, no wireframe (Charis, 24 Nov).
+     All photos are placeholders from the site's own library until real NZL photos are supplied. */
+
+  /* 1. Photo hero: same as Insights and In the media */
+  .photo-hero { position: relative; height: calc(100vh - 81px); height: calc(100svh - 81px); background: url("assets/img/sustainability-hero-aerial.jpg") center / cover no-repeat; display: flex; align-items: center; } /* aerial pasture (Charis, 24 Nov) */
+  .photo-hero::before { content: ""; position: absolute; inset: 0; background: rgba(0, 26, 14, .45); }
+  .photo-hero .copy { position: relative; padding: 0 var(--grid-margin); max-width: 1200px; }
+  .photo-hero h1 { font-size: var(--display); line-height: var(--lh-display); font-weight: 700; letter-spacing: -0.02em; }
+  .photo-hero h1 .bright, .photo-hero h1 .dark { color: var(--white); }
+  .photo-hero h1 .dark { white-space: nowrap; } /* keeps the headline on two lines, like Insights and In the media */
+  @media (max-width: 1300px) { .photo-hero h1 .dark { white-space: normal; } }
+  .photo-hero p { margin-top: 40px; /* was 20, more space under the headline (Charis, 24 Nov) */ font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--white); max-width: 640px; }
+
+  /* Shared: heading on the left, copy on the right (In the media pattern, 2fr / 5fr) */
+  .su-split { display: grid; grid-template-columns: 2fr 5fr; column-gap: var(--grid-gutter); margin: 0 var(--grid-margin); }
+  .su-split > h2, .su-head { font-size: var(--h3); line-height: var(--lh-h3); font-weight: 700; letter-spacing: 0; color: var(--bottle); }
+  .su-copy p { max-width: 720px; font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
+  .su-copy p + p { margin-top: 20px; }
+  .src { color: var(--smoke); font-size: var(--body-sm); }
+
+  /* 2. Why it matters */
+  /* Why we take it seriously: homepage Welcome layout (Charis reference, 24 Nov). Wider copy column, gap about 30% less than the homepage */
+  .su-why, .su-intro { display: flex; align-items: flex-start; gap: 228px; padding: var(--space-md) var(--grid-margin) var(--space-lg); }
+  .su-intro { padding: 0 var(--grid-margin); } /* Projects in action uses the same heading layout (Charis, 24 Nov) */
+  .su-why h2, .su-intro h2 { flex: 0 0 540px; font-size: var(--h1); line-height: var(--lh-h1); font-weight: 700; letter-spacing: 0; } /* fixed width so both copy columns line up */
+  .su-why .su-copy, .su-intro .su-copy { flex: 1; max-width: 560px; padding-top: 20px; }
+  .su-why .su-copy p, .su-intro .su-copy p { color: var(--bottle); }
+
+  /* 3. Statement: Mint block, H1 Bold Bottle, same as the homepage statement */
+  .su-statement { margin: 0 var(--block-inset); padding: var(--space-md) var(--content-pad); background: var(--bottle); } /* homepage statement block layout, flipped: Bottle background, Mint copy (Charis, 24 Nov) */
+  .su-statement > p { max-width: none; /* was 1130, full block width (Charis asked for 20% wider, 24 Nov) */ font-size: var(--h1); line-height: var(--lh-h1); font-weight: 700; color: var(--mint); }
+
+  /* 4. Figures: three large Grass numbers */
+  /* Figures sit inside the Bottle block, 80 below the statement */
+  .su-figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--grid-gutter); margin-top: 100px; text-align: center; } /* no rule above the figures; 100 below the statement, was 80 (Charis, 24 Nov) */
+  .su-figs .num { font-size: var(--h2); line-height: var(--lh-h2); /* H2, same as homepage stats (Charis, 24 Nov) */ font-weight: 700; letter-spacing: -0.01em; color: var(--mint); }
+  .su-figs .num small { font-size: .5em; line-height: 1; letter-spacing: 0; } /* stops the unit from making its line taller, so all three labels line up */
+  .su-figs .lbl { max-width: 300px; margin: 10px auto 0; font-size: var(--h6); line-height: var(--lh-h6); font-weight: 700; color: var(--white); } /* H6 Bold, same as homepage stat labels */
+  .su-figs .src { display: block; margin-top: 6px; font-weight: 400; color: var(--grass-light); }
+  .su-figs > div + div { border-left: 1px solid rgba(88, 219, 160, .35); }
+
+  /* 5. Agreed, binding and audited: photo left, numbered steps right */
+  .su-lease { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--space-md); align-items: stretch; margin: var(--space-lg) var(--block-inset) 0; }
+  .su-lease .img { position: relative; min-height: 560px; } /* photo matches the height of the copy, no white space (Charis, 24 Nov) */
+  .su-lease .img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; } /* trims sky, never feet */
+  .su-lease .body { align-self: start; padding: 0 var(--content-pad) 0 0; } /* copy top-aligned to the photo (Charis, 24 Nov) */
+  .su-lease .intro { margin-top: 20px; font-size: var(--body); line-height: var(--lh-body); color: var(--bottle); } /* Body, running text rule */
+  .su-steps { list-style: none; margin: 40px 0 0; padding: 0; }
+  .su-steps li { display: grid; grid-template-columns: 70px 1fr; column-gap: 20px; padding: 20px 0; border-top: 1.5px solid var(--grass-light); }
+  .su-steps .n { font-size: var(--h4); line-height: var(--lh-h4); font-weight: 700; color: var(--grass); }
+  .su-steps h3 { font-size: var(--h5); line-height: var(--lh-h5); font-weight: 700; letter-spacing: 0; color: var(--grass); } /* H5 Bold, Grass (Charis, 24 Nov) */
+  .su-steps p { margin-top: 10px; font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); } /* full width of the rules (Charis, 24 Nov) */
+  .su-lease .close { margin-top: 0; padding-top: 20px; /* same 20 gap above the rule as the steps (Charis, 24 Nov) */ border-top: 1.5px solid var(--grass-light); font-weight: 700; color: var(--bottle); }
+
+  /* 6. Six commitments: icon row that jumps to each, then one row per commitment with an accordion for the detail */
+  .su-commit { margin: var(--space-lg) 0 0; padding: var(--space-md) calc(var(--block-inset) + var(--content-pad)) var(--space-md); background: var(--tint-mint); } /* full-width tint, content stays on the same edges (Charis, 24 Nov) */ /* bottom 40 + the last row's 40 = 80, matching the top (Charis, 24 Nov) */
+  /* Heading and intro styled like the homepage "Company insights" (Charis reference, 24 Nov) */
+  .su-commit .c-head { font-size: var(--h3); line-height: 56px; font-weight: 700; letter-spacing: 0; color: var(--grass); }
+  .su-commit .c-intro { margin-top: 40px; max-width: 1330px; font-size: var(--h3); line-height: var(--lh-h3); font-weight: 300; }
+  .su-icons { list-style: none; margin: var(--space-md) 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: var(--grid-gutter); }
+  .su-icons a { display: flex; flex-direction: column; align-items: center; gap: 20px; text-decoration: none; text-align: center; font-size: var(--body); line-height: var(--lh-body); font-weight: 700; color: var(--bottle); } /* labels Body Bold (homepage size), Bottle (Charis, 24 Nov) */
+  .su-icons img { height: 80px; width: auto; }
+  .su-icons a:hover { color: var(--clover); }
+  .c-row { display: grid; grid-template-columns: 2fr 5fr; column-gap: var(--grid-gutter); align-items: start; padding: 40px 0; border-top: 1.5px solid var(--grass-dark); scroll-margin-top: 100px; } /* Dark Grass lines between the six commitments (Charis, 24 Nov) */
+  .su-icons + .c-row { margin-top: var(--space-md); }
+  .c-row .c-title { display: flex; align-items: center; gap: 20px; }
+  .c-row .c-title img { height: 80px; width: 84px; object-fit: contain; object-position: left center; flex: none; } /* same 80px as the icon row above; fixed width so the titles line up (Charis, 24 Nov) */
+  .c-row h3 { font-size: var(--h5); line-height: var(--lh-h5); font-weight: 700; letter-spacing: 0; color: var(--bottle); }
+  .c-row .sum { max-width: 720px; font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
+  .c-row .accordion { margin-top: 20px; max-width: 720px; }
+  .c-row .accordion { border-top-width: 1.5px; } /* page rules are 1.5px (Charis, 24 Nov) */
+  .c-row .accordion details { border-bottom: 0; } /* no line under the accordion, the next row's rule is enough (Charis, 24 Nov) */
+  .c-row .accordion summary { font-size: var(--body); line-height: var(--lh-body); color: var(--clover); }
+  .c-row .accordion .answer { padding-bottom: 20px; }
+  .c-row .answer p { font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
+  /* Short Grass Light line instead of a bullet (Charis reference, 24 Nov) */
+  .c-row .answer ul { list-style: none; margin: 0; padding: 0; }
+  .c-row .answer li { position: relative; padding-left: 42px; /* 12 gap after the 30 line, was 20 (Charis, 24 Nov) */ font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
+  .c-row .answer li::before { content: ""; position: absolute; left: 0; top: 15px; width: 30px; height: 1px; background: var(--grass-light); } /* 1px (Charis, 24 Nov) */
+  .c-row .answer li + li { margin-top: 12px; }
+  .c-row .answer p + ul { margin-top: 16px; }
+  .c-row .answer ul + p { margin-top: 16px; }
+
+  /* 7. Pause: photo band with one line of white type */
+  .su-pause { margin-top: var(--space-sm); /* 40 + the last row's 40 = 80 above, tint all round */ min-height: 490px; /* 25% shorter, was 653 (Charis, 24 Nov) */ display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-md) 20px; background: linear-gradient(rgba(0, 26, 14, .4), rgba(0, 26, 14, .4)), url("assets/img/sustainability-quote-paddock.jpg") center / cover no-repeat; } /* aerial paddock (Charis, 24 Nov) */
+  .su-pause p { max-width: none; font-size: var(--h1); line-height: var(--lh-h1); font-weight: 700; color: var(--white); } /* H1 Bold, same size as the statement block (Charis, 24 Nov) */
+
+  /* 8. Projects in action: one large feature, then three cards */
+  .su-projects { padding: var(--space-lg) 0 0; }
+  .su-feature { margin: var(--space-md) var(--grid-margin) 0; } /* photos line up with the copy edge (Charis, 24 Nov) */
+  .su-feature .feature__img { aspect-ratio: auto; height: 640px; }
+  .su-feature .feature__card { left: 50px; top: 50%; transform: translateY(-50%); width: 560px; padding: 40px; }
+  .su-feature .feature__card p { font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
+  .su-feature .feature__card .src { font-size: var(--body-sm); }
+  .su-feature + .su-feature { margin-top: var(--space-sm); } /* all four projects use the feature layout, card alternating left and right (Charis, 24 Nov) */
+  .su-feature--right .feature__card { left: auto; right: 50px; }
+  .su-feature .feature__card h4 { color: var(--grass); } /* Grass, same as "in action" (Charis, 24 Nov) */
+  /* Eyebrow above each project title, same style as the People page group labels (Charis, 24 Nov) */
+  .su-feature .feature__card .eyebrow-p { margin: 0 0 10px; font-size: var(--caption); line-height: var(--lh-caption); font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--bottle); } /* Bottle, same as "Projects" */
+
+  /* 9. Measured and reported: document rows */
+  .su-reports { margin-top: var(--space-lg); padding: var(--space-md) 0; background: var(--tint-grass); } /* full-width Grass tint (Charis, 24 Nov) */
+  .docs { list-style: none; margin: 40px 0 0; padding: 0; max-width: 720px; border-top: 1.5px solid var(--grass-light); }
+  .docs li { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1.5px solid var(--grass-light); }
+  .docs .t { font-size: var(--h6); line-height: var(--lh-h6); font-weight: 700; color: var(--bottle); }
+  .docs .t small { display: block; margin-top: 4px; font-size: var(--body-sm); line-height: var(--lh-body-sm); font-weight: 400; color: var(--smoke); }
+  .docs a { font-size: var(--body-sm); font-weight: 700; color: var(--clover); white-space: nowrap; }
+
+  /* 10. The people behind it: People page cards, names and roles only */
+  .su-people { padding: var(--space-lg) 0 var(--space-lg); }
+  .su-people .btn { margin-top: 40px; }
+  .people { margin: var(--space-md) var(--block-inset) 0; padding: 0 var(--content-pad); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--grid-gutter); background: linear-gradient(var(--ash), var(--ash)) top / 100% 370px no-repeat; }
+  .person__photo { height: 370px; display: flex; align-items: flex-end; }
+  .person__photo img { display: block; height: 330px; width: auto; max-width: 100%; object-fit: contain; object-position: left bottom; }
+  .person h3 { margin-top: 30px; font-size: var(--h6); line-height: var(--lh-h6); color: var(--bottle); }
+  .person__role { margin-top: 10px; font-size: var(--body-sm); line-height: var(--lh-body-sm); color: var(--smoke); }
+
+  /* 12. Signup band: same as the other pages */
+  .op-signup { margin: 0; min-height: 394px; display: flex; align-items: center; background: linear-gradient(rgba(0, 26, 14, .45), rgba(0, 26, 14, .45)), url("assets/img/signup-sustainability-pasture.jpg") center / cover no-repeat, var(--bottle); color: var(--white); }
+  body:has(.op-signup) .site-footer { margin-top: 0; }
+  .op-signup .inner { width: 100%; padding: 60px var(--grid-margin); }
+  .op-signup h3 { font-size: var(--h3); line-height: var(--lh-h3); font-weight: 700; letter-spacing: 0; color: var(--white); }
+  .op-signup p { margin: 10px 0 0; max-width: 620px; font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--white); }
+  .op-signup form { margin-top: 60px; display: flex; max-width: 430px; }
+  .op-signup input { flex: 1; min-width: 0; height: 40px; padding: 0 20px; border: 1px solid var(--white); border-right: 0; background: transparent; color: var(--white); font: 400 var(--body) var(--font); }
+  .op-signup input::placeholder { color: var(--white); opacity: .85; }
+  .op-signup button { height: 40px; padding: 0 40px; border: 1px solid var(--white); background: var(--white); color: var(--bottle); font: 700 var(--body-sm) var(--font); cursor: pointer; }
+  .op-signup button:hover { background: var(--tint-mint); }
+</style>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://use.typekit.net/wgn1jio.css">
+</head>
+<body data-root="">
+<main class="page">
+
+  <!-- 1. Hero -->
+  <section class="photo-hero">
+    <div class="copy">
+      <h1 class="two-tone"><span class="bright">Land that lasts</span><span class="dark">Longer than leases</span></h1>
+      <p>We own rural land for the long term. The health of its soil, water and ecosystems decides what it will be worth in 20&nbsp;years, so looking after it sits at the centre of how we invest.</p>
+    </div>
+  </section>
+
+  <!-- 2. Why it matters -->
+  <section class="su-why">
+      <h2 class="two-tone"><span class="dark">Why we take it</span><span class="bright">seriously</span></h2>
+      <div class="su-copy">
+        <p>Land is the source of most of our food. Farming, horticulture and forestry earn over half of New&nbsp;Zealand’s export income <span class="src">[Source X]</span>, and support families, iwi, jobs and communities across the country.</p>
+        <p>Productive land is also shrinking. Between 2017 and 2019, the area of New&nbsp;Zealand land used for farming and horticulture fell by around 208,000 hectares, much of it to housing <span class="src">[Source X]</span>.</p>
+        <p>We don’t farm the land we own. We lease it to experienced operators. That means the decisions that shape its future are made in two places: when we choose what to buy and who to lease it to, and in the lease itself. That’s where we’ve put our commitment.</p>
+      </div>
+  </section>
+
+  <!-- 3 and 4. Statement and figures, one Bottle block (Charis, 24 Nov) -->
+  <section class="su-statement">
+    <p>When land is looked after, it keeps producing, keeps its value and keeps supporting the people who work&nbsp;it.</p>
+    <div class="su-figs" aria-label="Sustainability in figures">
+      <div><div class="num">70,964 <small>tCO₂e</small></div><p class="lbl">Carbon removed by our forests in FY25<span class="src">[Source X]</span></p></div>
+      <div><div class="num">2,606 <small>ha</small></div><p class="lbl">Of our forestry in one of New&nbsp;Zealand’s largest pest management programmes<span class="src">[Source X]</span></p></div>
+      <div><div class="num">6</div><p class="lbl">Sustainability commitments written into every lease</p></div>
+    </div>
+  </section>
+
+  <!-- 5. Enduring Land for Life (the lease process) -->
+  <section class="su-lease">
+    <div class="img"><img src="assets/img/sustainability-tenants-orchard.jpg" alt="Two people talking between rows of peach trees in one of our orchards"></div>
+    <div class="body">
+      <h2 class="su-head">Enduring Land for Life</h2>
+      <p class="intro">Our Enduring Land for Life programme sets out how our tenants must care for the land we own. It isn’t a policy that sits on file. It’s part of every lease they sign.</p>
+      <p class="intro">It starts with who we work with: operators with a track record of caring for land, animals and people, and the financial strength to keep doing it through tough seasons. The bar is high because our expectations are high, but there’s no shortage of quality operators. We’re confident our farms are in safe hands.</p>
+      <ol class="su-steps">
+        <li><span class="n">01</span><div><h3>We set the goals with our tenants</h3><p>We develop and refine our commitments with our tenants, drawing on industry best practice, the latest scientific research and what we learn from our leading tenants.</p></div></li>
+        <li><span class="n">02</span><div><h3>The goals go into every lease</h3><p>Once agreed, the commitments are written into each lease, so they’re binding. They cover six areas, with the detail matched to the type of land and where it is.</p></div></li>
+        <li><span class="n">03</span><div><h3>We audit regularly</h3><p>Each farm is audited regularly against its commitments.</p></div></li>
+        <li><span class="n">04</span><div><h3>Tenants report to us</h3><p>Tenants report on how they’re meeting their commitments and progressing towards each goal. We report on climate every year in our Climate Related Disclosure reports.</p></div></li>
+      </ol>
+      <p class="close">We favour long leases. A tenant who expects to farm the land for years has every reason to look after it.</p>
+    </div>
+  </section>
+
+  <!-- 6. Six commitments -->
+  <section class="su-commit" id="commitments">
+    <h2 class="c-head">From the soil up</h2>
+    <p class="c-intro">Farms, orchards and forests are connected systems. Soil health affects what grows, what grows affects the animals and crops it supports, and the skills and morale of the people working the land affect all of it. So our goals cover the whole property, not one part of it.</p>
+
+    <ul class="su-icons">
+      <li><a href="#c-environmental"><img src="assets/img/icons/sustainability/environmental.png" alt="">Environmental sustainability</a></li>
+      <li><a href="#c-economic"><img src="assets/img/icons/sustainability/economic.png" alt="">Economic resilience</a></li>
+      <li><a href="#c-social"><img src="assets/img/icons/sustainability/social.png" alt="">Social integrity</a></li>
+      <li><a href="#c-animal"><img src="assets/img/icons/sustainability/animal-welfare.png" alt="">Animal welfare</a></li>
+      <li><a href="#c-mana"><img src="assets/img/icons/sustainability/mana-whenua.png" alt="">Mana whenua</a></li>
+      <li><a href="#c-governance"><img src="assets/img/icons/sustainability/governance.png" alt="">Governance</a></li>
+    </ul>
+
+    <div class="c-row" id="c-environmental">
+      <div class="c-title"><img src="assets/img/icons/sustainability/environmental.png" alt=""><h3>Environmental<br>sustainability</h3></div>
+      <div>
+        <p class="sum">We protect and improve soil health, water quality and biodiversity, and work to reduce greenhouse gas emissions for every unit of food and fibre produced.</p>
+        <div class="accordion"><details><summary>What our leases set out</summary><div class="answer"><ul>
+          <li>Every pastoral farm has a Farm Environment Plan.</li>
+          <li>Irrigation meets Irrigation New&nbsp;Zealand design and installation standards, and is timed using soil moisture monitoring, water budgets and climate data.</li>
+          <li>Water use is metered and checked for efficiency.</li>
+          <li>Fertiliser is matched to what pasture and crops need, and stored to avoid spills, keeping nitrogen losses within consented limits.</li>
+          <li>Farming practices limit erosion, runoff and sediment loss.</li>
+          <li>Effluent systems meet industry codes of practice, with enough storage to hold effluent until the soil is dry enough to absorb it.</li>
+          <li>Stock are kept out of waterways, and planted margins along streams are maintained.</li>
+          <li>Native vegetation, wetlands and springs are identified and protected, and mahinga kai values are taken into account.</li>
+          <li>Silage pits, offal pits, rubbish and fuel are managed so nothing leaks into groundwater or streams.</li>
+          <li>Greenhouse gas emissions are calculated using a recognised method, with a plan and actions to reduce them.</li>
+        </ul></div></details></div>
+      </div>
+    </div>
+
+    <div class="c-row" id="c-economic">
+      <div class="c-title"><img src="assets/img/icons/sustainability/economic.png" alt=""><h3>Economic<br>resilience</h3></div>
+      <div>
+        <p class="sum">A tenant in a strong financial position can look after the land through good seasons and bad. Leasing also helps new farmers get started without buying land, and lets farmers nearing retirement release the value of theirs.</p>
+        <div class="accordion"><details><summary>What we measure</summary><div class="answer"><ul>
+          <li>Tenants with equity of more than six times their annual rent</li>
+          <li>Tenants with earnings of at least 1.4 times their annual rent (EBITDA lease cover)</li>
+          <li>Tenants on an initial lease term of 10 years</li>
+          <li>The share of our farms that were owner-operated before we bought them</li>
+        </ul></div></details></div>
+      </div>
+    </div>
+
+    <div class="c-row" id="c-social">
+      <div class="c-title"><img src="assets/img/icons/sustainability/social.png" alt=""><h3>Social<br>integrity</h3></div>
+      <div>
+        <p class="sum">People make a farm work. We lease to tenants who keep their teams safe, house them in warm, healthy homes, pay them fairly and help them grow their careers.</p>
+        <div class="accordion"><details><summary>What our leases set out</summary><div class="answer"><ul>
+          <li>Tenants comply with the Health and Safety at Work Act 2015, so everyone gets home safely at the end of each day.</li>
+          <li>Leases rule out modern slavery.</li>
+          <li>Worker housing on our land meets the healthy homes standards.</li>
+        </ul></div></details></div>
+      </div>
+    </div>
+
+    <div class="c-row" id="c-animal">
+      <div class="c-title"><img src="assets/img/icons/sustainability/animal-welfare.png" alt=""><h3>Animal<br>welfare</h3></div>
+      <div>
+        <p class="sum">Well cared for animals are healthier and more productive. We expect our tenants to look after their animals’ physical and mental wellbeing.</p>
+        <div class="accordion"><details><summary>What our leases set out</summary><div class="answer">
+          <p>Tenants comply with the Animal Welfare Act 1999 and the Five Freedoms, so animals have:</p>
+          <ul>
+            <li>Proper and sufficient food and water</li>
+            <li>Adequate shelter</li>
+            <li>The freedom to express normal behaviour</li>
+            <li>Appropriate handling</li>
+            <li>Protection from injury and disease</li>
+          </ul>
+          <p>From FY24, independent property inspectors and vets confirm this <span class="src">[X: confirm this is in place]</span>.</p>
+        </div></details></div>
+      </div>
+    </div>
+
+    <div class="c-row" id="c-mana">
+      <div class="c-title"><img src="assets/img/icons/sustainability/mana-whenua.png" alt=""><h3>Mana<br>whenua</h3></div>
+      <div>
+        <p class="sum">Mana whenua and ahi kā have an intergenerational role as kaitiaki and rangatira of the land, and hold mātauranga that helps maintain its mauri. We prioritise genuine relationships with them and work together on the wellbeing of the land.</p>
+        <div class="accordion"><details><summary>Our goals in this area</summary><div class="answer"><p>X (to be supplied by the client)</p></div></details></div>
+      </div>
+    </div>
+
+    <div class="c-row" id="c-governance">
+      <div class="c-title"><img src="assets/img/icons/sustainability/governance.png" alt=""><h3>Governance</h3></div>
+      <div>
+        <p class="sum">Good outcomes start with the board. Our directors oversee the programme, set its goals and check progress against them.</p>
+        <div class="accordion"><details><summary>What we measure</summary><div class="answer"><ul>
+          <li>How many directors are independent. All three of our current directors are <span class="src">[Source X]</span>.</li>
+          <li>Diversity of age, gender and ethnicity on the board</li>
+          <li>Directors’ experience in sustainability and land management</li>
+        </ul></div></details></div>
+      </div>
+    </div>
+    <!-- 7. Quote photo, sitting inside the tint (Charis, 24 Nov) -->
+    <div class="su-pause">
+    <p>Caring for the land isn’t a cost.<br>It’s what makes it worth&nbsp;owning.</p>
+    </div>
+  </section>
+
+  <!-- 8. Projects in action -->
+  <section class="su-projects">
+    <div class="su-intro">
+      <h2 class="two-tone"><span class="dark">Projects</span><span class="bright">in action</span></h2>
+      <div class="su-copy">
+        <p>Most of our work happens through our leases. Some projects we lead ourselves, with a focus on biodiversity, water quality and reducing emissions.</p>
+        <p>We’re also mapping the land we own to find marginal or less productive areas that could be planted or left to regenerate. That work helps control erosion, keeps sediment out of waterways, supports native species and stores carbon.</p>
+      </div>
+    </div>
+
+    <div class="su-feature">
+      <div class="feature">
+        <div class="feature__img"><img src="assets/img/sustainability-project-native-forest.jpg" alt="Native bush with tree ferns and a moss-covered trunk"></div>
+        <div class="feature__card">
+          <p class="eyebrow-p">Project 01 · Biodiversity</p><h4>Bringing back native forest</h4>
+          <p>In the Manawatū-Whanganui region, our tenant New&nbsp;Zealand Forest Leasing (NZFL) is using pine as a nurse crop for native forest. The pines grow fast and form a canopy that shades out weeds and holds in moisture, giving native seedlings the conditions they need. Over time, the forest becomes a self-sustaining mix of native species.</p>
+          <p>Our 2,606-hectare site is part of one of New&nbsp;Zealand’s largest active pest management programmes <span class="src">[Source X]</span>. Pest control protects kiwi, whio (blue duck), kārearea (New&nbsp;Zealand falcon) and pekapeka (native bat), and keeps kererū safe as they spread the seeds of native trees.</p>
+          <p>Across our forestry land, our forests removed 70,964 tonnes of carbon dioxide equivalent in FY25 <span class="src">[Source X]</span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="su-feature su-feature--right">
+      <div class="feature">
+        <div class="feature__img"><img src="assets/img/sustainability-project-green-loan.jpg" alt="A young conifer seedling growing from moss"></div>
+        <div class="feature__card">
+          <p class="eyebrow-p">Project 02 · Green finance</p><h4>A green loan for our forests</h4>
+          <p>Our forestry purchases are funded through a green loan that follows the Asia Pacific Loan Market Association Green Loan Principles. It supports UN Sustainable Development Goal 15, Life on land: protecting and restoring forests, and halting land degradation and biodiversity loss.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="su-feature">
+      <div class="feature">
+        <div class="feature__img"><img src="assets/img/projects/Effluent%201.png" alt="A lined effluent storage pond on one of our farms"></div>
+        <div class="feature__card">
+          <p class="eyebrow-p">Project 03 · Water quality</p><h4>Better effluent systems</h4>
+          <p>An audit of our Farm Environment Plans found two farms that would benefit from better effluent storage. The upgrades seal the ponds so they can’t leak, and add storage so effluent can wait for dry days, when the soil can absorb it instead of it running into waterways. <span class="src">[X: status, planned or complete]</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="su-feature su-feature--right">
+      <div class="feature">
+        <div class="feature__img"><img src="assets/img/projects/Solar%201.png" alt="Solar panels powering a water pump on farmland"></div>
+        <div class="feature__card">
+          <p class="eyebrow-p">Project 04 · Emissions</p><h4>Solar pumping by the river</h4>
+          <p>We provided land and an easement for a joint project that replaced a <span class="src">[X: petrol or diesel]</span> water pump beside a river with a solar pump. Only a small submersible pump now sits at the river. The panels and controls are well above flood level, cutting emissions and the risk of fuel reaching the river in a flood.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Measured and reported -->
+  <section class="su-reports">
+    <div class="su-split">
+      <h2>Measured and reported</h2>
+      <div class="su-copy">
+        <p>We publish a Climate Related Disclosure report every year. Our greenhouse gas inventory is prepared to the international standard ISO 14064-1 and independently assured <span class="src">[Source X]</span>.</p>
+        <ul class="docs">
+          <li><span class="t">Climate Related Disclosure Report 2025<small>PDF</small></span><a href="https://www.nzrlc.co.nz/s/NZL-FY25-Climate-Related-Disclosure-Report.pdf" target="_blank" rel="noopener">Download</a></li>
+          <li><span class="t">Climate Related Disclosure Report 2024<small>PDF</small></span><a href="https://www.nzrlc.co.nz/s/NZL-CRD-Climate-Statement-2024.pdf" target="_blank" rel="noopener">Download</a></li>
+          <li><span class="t">Climate Related Disclosure Report 2023<small>PDF</small></span><a href="https://www.nzrlc.co.nz/s/NZL-Climate-Disclosure-Statement-FINAL.pdf" target="_blank" rel="noopener">Download</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. The people behind it -->
+  <section class="su-people">
+    <div class="su-split">
+      <h2>Experience at the table</h2>
+      <div class="su-copy">
+        <p>Our board includes Tia Greenaway, who leads the Rautaki Māori team at He Pou a Rangi, the Climate Change Commission, and Sarah Kennedy, a trained veterinarian who held senior roles at Fonterra. Forester James Treadwell, who has served as President of the New&nbsp;Zealand Institute of Forestry, brings more than 30 years’ experience in sustainable forest management.</p>
+        <a class="btn btn--grass" href="our-people.html">Meet our people</a>
+      </div>
+    </div>
+    <div class="people">
+      <div class="person"><div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt=""></div><h3>Tia Greenaway</h3><p class="person__role">Independent Director</p></div>
+      <div class="person"><div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt=""></div><h3>Sarah Kennedy</h3><p class="person__role">Independent Director</p></div>
+      <div class="person"><div class="person__photo"><img src="assets/img/people/web/staff-example-waist.png" alt=""></div><h3>James Treadwell</h3><p class="person__role">Forestry Specialist</p></div>
+    </div>
+  </section>
+
+  <!-- 12. Signup band -->
+  <section class="op-signup">
+    <div class="inner">
+      <h3>Follow the work on the land</h3>
+      <p>Sign up for company news and market recaps, sent straight to your inbox.</p>
+      <form onsubmit="return false"><input type="email" placeholder="Your email address" aria-label="Email address"><button type="submit">Sign up</button></form>
+    </div>
+  </section>
+
+</main>
+<script src="assets/js/layout.js?v=25"></script>
+</body>
+</html>
