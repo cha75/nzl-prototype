@@ -14,7 +14,7 @@
   var root = document.body.getAttribute("data-root") || "";
 
   var nav = NAV.map(function (item) {
-    var sub = item.sub ? '<div class="nav-sub">' + item.sub.map(function (s) { var pages = { "How to invest": "how-to-invest.html", "Insights": "options/insights-3.html", "In the media": "in-the-media.html" }; var h = pages[s] ? root + pages[s] : "#"; return '<a href="' + h + '">' + s + "</a>"; }).join("") + "</div>" : "";
+    var sub = item.sub ? '<div class="nav-sub">' + item.sub.map(function (s) { var pages = { "Landholdings": "landholdings.html", "How to invest": "how-to-invest.html", "Insights": "options/insights-3.html", "In the media": "in-the-media.html" }; var h = pages[s] ? root + pages[s] : "#"; return '<a href="' + h + '">' + s + "</a>"; }).join("") + "</div>" : "";
     // A menu heading with sub pages is a Squarespace folder: it opens the dropdown and goes nowhere itself
     var top = item.sub ? '<a tabindex="0" role="button" aria-haspopup="true" style="cursor: default">' + item.label + "</a>" : '<a href="' + (item.href === "#" ? "#" : root + item.href) + '">' + item.label + "</a>";
     return '<div class="nav-item">' + top + sub + "</div>";

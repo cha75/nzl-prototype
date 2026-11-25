@@ -36,7 +36,7 @@
   --charcoal: #434343;
 
   /* Type (Figma variables: NZL Typography) */
-  --font: "proxima-nova", "Helvetica Neue", Arial, sans-serif; /* published copy: Adobe Fonts web kit wgn1jio; local "Proxima Nova" installs skipped as they can be partial */
+  --font: "proxima-nova", "Helvetica Neue", Arial, sans-serif; /* published copy: Adobe Fonts web kit wgn1jio; local prototype uses the installed Proxima Nova */
   --h1: 80px; --h2: 48px; --h3: 40px; --h4: 32px; --h5: 24px; --h6: 20px;
   --body-lg: 22px; --body: 16px; --body-sm: 14px; --caption: 12px; --footnote: 10px;
   --lh-head: 1.2; --lh-body: 1.4;
@@ -207,7 +207,11 @@ h6 { font-size: var(--h6); line-height: var(--lh-h6) }
 .card__kicker { margin-top: 30px; font-size: var(--caption); font-weight: 300; color: var(--grass); text-transform: uppercase; line-height: var(--lh-caption) }
 .card__title { margin-top: 10px; font-size: var(--h5); font-weight: 700; color: var(--clover); line-height: var(--lh-h5) }
 .card__text { margin-top: 20px; }
-.card ul { margin: 20px 0 0; padding-left: 30px; }
+.card ul { list-style: none; margin: 20px 0 0; padding: 0; }
+/* Site rule for every bulleted list: a short Grass Light line instead of a bullet, as on Sustainability (Charis, 26 Nov) */
+.card li { position: relative; padding-left: 42px; }
+.card li::before { content: ""; position: absolute; left: 0; top: 15px; width: 30px; height: 1px; background: var(--grass-light); }
+.card li + li { margin-top: 12px; }
 .card .link-arrow { margin-top: auto; padding-top: 30px; }
 
 /* Article cards (homepage "Company insights") */

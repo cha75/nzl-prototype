@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landholdings | NZ Rural Land Co (NZL)</title>
+<meta name="description" content="Every property owned by NZ Rural Land Co (NZL): 17,077 hectares of pastoral, forestry and horticultural land across Southland, Otago, Canterbury, Hawke's Bay and the central North Island.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png?v=2">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="assets/css/nzl.css?v=30w">
+<style>
+  /* Landholdings. Copy draft 25 Nov (copy/NZL Landholdings Copy DRAFT.md). Built straight from the copy (Charis, 25 Nov).
+     Property photos are from the live Our Landholdings page. Map and sector icons are from the Investor Day presentation, 16 Oct 2025. */
+  .flag { color: var(--smoke); font-size: var(--body-sm); font-weight: 400; }
+
+  /* 1. Photo hero: same as Sustainability */
+  .photo-hero { position: relative; height: calc(100vh - 81px); height: calc(100svh - 81px); background: url("assets/img/landholdings-hero-cows-aerial.jpg") center / cover no-repeat; display: flex; align-items: center; }
+  .photo-hero::before { content: ""; position: absolute; inset: 0; background: rgba(0, 26, 14, .45); }
+  .photo-hero .copy { position: relative; padding: 0 var(--grid-margin); max-width: 1200px; }
+  .photo-hero h1 { font-size: var(--display); line-height: var(--lh-display); font-weight: 700; letter-spacing: -0.02em; }
+  .photo-hero h1 .bright, .photo-hero h1 .dark { color: var(--white); }
+  .photo-hero h1 .dark { white-space: nowrap; }
+  .photo-hero h1 .kern { letter-spacing: 0.01em; } /* opens the r and t in "property", which touch at -0.02em tracking (Charis, 25 Nov) */
+  @media (max-width: 1300px) { .photo-hero h1 .dark { white-space: normal; } }
+  .photo-hero p { margin-top: 40px; font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--white); max-width: 640px; }
+
+  /* 2. Figures band: homepage hero colours, Grass with white copy, white border all round (Charis, 25 Nov) */
+  .lh-figs { margin: var(--block-inset); padding: var(--space-md) var(--content-pad); background: var(--grass); }
+  .lh-figs .figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--grid-gutter); text-align: center; }
+  .lh-figs .figs > div + div { border-left: 1px solid rgba(255, 255, 255, .4); }
+  .lh-figs .num { font-size: var(--h1); line-height: var(--lh-h1); /* H1 (Charis, 25 Nov) */ font-weight: 700; letter-spacing: -0.01em; color: var(--white); }
+  .lh-figs .lbl { max-width: 300px; margin: 10px auto 0; font-size: var(--h6); line-height: var(--lh-h6); font-weight: 400; /* Regular (Charis, 25 Nov) */ color: var(--tint-mint); } /* same as the homepage hero intro */
+  .lh-figs .notes { margin-top: 60px; text-align: center; font-size: var(--caption); line-height: var(--lh-caption); font-weight: 400; color: var(--tint-mint); }
+  .lh-figs .notes p + p { margin-top: 6px; }
+
+  /* 3. Where our land is: map left, regions right */
+  .lh-where { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--space-md); align-items: center; margin: var(--space-lg) var(--grid-margin) 0; }
+  .lh-where .map { text-align: center; }
+  .lh-where .map img { display: block; margin: 0 auto; width: auto; max-width: 100%; height: 680px; object-fit: contain; }
+  .lh-head { font-size: var(--h3); line-height: var(--lh-h3); font-weight: 700; letter-spacing: 0; color: var(--bottle); }
+  .lh-head--h1 { font-size: var(--h1); line-height: var(--lh-h1); } /* H1, the key section (Charis, 25 Nov) */
+  .lh-head .g { color: var(--grass); } /* "properties" in Grass (Charis, 26 Nov) */
+  .regions { list-style: none; margin: 40px 0 0; padding: 0; max-width: 510px; /* tighter region-to-figures gap (Charis, 26 Nov) */ }
+  .regions li { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 20px 0; border-top: 1.5px solid var(--grass-light); }
+  .regions li:last-child { border-bottom: 1.5px solid var(--grass-light); }
+  .regions .r { font-size: var(--h6); line-height: var(--lh-h6); font-weight: 700; color: var(--bottle); }
+  .regions .v { font-size: var(--h6); line-height: var(--lh-h6); font-weight: 400; color: var(--bottle-dark); }
+
+  /* 4. Sector by sector: Tint Mint band, three columns with icons */
+  .lh-sectors { margin: var(--space-lg) var(--block-inset) 0; padding: var(--space-md) var(--content-pad); background: var(--tint-mint); } /* tinted box with white border, like How we create value on the homepage (Charis, 25 Nov) */
+  .lh-sectors .lh-head { color: var(--grass); } /* Grass, like How we create value (Charis, 25 Nov) */
+  .lh-sectors .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 60px; }
+  .lh-sectors .col { padding: 0 30px; } /* was 40, so the H1 acres fit (Charis, 25 Nov) */
+  .lh-sectors .col:first-child { padding-left: 0; }
+  .lh-sectors .col + .col { border-left: 1.5px solid var(--grass-light); }
+  .lh-sectors .col img { width: 80px; height: 80px; object-fit: contain; object-position: left center; }
+  .lh-sectors h3 { margin-top: 20px; font-size: var(--h5); line-height: var(--lh-h5); font-weight: 700; letter-spacing: 0; color: var(--bottle); }
+  .lh-sectors .ha { margin-top: 10px; font-size: var(--h1); line-height: var(--lh-h1); /* H1 (Charis, 25 Nov) */ font-weight: 700; letter-spacing: -0.01em; color: var(--grass); }
+  .lh-sectors .ha small { font-size: var(--h5); /* same size as "acres" (Charis, 25 Nov) */ line-height: 1; letter-spacing: 0; font-weight: 300; } /* Light (Charis, 25 Nov) */
+  .lh-sectors .ac { font-size: var(--h1); line-height: var(--lh-h1); font-weight: 700; letter-spacing: -0.01em; color: var(--grass); white-space: nowrap; } /* same size as hectares, it is the bigger number (Charis, 25 Nov) */
+  .lh-sectors .ac small { font-size: var(--h5); line-height: 1; letter-spacing: 0; font-weight: 300; } /* the word "acres" smaller, H5 (Charis, 25 Nov) */
+  .lh-sectors .use { margin-top: 20px; font-size: var(--body); line-height: var(--lh-body); color: var(--bottle-dark); }
+
+  /* 5. Our properties: three-across cards, in order of purchase */
+  .lh-props { margin: var(--space-lg) var(--grid-margin) 0; }
+  .props { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--grid-gutter); row-gap: 70px; /* +10 from the name gap (Charis, 26 Nov) */ margin-top: 60px; }
+  .prop__img { aspect-ratio: 4 / 3; overflow: hidden; background: var(--tint-grass); }
+  .prop__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .prop__img .ph { height: 100%; display: flex; align-items: center; justify-content: center; color: var(--smoke); font-size: var(--body-sm); }
+  .prop h3 { margin-top: 10px; /* halved (Charis, 26 Nov) */ font-size: var(--h5); line-height: var(--lh-h5); font-weight: 700; letter-spacing: 0; color: var(--grass); }
+  .prop__head { margin-top: 10px; } /* region under name (Charis, 26 Nov) */
+  .prop__head h3 { margin-top: 0 !important; }
+  .prop__region { margin-top: -4px; /* half the gap under the name (Charis, 26 Nov) */ white-space: nowrap; font-size: var(--body); line-height: var(--lh-body); color: var(--smoke); } /* card type option 02 (Charis, 26 Nov) */
+  .prop dl { display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; gap: 16px; /* Size to the right edge, Acquired central (Charis, 26 Nov) */ margin: 16px 0 0; padding-bottom: 8px; border-bottom: 1px solid var(--grass); /* line under each card (Charis, 26 Nov) */ }
+  .prop dt { font-size: var(--caption); line-height: var(--lh-caption); letter-spacing: 0.02em; text-transform: uppercase; font-weight: 300; color: var(--clover-dark); } /* Light Clover Dark (Charis, 26 Nov) */
+  .prop dd { margin: 2px 0 0; /* halved (Charis, 26 Nov) */ font-size: var(--body); line-height: var(--lh-body); font-weight: 700; color: var(--grass); } /* Bold, option 02 (Charis, 26 Nov) */
+
+  /* 6. Tenants strip: same as How NZ Rural Land Co is run on People */
+  .lh-tenants { margin: var(--space-lg) var(--block-inset) var(--space-lg); }
+  .lh-tenants .feature__img { aspect-ratio: auto; height: 672px; } /* 560 plus 20% (Charis, 26 Nov) */
+  /* photo: apple harvest from above (Charis, 26 Nov) */
+  .lh-tenants .feature__card { left: 50px; right: auto; top: 50%; transform: translateY(-50%); width: 608px; /* 810 less 25% (Charis, 26 Nov) */ padding: 40px; }
+  .lh-tenants .feature__card h2 { font-size: var(--h2); line-height: var(--lh-h2); font-weight: 700; letter-spacing: 0; } /* two-tone H2 (Charis, 26 Nov) */
+  .lh-tenants .feature__card p { font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--bottle-dark); } /* Body Large (Charis, 26 Nov) */
+
+  /* 7. Signup band: same as the other pages */
+  .op-signup { margin: 0; min-height: 470px; display: flex; align-items: center; background: linear-gradient(rgba(0, 26, 14, .45), rgba(0, 26, 14, .45)), url("assets/img/signup-landholdings-pasture-tracks.jpg") center / cover no-repeat, var(--bottle); color: var(--white); } /* pasture with tracks (Charis, 26 Nov) */
+  body:has(.op-signup) .site-footer { margin-top: 0; }
+  .op-signup .inner { width: 100%; padding: 60px var(--grid-margin); }
+  .op-signup h3 { font-size: var(--h3); line-height: var(--lh-h3); font-weight: 700; letter-spacing: 0; color: var(--white); }
+  .op-signup p { margin: 20px 0 0; max-width: 620px; font-size: var(--body-lg); line-height: var(--lh-body-lg); color: var(--white); }
+  .op-signup form { margin-top: 60px; display: flex; max-width: 430px; }
+  .op-signup input { flex: 1; min-width: 0; height: 40px; padding: 0 20px; border: 1px solid var(--white); border-right: 0; background: transparent; color: var(--white); font: 400 var(--body) var(--font); }
+  .op-signup input::placeholder { color: var(--white); opacity: .85; }
+  .op-signup button { height: 40px; padding: 0 40px; border: 1px solid var(--white); background: var(--white); color: var(--bottle); font: 700 var(--body-sm) var(--font); cursor: pointer; }
+  .op-signup button:hover { background: var(--tint-mint); }
+</style>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://use.typekit.net/wgn1jio.css">
+</head>
+<body data-root="">
+<main class="page">
+
+  <!-- 1. Hero -->
+  <section class="photo-hero">
+    <div class="copy">
+      <h1 class="two-tone"><span class="bright">Our land</span><span class="dark">Prope<span class="kern">r</span>ty by prope<span class="kern">r</span>ty</span></h1>
+      <p>Every property NZ Rural Land Co (NZL) owns, from dairy land in Southland to forests in the central North Island and orchards in Hawke’s&nbsp;Bay.</p>
+    </div>
+  </section>
+
+  <!-- 2. Figures band: the client's four figures, updated to the presentation, flagged -->
+  <section class="lh-figs" aria-label="Landholdings in figures">
+    <div class="figs">
+      <div><div class="num">12.0</div><p class="lbl">WALT (years)</p></div>
+      <div><div class="num">9</div><p class="lbl">Number of tenants</p></div>
+      <div><div class="num">17,077</div><p class="lbl">Hectares of rural land owned</p></div>
+      <div><div class="num">42,198</div><p class="lbl">Acres of rural land owned</p></div>
+    </div>
+    <div class="notes">
+      <p>WALT is the weighted average lease term: the average time left to run on our leases.</p>
+      <p>(25% interest held by private markets investment manager Roc Partners)</p>
+    </div>
+  </section>
+
+  <!-- 3. Where our land is -->
+  <section class="lh-where">
+    <div class="map"><img src="assets/img/landholdings-map.png?v=2" alt="Map of New Zealand showing NZ Rural Land Co land: forestry in the central North Island, horticulture in Hawke’s Bay and pastoral land across Canterbury, Otago and Southland"></div>
+    <div>
+      <h2 class="lh-head lh-head--h1 two-tone"><span class="dark">Five regions</span><span class="bright">one portfolio</span></h2>
+      <ul class="regions">
+        <li><span class="r">Central North Island</span><span class="v">5,488 ha / 13,561 acres</span></li>
+        <li><span class="r">Hawke’s Bay</span><span class="v">97 ha / 240 acres</span></li>
+        <li><span class="r">Canterbury</span><span class="v">6,066 ha / 14,989 acres</span></li>
+        <li><span class="r">Otago</span><span class="v">4,040 ha / 9,983 acres</span></li>
+        <li><span class="r">Southland</span><span class="v">1,386 ha / 3,425 acres</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. Sector by sector (Charis, 25 Nov) -->
+  <section class="lh-sectors">
+    <h2 class="lh-head">Sector by sector</h2>
+    <div class="cols">
+      <div class="col">
+        <img src="assets/img/icons/sectors/pastoral.png?v=2" alt="">
+        <h3>Pastoral</h3>
+        <p class="ha">11,445 <small>ha</small></p><p class="ac">28,281 <small>acres</small></p>
+        <p class="use">Dairy and support</p>
+      </div>
+      <div class="col">
+        <img src="assets/img/icons/sectors/forestry.png?v=2" alt="">
+        <h3>Forestry</h3>
+        <p class="ha">5,488 <small>ha</small></p><p class="ac">13,561 <small>acres</small></p>
+        <p class="use">Forestry and carbon</p>
+      </div>
+      <div class="col">
+        <img src="assets/img/icons/sectors/horticulture.png?v=2" alt="">
+        <h3>Horticulture</h3>
+        <p class="ha">144 <small>ha</small></p><p class="ac">356 <small>acres</small></p>
+        <p class="use">Apples and pears</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Our properties, in order of purchase as the client has them -->
+  <section class="lh-props">
+    <h2 class="lh-head lh-head--h1">Our <span class="g">properties</span></h2>
+    <div class="props">
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/DJI_0774.jpg" alt="Pasture at Mokoreta Farm" loading="lazy"></div>
+        <div class="prop__head"><h3>Mokoreta Farm</h3><p class="prop__region">Southland</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>March 2021</dd></div><div><dt>Size</dt><dd>456&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/04%20Presentation.jpg" alt="Pasture at Makihiki" loading="lazy"></div>
+        <div class="prop__head"><h3>Makihiki</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>493&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/DJI_0004.jpg" alt="Pasture at Riverside" loading="lazy"></div>
+        <div class="prop__head"><h3>Riverside</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>494&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/South%20Canterbury%20Farms-123.jpg" alt="Pasture at Ryde Dairy" loading="lazy"></div>
+        <div class="prop__head"><h3>Ryde Dairy</h3><p class="prop__region">South Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>270&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/South%20Canterbury%20Farms-153.jpg" alt="Pasture at Rocklea Downs" loading="lazy"></div>
+        <div class="prop__head"><h3>Rocklea Downs</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>732&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/South%20Canterbury%20Farms-69.jpg" alt="Pasture at Hill Dairy" loading="lazy"></div>
+        <div class="prop__head"><h3>Hill Dairy</h3><p class="prop__region">South Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>324&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/South%20Canterbury%20Farms-172.jpg" alt="Pasture at Bridge" loading="lazy"></div>
+        <div class="prop__head"><h3>Bridge</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>513&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/10%20Presentation.jpg" alt="Pasture at Parkdale" loading="lazy"></div>
+        <div class="prop__head"><h3>Parkdale</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>595&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/12%20Presentation.jpg" alt="Pasture at Kilmarnock" loading="lazy"></div>
+        <div class="prop__head"><h3>Kilmarnock</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>794&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/South%20Canterbury%20Farms-157.jpg" alt="Pasture at Seaview" loading="lazy"></div>
+        <div class="prop__head"><h3>Seaview</h3><p class="prop__region">North Otago</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>505&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/13%20Presentation.jpg" alt="Pasture at Waihao Downs" loading="lazy"></div>
+        <div class="prop__head"><h3>Waihao Downs</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>535&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/8%20v3.JPEG" alt="Pasture at Tainui" loading="lazy"></div>
+        <div class="prop__head"><h3>Tainui</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>434&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/14%20Presentation.jpg" alt="Pasture at McNaughtons" loading="lazy"></div>
+        <div class="prop__head"><h3>McNaughtons</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>436&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/Maniototo.jpg" alt="Pasture at ATS" loading="lazy"></div>
+        <div class="prop__head"><h3>ATS</h3><p class="prop__region">Otago</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>October 2021</dd></div><div><dt>Size</dt><dd>1,644&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/07%20Presentation.jpg" alt="Pasture at Crowes Road" loading="lazy"></div>
+        <div class="prop__head"><h3>Crowes Road</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>April 2021</dd></div><div><dt>Size</dt><dd>142&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/16%20Presentation.jpg" alt="Pasture at Toi Puke" loading="lazy"></div>
+        <div class="prop__head"><h3>Toi Puke</h3><p class="prop__region">Otago</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>October 2021</dd></div><div><dt>Size</dt><dd>468&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/01%20Presentation.jpg" alt="Pasture at Willowview" loading="lazy"></div>
+        <div class="prop__head"><h3>Willowview</h3><p class="prop__region">Otago</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>October 2021</dd></div><div><dt>Size</dt><dd>787&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/06%20Presentation.jpg" alt="Pasture at Helenslea" loading="lazy"></div>
+        <div class="prop__head"><h3>Helenslea</h3><p class="prop__region">Otago</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>October 2021</dd></div><div><dt>Size</dt><dd>588&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/3.jpg" alt="Pasture at Browns" loading="lazy"></div>
+        <div class="prop__head"><h3>Browns</h3><p class="prop__region">Southland</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>June 2022</dd></div><div><dt>Size</dt><dd>366&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/13.jpg" alt="Pasture at Waitoru" loading="lazy"></div>
+        <div class="prop__head"><h3>Waitoru</h3><p class="prop__region">Southland</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>June 2022</dd></div><div><dt>Size</dt><dd>564&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/ForestNZ%20Whanganui-107.jpg" alt="Forest at Southern Skies" loading="lazy"></div>
+        <div class="prop__head"><h3>Southern Skies</h3><p class="prop__region">Manawatū-Whanganui</p></div>
+        <dl><div><dt>Sector</dt><dd>Forestry</dd></div><div><dt>Acquired</dt><dd>April 2023</dd></div><div><dt>Size</dt><dd>2,307&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/ForestNZ%20Whanganui-62.jpg" alt="Forest at Pohonui" loading="lazy"></div>
+        <div class="prop__head"><h3>Pohonui</h3><p class="prop__region">Manawatū-Whanganui</p></div>
+        <dl><div><dt>Sector</dt><dd>Forestry</dd></div><div><dt>Acquired</dt><dd>April 2023</dd></div><div><dt>Size</dt><dd>737&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/ForestNZ%20Whanganui-91.jpg" alt="Forest at Piripiri" loading="lazy"></div>
+        <div class="prop__head"><h3>Piripiri</h3><p class="prop__region">Manawatū-Whanganui</p></div>
+        <dl><div><dt>Sector</dt><dd>Forestry</dd></div><div><dt>Acquired</dt><dd>February 2024</dd></div><div><dt>Size</dt><dd>1,105&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/Southern%20Skies%20Pic.jpg" alt="Forest at M and FTB" loading="lazy"></div>
+        <div class="prop__head"><h3>M &amp; FTB</h3><p class="prop__region">Manawatū-Whanganui</p></div>
+        <dl><div><dt>Sector</dt><dd>Forestry</dd></div><div><dt>Acquired</dt><dd>May 2024</dd></div><div><dt>Size</dt><dd>1,501&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/CAJ%20Image.png" alt="Orchard at Southern Orchard" loading="lazy"></div>
+        <div class="prop__head"><h3>Southern Orchard</h3><p class="prop__region">Otago</p></div>
+        <dl><div><dt>Sector</dt><dd>Horticulture</dd></div><div><dt>Acquired</dt><dd>October 2024</dd></div><div><dt>Size</dt><dd>126&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><img src="assets/img/landholdings/DJI_0600.JPG" alt="Pasture at Spreadeagle" loading="lazy"></div>
+        <div class="prop__head"><h3>Spreadeagle</h3><p class="prop__region">Canterbury</p></div>
+        <dl><div><dt>Sector</dt><dd>Pastoral</dd></div><div><dt>Acquired</dt><dd>March 2025</dd></div><div><dt>Size</dt><dd>304&nbsp;ha</dd></div></dl>
+      </article>
+      <article class="prop">
+        <div class="prop__img"><div class="ph">Photo X</div></div>
+        <div class="prop__head"><h3>X <span class="flag">[Kiwi Crunch orchards]</span></h3><p class="prop__region">Hawke’s Bay</p></div>
+        <dl><div><dt>Sector</dt><dd>Horticulture</dd></div><div><dt>Acquired</dt><dd>X</dd></div><div><dt>Size</dt><dd>97&nbsp;ha</dd></div></dl>
+      </article>    </div>
+  </section>
+
+  <!-- 6. Tenants strip -->
+  <section class="lh-tenants">
+    <div class="feature">
+      <div class="feature__img"><img src="assets/img/landholdings-tenants-apple-harvest.jpg" alt="Aerial view of pickers harvesting apples between orchard rows"></div>
+      <div class="feature__card">
+        <h2 class="two-tone"><span class="dark">Run by people</span><span class="bright">who know the&nbsp;land</span></h2>
+        <p>Every property is leased to an operator who specialises in what it grows, from milk to<br> timber to apples.</p>
+        <a class="btn btn--grass" href="#">Meet our tenants</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Signup band -->
+  <section class="op-signup">
+    <div class="inner">
+      <h3>See what we buy next</h3>
+      <p>New properties, company news and market recaps,<br> sent straight to your inbox.</p>
+      <form onsubmit="return false"><input type="email" placeholder="Your email address" aria-label="Email address"><button type="submit">Sign up</button></form>
+    </div>
+  </section>
+
+</main>
+<script src="assets/js/layout.js?v=26"></script>
+</body>
+</html>
